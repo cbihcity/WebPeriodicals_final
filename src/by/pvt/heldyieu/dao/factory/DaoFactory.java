@@ -10,6 +10,12 @@ import by.pvt.heldyieu.interfaces.Constants;
 
 public class DaoFactory implements Constants {
 	
+	
+	
+	public DaoFactory() {
+		super();
+	}
+
 	@SuppressWarnings("rawtypes")
 	public AbstractDAO createDao(String daoImpl) throws InvalidValueException {
 		switch (daoImpl){

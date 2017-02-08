@@ -20,6 +20,10 @@ public abstract class AbstractDAO<T extends Identified, PK extends Number> imple
 	protected Connection connect;
 	protected ResourceManager resmanager;
 	
+	public AbstractDAO() {
+		super();
+	}
+
 	public AbstractDAO(String resource) {
         try {
 			connect = ConnectionFactory.getInstance().getConnection();
