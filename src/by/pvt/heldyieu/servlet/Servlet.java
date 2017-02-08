@@ -1,7 +1,6 @@
 package by.pvt.heldyieu.servlet;
 
 import java.io.IOException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,9 +59,7 @@ public class Servlet extends HttpServlet {
 	    // метод возвращает страницу ответа
 	    // page = null; // поэксперементировать!
 	    
-	      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-	      // вызов страницы ответа на запрос
-	      dispatcher.forward(request, response);
+	      request.getRequestDispatcher(page).forward(request, response);
 	    
 	}
 }

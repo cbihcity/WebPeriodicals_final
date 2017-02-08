@@ -4,6 +4,7 @@
 <h3>Welcome, user</h3>
 <hr/>
  ${user}, hello!
+ Your email - ${email}!
 <hr/>
 Links for user...<br/>
 Debug info - session = ${sessionScope}

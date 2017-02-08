@@ -46,10 +46,10 @@ public class LoginCommand implements ServletCommand {
 				user = userService.findUserByEmail(request.getParameter("email"));
 				if (user != null) {
 	                HttpSession session = request.getSession();
+	                session.setAttribute("user", user.getFirstName());
 	                session.setAttribute("email", user.getEmail());
-	                session.setAttribute("username", user.getFirstName() + " " + user.getLastName());
 	                session.setAttribute("authenticated", true);
-	                session.setAttribute("role", user.getUserType().getValue());
+	                session.setAttribute("sessionScope", user.getUserType().getValue());
 
 	                if(Objects.equals(user.getUserType(), UserType.ADMIN)) {
 	                    resultPage = adminPage;
@@ -58,6 +58,9 @@ public class LoginCommand implements ServletCommand {
 	                    
 	                    resultPage = userPage;
 	                }
+	            } else {
+	            	request.getSession().setAttribute("errorLoginPassMessage", resmanager.getProperty("loginError"));
+	            	resultPage = loginPage;
 	            }
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
