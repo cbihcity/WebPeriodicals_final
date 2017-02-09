@@ -4,9 +4,18 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 	<display-name>WebPeriodicals</display-name>
+	<servlet>
+        <servlet-name>Servlet</servlet-name>
+        <servlet-class>by.pvt.heldyieu.servlet.Servlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
+	<session-config>
+		<session-timeout>1</session-timeout>
+	</session-config>
 	<resource-ref>
 		<description>mysql</description>
 		<res-ref-name>jdbc/periodicals</res-ref-name>
@@ -18,9 +27,9 @@
 	<param-value>WEB-INF/log4j-my.properties</param-value>
 	</context-param>
 	<listener>
-  <listener-class>
-   by.pvt.heldyieu.servlet.ContextListener
-  </listener-class>
+  		<listener-class>
+   		by.pvt.heldyieu.servlet.ContextListener
+  		</listener-class>
 	</listener>	
 	
 	<error-page>

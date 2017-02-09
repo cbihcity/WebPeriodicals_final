@@ -7,6 +7,6 @@
  Your email - ${email}!
 <hr/>
 Links for admin...<br/>
-Debug info - session = ${sessionScope}
+Debug info - session = ${session}
 <a href="controller?command=logout">Logout</a>
 </body></html>

@@ -1,6 +1,8 @@
 package by.pvt.heldyieu.command;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import by.pvt.heldyieu.resources.ResourceManager;
 
 public interface ServletCommand {
@@ -12,5 +14,5 @@ public interface ServletCommand {
      * @return         A string that represents a view to forward to.
      */
 	ResourceManager resmanager = new ResourceManager("mapping");
-    String execute(HttpServletRequest request);
+    String execute(HttpServletRequest request, HttpServletResponse response);
 }

@@ -15,5 +15,5 @@ public interface IUserService {
 	
 	 List<User> getAllUsers() throws SQLException;
 	
-	 User findUserByEmail(String email) throws SQLException;
+	 User findUserByEmail(String email, String pass) throws SQLException;
 }

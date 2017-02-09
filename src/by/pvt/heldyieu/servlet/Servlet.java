@@ -1,6 +1,7 @@
 package by.pvt.heldyieu.servlet;
 
 import java.io.IOException;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,48 +19,51 @@ import by.pvt.heldyieu.command.ServletCommand;
 public class Servlet extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(Servlet.class);
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Servlet() {
-        super();
-    }
 
-    public void init(ServletConfig config) throws ServletException {
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Servlet() {
+		super();
+	}
+
+	public void init(ServletConfig config) throws ServletException {
 		LOGGER.info("Initializing Servlet");
 	}
+
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
-	    
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
 	}
 
 	private void processRequest(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException{
+			HttpServletResponse response) throws ServletException, IOException {
 		String page = null;
 		LOGGER.info("Processing " + request.getMethod() + " request");
-	    // определение команды, пришедшей из JSP
+		// определение команды, пришедшей из JSP
 		CommandManager client = new CommandManager();
-		ServletCommand command = client.getCommand(request); 
-	    /*
-	     * вызов реализованного метода execute() и передача параметров
-	     * классу-обработчику конкретной команды
-	     */
-	    page = command.execute(request);
-	    // метод возвращает страницу ответа
-	    // page = null; // поэксперементировать!
-	    
-	      request.getRequestDispatcher(page).forward(request, response);
-	    
+		ServletCommand command = client.getCommand(request);
+		/*
+		 * вызов реализованного метода execute() и передача параметров
+		 * классу-обработчику конкретной команды
+		 */
+		page = command.execute(request, response);
+		if(page == null) {
+            page = "/index.jsp";
+        }
+		request.getRequestDispatcher(page).forward(request, response);
 	}
 }

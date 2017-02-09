@@ -3,7 +3,9 @@ package by.pvt.heldyieu.command;
 import java.sql.SQLException;
 import java.util.Objects;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
@@ -17,56 +19,94 @@ public class LoginCommand implements ServletCommand {
 
 	private static UserServiceImpl userService;
 
-    private static String loginPage;
     private static String adminPage;
     private static String userPage;
+    private static String errorPage;
+    private static String mainPage;
 	
 	public LoginCommand() {
 		LOGGER.info("Initializing LoginCommand");
-		userService = UserServiceImpl.getInstance();
-		loginPage = resmanager.getProperty("loginPage");
 		adminPage = resmanager.getProperty("adminPage");
 		userPage = resmanager.getProperty("userPage");
+		errorPage = resmanager.getProperty("errorPage");
+		mainPage = resmanager.getProperty("mainPage");
 	}
 
 
 
 	@Override
-	public String execute(HttpServletRequest request) {
+	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		String resultPage = mainPage;
+		String reqEmail = request.getParameter("email");
+		String reqPass = request.getParameter("password");
+		userService = UserServiceImpl.getInstance();
 		LOGGER.info("Executing command");
-		String resultPage = loginPage;
+		HttpSession session = request.getSession();
+		if (reqEmail !="" || reqPass!= "") {
+            try {
+            	User user = userService.findUserByEmail(reqEmail, reqPass);
+                if (user == null) {
+                	LOGGER.error("Error login"); 
+                	session.setAttribute("errormessage", "Error login");
+                	resultPage = errorPage;
+                }
+                
+                //Если авторизация выполнена, то присваиваем сессии соответствующие атрибуты
+                //и устанавливаем куки
+                session.setAttribute("session", user.getUserType());
+                session.setAttribute("user", user.getFirstName());
+                Cookie c = new Cookie("id", String.valueOf(user.getId()));
+                c.setMaxAge(60*60*24*7);
+                response.addCookie(c);
+                if(Objects.equals(user.getUserType(), UserType.ADMIN)) {
+                	resultPage = adminPage;
+                }
+                else {
+                    
+                	resultPage = userPage;
+                }
 
-        if(request.getParameter("login") == null && request.getParameter("email") == null) {
-            LOGGER.info("Returning login page");
-            return resultPage;
+            } catch (SQLException e) {
+            	LOGGER.error("SqlException at LoginUserAction");
+            	session.setAttribute("errormessage", "SqlException at LoginUserAction");
+            	resultPage = errorPage;
+            }
         }
-        else {
-            User user;
-			try {
-				user = userService.findUserByEmail(request.getParameter("email"));
-				if (user != null) {
-	                HttpSession session = request.getSession();
-	                session.setAttribute("user", user.getFirstName());
-	                session.setAttribute("email", user.getEmail());
-	                session.setAttribute("authenticated", true);
-	                session.setAttribute("sessionScope", user.getUserType().getValue());
-
-	                if(Objects.equals(user.getUserType(), UserType.ADMIN)) {
-	                    resultPage = adminPage;
-	                }
-	                else {
-	                    
-	                    resultPage = userPage;
-	                }
-	            } else {
-	            	request.getSession().setAttribute("errorLoginPassMessage", resmanager.getProperty("loginError"));
-	            	resultPage = loginPage;
-	            }
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-        }
-        return resultPage;
+		
+		
+//        if(reqEmail == "" || reqPass == "") {
+//            LOGGER.info("Returning login page");
+//            request.getSession().setAttribute("session", "");
+//            request.getSession().setAttribute("errorLogin", "Please input email and password");
+//            return resultPage;
+//        }
+//        else {
+//            User user;
+//			try {
+//				user = userService.findUserByEmail(reqEmail, reqPass);
+//				if (user != null) {
+//	                HttpSession session = request.getSession();
+//	                session.setAttribute("user", user.getFirstName());
+//	                session.setAttribute("email", user.getEmail());
+//	                session.setAttribute("authenticated", true);
+//	                session.setAttribute("session", user.getUserType().getValue());
+//
+//	                if(Objects.equals(user.getUserType(), UserType.ADMIN)) {
+//	                    return resultPage = adminPage;
+//	                }
+//	                else {
+//	                    
+//	                    return resultPage = userPage;
+//	                }
+//	            } else {
+//	            	request.getSession().setAttribute("errorLogin", resmanager.getProperty("loginError"));
+//	            	return resultPage = loginPage;
+//	            }
+//			} catch (SQLException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+//        }
+		return resultPage;
 	}
 }

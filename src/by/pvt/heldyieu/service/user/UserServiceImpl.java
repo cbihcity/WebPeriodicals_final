@@ -51,8 +51,8 @@ public class UserServiceImpl implements IUserService{
 		return userDao.getAll();
     }
 	@Override
-	public User findUserByEmail(String email) throws SQLException {
+	public User findUserByEmail(String email, String pass) throws SQLException {
 		LOGGER.info("Try to find user by email");
-		return userDao.findUserByEmail(email);
+		return userDao.findUserByEmailAndPass(email, pass);
     }
 }

@@ -10,6 +10,7 @@ public class User implements Identified {
 	    private String email;
 	    private String password;
 	    private UserType userType;
+	    
 		/**
 		 * 
 		 */
@@ -24,16 +25,16 @@ public class User implements Identified {
 		 * @param password
 		 * @param userType
 		 */
-		public User(Integer id, String firstName, String lastName, String email,
-				String password, UserType userType) {
-			super();
-			this.id = id;
-			this.firstName = firstName;
-			this.lastName = lastName;
-			this.email = email;
-			this.password = password;
-			this.userType = userType;
-		}
+//		public User(Integer id, String firstName, String lastName, String email,
+//				String password, UserType userType) {
+//			super();
+//			this.id = id;
+//			this.firstName = firstName;
+//			this.lastName = lastName;
+//			this.email = email;
+//			this.password = password;
+//			this.userType = userType;
+//		}
 		/**
 		 * @return the id
 		 */
