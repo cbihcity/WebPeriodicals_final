@@ -6,7 +6,7 @@ import java.util.Objects;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -42,8 +42,8 @@ public class LoginCommand implements ServletCommand {
 		String reqPass = request.getParameter("password");
 		userService = UserServiceImpl.getInstance();
 		LOGGER.info("Executing command");
-		//HttpSession session = request.getSession();
-				
+		HttpSession session = request.getSession();
+		
 		if (reqEmail !="" || reqPass!= "") {
             try {
             	User user = userService.findUserByEmail(reqEmail, reqPass);
@@ -55,7 +55,7 @@ public class LoginCommand implements ServletCommand {
                 
                 //Если авторизация выполнена, то присваиваем сессии соответствующие атрибуты
                 //и устанавливаем куки
-                request.setAttribute("session", user.getUserType().getValue().toString());
+                session.setAttribute("session", user.getUserType().getValue().toString());
                 request.setAttribute("user", user.getFirstName());
                 request.setAttribute("email", user.getEmail());
                 Cookie c = new Cookie("id", String.valueOf(user.getId()));

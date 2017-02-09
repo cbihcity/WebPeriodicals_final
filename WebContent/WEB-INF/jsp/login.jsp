@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html><head><title>Login</title></head>
 <body>
+<c:set var="session" value=""></c:set>
 <form name="loginForm" method="POST" action="servlet">
 <input type="hidden" name="command" value="login" />
 Email:<br/>
