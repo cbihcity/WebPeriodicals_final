@@ -9,7 +9,7 @@ Email:<br/>
 <br/>Password:<br/>
 <input type="password" name="password" value=""/>
 
-<input type="submit" value="Log in"/>
+<br/><input type="submit" value="Log in"/>
 </form><hr/>
 
 Links for guest...<br/>

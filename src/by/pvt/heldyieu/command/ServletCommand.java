@@ -13,6 +13,6 @@ public interface ServletCommand {
      * @param response Http response from servlet.
      * @return         A string that represents a view to forward to.
      */
-	ResourceManager resmanager = new ResourceManager("mapping");
+	ResourceManager resmanager = new ResourceManager("mappingPages");
     String execute(HttpServletRequest request, HttpServletResponse response);
 }

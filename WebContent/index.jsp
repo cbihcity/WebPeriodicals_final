@@ -10,9 +10,6 @@
                                 <div class="auth_frame">
                                     <%@include file="/WEB-INF/jsp/login.jsp" %>
                                 </div>
-                                <div class="error_frame">
-                                    <%@include file="/WEB-INF/jsp/error/error.jsp" %>
-                                </div><!-- end of auth --> 
                             </td>
                         </tr>
                     </tbody>

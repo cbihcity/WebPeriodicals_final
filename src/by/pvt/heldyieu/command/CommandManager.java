@@ -12,7 +12,7 @@ import by.pvt.heldyieu.resources.ResourceManager;
 public class CommandManager {
 	private static final Logger LOGGER = Logger.getLogger(CommandManager.class);
 	private HashMap<String, ServletCommand> commands;
-	ResourceManager resmanager = new ResourceManager("mapping");
+	ResourceManager resmanager = new ResourceManager("mappingPages");
     //private static String errorPage;
 
     public CommandManager(){

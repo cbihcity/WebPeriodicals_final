@@ -30,6 +30,7 @@ public class LoginCommand implements ServletCommand {
 		userPage = resmanager.getProperty("userPage");
 		errorPage = resmanager.getProperty("errorPage");
 		mainPage = resmanager.getProperty("mainPage");
+		
 	}
 
 
@@ -49,7 +50,7 @@ public class LoginCommand implements ServletCommand {
                 	LOGGER.error("Error login"); 
                 	session.setAttribute("errormessage", "Error login");
                 	resultPage = errorPage;
-                }
+                } else {
                 
                 //Если авторизация выполнена, то присваиваем сессии соответствующие атрибуты
                 //и устанавливаем куки
@@ -65,7 +66,7 @@ public class LoginCommand implements ServletCommand {
                     
                 	resultPage = userPage;
                 }
-
+                }
             } catch (SQLException e) {
             	LOGGER.error("SqlException at LoginUserAction");
             	session.setAttribute("errormessage", "SqlException at LoginUserAction");

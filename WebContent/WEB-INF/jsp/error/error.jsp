@@ -21,7 +21,6 @@
                             <td class="left_content">
                                 <div style="margin: 0; font: medium sans-serif;">
                                     <p><fmt:message key="${errormessage}"/></p>
-                                    dsfdsfdsfdsfdsf
                                 </div> 
                             </td>
                         </tr>
