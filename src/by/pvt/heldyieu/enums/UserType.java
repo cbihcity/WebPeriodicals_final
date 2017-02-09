@@ -2,7 +2,6 @@ package by.pvt.heldyieu.enums;
 
 public enum UserType {
 	ADMIN("Admin"),
-	GUEST("Guest"),
 	USER("User");
 	
 	private String value;

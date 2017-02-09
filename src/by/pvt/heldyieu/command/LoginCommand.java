@@ -6,7 +6,7 @@ import java.util.Objects;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+//import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
 
@@ -42,20 +42,22 @@ public class LoginCommand implements ServletCommand {
 		String reqPass = request.getParameter("password");
 		userService = UserServiceImpl.getInstance();
 		LOGGER.info("Executing command");
-		HttpSession session = request.getSession();
+		//HttpSession session = request.getSession();
+				
 		if (reqEmail !="" || reqPass!= "") {
             try {
             	User user = userService.findUserByEmail(reqEmail, reqPass);
                 if (user == null) {
                 	LOGGER.error("Error login"); 
-                	session.setAttribute("errormessage", "Error login");
+                	request.setAttribute("errormessage", "Error login");
                 	resultPage = errorPage;
                 } else {
                 
                 //Если авторизация выполнена, то присваиваем сессии соответствующие атрибуты
                 //и устанавливаем куки
-                session.setAttribute("session", user.getUserType());
-                session.setAttribute("user", user.getFirstName());
+                request.setAttribute("session", user.getUserType().getValue().toString());
+                request.setAttribute("user", user.getFirstName());
+                request.setAttribute("email", user.getEmail());
                 Cookie c = new Cookie("id", String.valueOf(user.getId()));
                 c.setMaxAge(60*60*24*7);
                 response.addCookie(c);
@@ -69,7 +71,7 @@ public class LoginCommand implements ServletCommand {
                 }
             } catch (SQLException e) {
             	LOGGER.error("SqlException at LoginUserAction");
-            	session.setAttribute("errormessage", "SqlException at LoginUserAction");
+            	request.setAttribute("errormessage", "SqlException at LoginUserAction");
             	resultPage = errorPage;
             }
         }

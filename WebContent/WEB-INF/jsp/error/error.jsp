@@ -15,11 +15,8 @@
                                     <%@include file="/WEB-INF/jsp/login.jsp" %>
                                 </div><!-- end of auth --> 
                             </td>
-                        </tr>
-                        
-                        <tr>
                             <td class="left_content">
-                                <div style="margin: 0; font: medium sans-serif;">
+                                <div style="margin: 0;  font: medium sans-serif;">
                                     <p><fmt:message key="${errormessage}"/></p>
                                 </div> 
                             </td>
