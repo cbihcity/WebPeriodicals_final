@@ -14,8 +14,14 @@
                                     <%@include file="/WEB-INF/jsp/menu.jsp" %>
                                 </div><!-- end of menu -->
                             </td>
+                            <td class="right_content">
+                                
+                                <div style="margin: 0; font: medium sans-serif;">
+                                    ${list}
+                                </div>
+                                <%-- End of main part  --%>     
+                            </td>
                         </tr>
-                        
                     </tbody>
                 </table>
 </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE xml>
-<Context>
+<Context antiJARLocking="true" path="/WebPeriodicals">
+	
     <Resource name="jdbc/periodicals"
               auth="Container"
               type="javax.sql.DataSource"

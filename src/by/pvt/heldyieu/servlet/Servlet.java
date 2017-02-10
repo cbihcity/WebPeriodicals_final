@@ -2,23 +2,26 @@ package by.pvt.heldyieu.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.command.CommandManager;
 import by.pvt.heldyieu.command.ServletCommand;
 
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet("/servlet")
+//@WebServlet("/servlet")
 public class Servlet extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(Servlet.class);
 	private static final long serialVersionUID = 1L;
+	private CommandManager client = CommandManager.getInstance(); 
+	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -26,8 +29,9 @@ public class Servlet extends HttpServlet {
 	public Servlet() {
 		super();
 	}
-
-	public void init(ServletConfig config) throws ServletException {
+	@Override
+	public void init() throws ServletException {
+		super.init();
 		LOGGER.info("Initializing Servlet");
 	}
 
@@ -35,6 +39,7 @@ public class Servlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
@@ -44,6 +49,7 @@ public class Servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		processRequest(request, response);
@@ -54,7 +60,6 @@ public class Servlet extends HttpServlet {
 		String page = null;
 		LOGGER.info("Processing " + request.getMethod() + " request");
 		// определение команды, пришедшей из JSP
-		CommandManager client = new CommandManager();
 		ServletCommand command = client.getCommand(request);
 		/*
 		 * вызов реализованного метода execute() и передача параметров
@@ -64,6 +69,7 @@ public class Servlet extends HttpServlet {
 		if(page == null) {
             page = "/index.jsp";
         }
-		request.getRequestDispatcher(page).forward(request, response);
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+        dispatcher.forward(request, response);
 	}
 }

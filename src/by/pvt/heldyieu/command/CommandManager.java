@@ -5,12 +5,12 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
-
 import by.pvt.heldyieu.resources.ResourceManager;
 
 
 public class CommandManager {
 	private static final Logger LOGGER = Logger.getLogger(CommandManager.class);
+	private static CommandManager instance;
 	private HashMap<String, ServletCommand> commands;
 	ResourceManager resmanager = new ResourceManager("mappingPages");
     //private static String errorPage;
@@ -22,6 +22,7 @@ public class CommandManager {
 
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
+        commands.put("showAllMag", new ShowAllMagazinesCommand());
         //commands.put("/register", new RegisterCommand());
 //        commands.put("/magazine", new MagazinePageCommand());
 //        commands.put("/category", new CategoryPageCommand());
@@ -51,7 +52,12 @@ public class CommandManager {
 
        // errorPage = resmanager.getProperty("errorPage");
     }
-
+    public static CommandManager getInstance() {
+        if (instance == null) {
+            instance = new CommandManager();
+        }
+        return instance;
+    }
     /**
      * This method is used to get a command instance based on a request.
      *

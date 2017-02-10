@@ -15,10 +15,20 @@
                                     <%@include file="/WEB-INF/jsp/login.jsp" %>
                                 </div><!-- end of auth --> 
                             </td>
-                            <td class="left_content">
-                                <div style="margin: 0;  font: medium sans-serif;">
-                                    <p><fmt:message key="${errormessage}"/></p>
-                                </div> 
+                            <td class="right_content">
+                                                        
+                                <table style="vertical-align:middle;font-size: 24px">
+                                    <tr>
+                                        <td>
+                                            <img src="/WEB-INF/jsp/error/error_small.png"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                                
+                                <div style="margin: 0; font: medium sans-serif;">
+                                    ${errormessage}
+                                </div>
+                                <%-- End of main part  --%>     
                             </td>
                         </tr>
                     </tbody>
