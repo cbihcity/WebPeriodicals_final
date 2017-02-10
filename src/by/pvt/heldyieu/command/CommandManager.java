@@ -5,6 +5,10 @@ import java.util.HashMap;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
+
+import by.pvt.heldyieu.command.actions.LoginCommand;
+import by.pvt.heldyieu.command.actions.LogoutCommand;
+import by.pvt.heldyieu.command.actions.ShowAllMagazinesCommand;
 import by.pvt.heldyieu.resources.ResourceManager;
 
 

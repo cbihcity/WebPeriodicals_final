@@ -1,9 +1,11 @@
-package by.pvt.heldyieu.command;
+package by.pvt.heldyieu.command.actions;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import by.pvt.heldyieu.command.ServletCommand;
 
 public class LogoutCommand implements ServletCommand {
 

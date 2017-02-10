@@ -20,7 +20,7 @@
                                 <table style="vertical-align:middle;font-size: 24px">
                                     <tr>
                                         <td>
-                                            <img src="/WEB-INF/jsp/error/error_small.png"/>
+                                            <img src="images/error_small.png"/>
                                         </td>
                                     </tr>
                                 </table>

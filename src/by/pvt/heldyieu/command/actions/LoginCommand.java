@@ -1,11 +1,15 @@
-package by.pvt.heldyieu.command;
+package by.pvt.heldyieu.command.actions;
 
 import java.sql.SQLException;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 import org.apache.log4j.Logger;
+
+import by.pvt.heldyieu.command.ServletCommand;
 import by.pvt.heldyieu.entity.User;
 import by.pvt.heldyieu.service.user.UserServiceImpl;
 
