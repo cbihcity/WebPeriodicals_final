@@ -25,9 +25,6 @@ public class LoginCommand implements ServletCommand {
 		errorPage = resmanager.getProperty("errorPage");
 		
 	}
-
-
-
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String resultPage = null;
@@ -42,7 +39,7 @@ public class LoginCommand implements ServletCommand {
             	User user = userService.findUserByEmail(reqEmail, reqPass);
                 if (user == null) {
                 	LOGGER.error("Error login"); 
-                	request.setAttribute("errormessage", "Error login");
+                	request.setAttribute("errormessage", "Incorrect email or password");
                 	resultPage = errorPage;
                 } else {
                 
@@ -58,6 +55,10 @@ public class LoginCommand implements ServletCommand {
             	request.setAttribute("errormessage", "SqlException at LoginUserAction");
             	resultPage = errorPage;
             }
+        } else{
+        	LOGGER.error("Login email or pasword is null");
+        	request.setAttribute("errormessage", "Please input email and password!");
+        	resultPage = errorPage;
         }
 		return resultPage;
 	}

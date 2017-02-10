@@ -8,10 +8,19 @@
 				<td>
 					<form action="action" method="post">
 						<input type="hidden" name="command" value="showAllMag" /> 
-						 <input	type="submit" value="Show All Users"/>
+						 <input	type="submit" value="Show All Magazines"/>
 					</form>
 				</td>
 			</tr>
  </table>
  </c:when>
- </c:choose>
+  </c:choose>
+ <c:if test="${sessionScope.user.userType == 'ADMIN'}">
+ 			<tr>
+				<td>
+					<form action="addMag" method="post">
+                            <input type="submit" name="submit" value="Add Magazine"/>
+                        </form>
+				</td>
+			</tr>
+ </c:if>
