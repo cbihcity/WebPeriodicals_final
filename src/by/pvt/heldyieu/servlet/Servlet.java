@@ -67,7 +67,7 @@ public class Servlet extends HttpServlet {
 		 */
 		page = command.execute(request, response);
 		if(page == null) {
-            page = "/index.jsp";
+            page = "/jsp/index.jsp";
         }
 		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
         dispatcher.forward(request, response);

@@ -1,0 +1,591 @@
+@charset "utf-8";
+
+/*global*/
+body{
+    color: #818181;
+/*    background:#F6F6F6 url(../images/bg4.png) 50% 0 no-repeat;*/
+    background:#F6F6F6 url(../images/film_bg.jpg); 
+/*    background-color: #D7D7D7;*/
+    margin:0px;
+    padding:0px; 
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 100%;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal; 
+    display:block;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    margin: 0px;
+    padding: 0px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-top-color: inherit;
+    border-right-color: inherit;
+    border-bottom-color: inherit;
+    border-left-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+a {
+    color: #666666;
+    outline: none;
+}
+
+.wrapper{
+    width: 96%;
+    max-width: 1420px;
+    min-width: 960px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-bottom: 20px;
+}
+
+/*end of global*/
+
+/* header */
+
+.header{
+    height:87px;
+    width: 100%;
+    min-width: 1210px;
+    margin-top:50px;
+    margin-bottom:10px;
+    background-image:url(../images/trans.png);
+    background-repeat:repeat-x;
+    background-color:transparent;
+}
+
+.header_table{
+    margin:0px 0px;
+    width: 100%;	
+}
+
+.header_table tr td{	
+    margin:0px;
+    padding:5px;
+}
+
+.search_bar_frame {
+    height: 20px;
+    width: 180px;
+    background: url(../images/search-text-field.gif) no-repeat 0 0;
+    padding: 3px 0 0 15px;
+    float: right;
+    color: #666666;
+    margin-top: 2px;
+}
+
+.SearchButton{
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    border: 0px;
+    background: url(../images/search-button.gif) no-repeat 0 0;
+    background-color: white;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.SearchField {
+    outline: none;
+    border: 0px;
+    color: #666666;
+    font-size: 12px;
+    font-family: Tahoma;
+    margin: 0;
+    padding: 0;
+}
+
+.locale_bar_frame{
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    padding: 3px 3px;
+    background-color: transparent;
+}
+
+.locale_bar {
+    float: right;
+    margin:2px 30px;
+    padding: 5px 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: transparent;
+}
+
+#EnLangButton {
+    background: url(../images/en-lang.gif) no-repeat 0 0; 
+    padding-bottom: 3px;  
+    border: 0px; 
+    /*    font-size: 0px;
+        width: 30px;
+        height: 20px;*/
+    text-indent: -9000px;
+    width: 28px;
+    cursor: pointer;
+    color: #666666; 
+    background-color: #818181 
+}
+ 
+#RuLangButton {
+    background: url(../images/ru-lang.gif) no-repeat 0 0; 
+    padding-bottom: 3px; 
+    border: 0px; 
+    /*    font-size: 0px;
+        width: 30px;
+        height: 20px;*/
+    text-indent: -9000px;
+    width: 28px;
+    cursor: pointer;
+    color: #666666; 
+    background-color: #818181     
+}
+/* end of header */
+
+/* content */
+
+#content {
+    margin-top:1px;
+    background-color:transparent;
+    min-width: 1210px;
+}
+
+.CartTitle {
+    height: 81px;
+    width: 350px;
+}
+
+.SearchTitle {
+    width: 100%;
+    height: 60px;
+}
+
+.main_table{
+    margin:0px;
+    width:100%;
+    min-width: 1210px;
+    min-height: 750px;
+    padding: 0px;
+    background-color: #F6F6F6;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    border-top-color: #8CF65B;
+    border-right-color: #8CF65B;
+    border-bottom-color: #8CF65B;
+    border-left-color: #BABABA;
+    vertical-align: top;
+    border-spacing:0px;
+    background-image: url(../images/bottom.gif);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+.left_content{
+    padding:0px;
+    width:200px;
+    vertical-align: top;
+}
+
+.separator{
+    width:1%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.right_content{
+    width:50%;
+    padding:5px 5px;
+    background-color: #F6F6F6;
+    background-image:  url(../images/bg_index_video.jpg);
+    background-position: right bottom;
+    vertical-align: top;
+}
+
+/* authorization */
+.auth_frame {
+    min-height:120px;
+    margin:5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 0px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-image: none;
+    width: 200px;
+}
+
+.auth {
+    padding-top:20px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 9px;
+    height: 120px;
+    width: 210px;
+    background-image: none;
+    background-position: left top;
+    background-repeat: no-repeat;
+    padding-left: 10px;
+    margin: 0px;
+    display: compact;
+}
+
+.authorized {
+    margin:5px 5px;
+}
+
+.CartRef {
+    padding: 3px 3px;
+    text-decoration: none;
+}
+
+.CartRef:hover {
+    background-color: #F0F0F0;
+}
+
+/* end of authorization */
+/* menu */
+.menu_frame{
+    margin:10px 5px;
+}
+
+.menu{
+    margin:0px;
+}
+
+.menu tr {
+    margin:0px 0px;
+    padding:0px 0px;
+}
+
+.menu tr td{
+    margin:0px 0px;
+    padding:0px 0px;
+}
+/* end of menu*/
+/* end of content */
+
+#footer{
+    height:auto;
+    width: 100%;
+    min-width: 1210px;
+    font-family: tahoma, verdana, "trebuchet ms";
+    font-size: 11px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin-bottom:2%;
+    background-color: #F6F6F6;
+    margin-top: auto;
+}
+
+.buy {
+    text-align:center;
+    vertical-align:bottom;
+    margin-bottom:5px;
+}
+
+.add_mag {
+    padding: 0px 0px;
+}
+
+.add_mag_table {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.add_film_table td {
+    font-size: 11px;
+}
+
+.add_film_table td input {
+    width: 202px;
+}
+
+.add_film_table td textarea {
+    width: 200px;
+}
+
+.add_user {
+    padding: 0px 0px;
+}
+
+.add_user_table {
+    margin-top: 20px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.add_user_table td input {
+    width: 202px;
+}
+
+.make_order {
+    padding: 0px 0px;
+    font-family: cursive;
+}
+
+.make_order_table {
+    margin-top: 40px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.make_order_table td input {
+    width: 202px;
+}
+
+.make_order_table td textarea {
+    width: 200px;
+}
+
+#error {
+    margin-top: 10px;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    width: 98%; 
+    background-color: gray; 
+    color: black; 
+    font-size: larger;
+    font-style: italic;
+}
+
+.Gadget  {
+    background: url(../images/gadget-smooth-line.gif) repeat-y;
+    margin-bottom: 7px;
+    width: 209px;
+    overflow: hidden;
+    vertical-align: top;
+}
+.Gadget .login {
+    display:block;
+    text-decoration:none;
+    margin-bottom:5px;
+} 
+.Gadget .Input {
+    background-image: url(../images/gadget-input-bg.gif);
+    background-repeat: no-repeat;
+    padding-right: 15px;
+    padding-bottom: 6px;
+    height: 29px;
+}
+.Gadget .Input2 {
+    color: #7f7f7f;
+    font-size: 11px;
+    text-align: center;
+    position: relative;
+    top: 5px;
+    left: 8px;
+    width: 140px;
+    border: solid 1px white;
+    outline:none;
+}
+.Gadget .GadgetContent {
+    padding: 0 4px;
+    width: 201px;}
+.Gadget .GadgetSmoothBottom {
+    background: url(../images/gadget-smooth-bottom.gif) no-repeat 0 0; 
+    height: 15px
+}
+.Gadget .GadgetSmoothTop {
+    background: url(../images/gadget-smooth-top.gif) no-repeat 0 0;
+    height: 15px
+}
+.GadgetSmoothTop, .GadgetSmoothBottom, .GadgetContent {
+    width: 209px; 
+    float: left
+}
+.auth_panel {}
+
+.UserOrdersTable td {
+    text-align: center;
+}
+
+.ShopOrdersTable td {
+    font-family: arial, sans-serif;
+    text-align: center;
+    vertical-align: text-top;
+    font-size: 12px;
+    border-collapse: collapse;
+    border-color: #A3A3A3;
+    border-width: thin;
+    border-style: dotted;
+    border-spacing: 0px;
+}
+
+.OrderStatus:hover {
+    background-color: #F0F0F0;
+}
+
+.StatusButtonCell {
+    vertical-align: middle;
+    border: 0px;
+    border-style: none;
+    padding: 0px 0px;
+}
+
+.StatusButtonCellDiv {
+    margin: 0px 0px;
+    width: 100%; 
+    height: 100%; 
+    background-color: white;
+}
+
+.StatusButtonCell:hover {
+    background-color: white;
+}
+
+.Index {
+    background: url(../images/bg_index.jpg) no-repeat 50% 0;
+    width: 950px;
+    height: 603px;
+    padding: 0px 0px;
+    margin: 0px 0px;
+    
+}
+.IndexTitle {
+/*    position: absolute;
+    top:200px;
+    left: 650px;*/
+    padding: 50px;
+    font-size: 24px;
+    font-family: cursive;
+}
+ 
+.IndexMessage {
+    margin:60px;
+    width: 400px;
+    font-family: cursive;
+}
+
+/* BUTTONS */
+
+.LoginButton{
+    background: url(../images/loginbutton.gif) no-repeat 0 0;
+    width: 75px;
+    padding-bottom: 3px;
+    height: 30px;
+    border: 1px;
+    font-size: 11px;
+    color: #400080;
+    background-color: #c0c0c0;
+    cursor: pointer;
+}
+
+.RegButton{
+    background: url(../images/regbutton.gif) no-repeat 0 0;
+    width: 75px;
+    padding-bottom: 3px;
+    height: 30px;
+    border: 0px;
+    font-size: 11px;
+    color: #666666;
+    background-color: white;
+    cursor: pointer;
+}
+
+.FilmButton{
+    background: url(../images/moviebutton.gif) no-repeat 0 0;
+    width: 164px;
+    padding-bottom: 3px;
+    height: 30px;
+    border: 0px;
+    font-size: 11px;
+    color: #666666;
+    background-color: white;
+    cursor: pointer;
+}
+
+.EditButton {
+    background: url(../images/loginbutton.gif) no-repeat 0 0;
+    width: 75px;
+    padding-bottom: 3px;
+    height: 30px;
+    border: 0px;
+    font-size: 11px;
+    color: #666666;
+    background-color: #FFFFFF;
+    cursor: pointer;
+    position: absolute;
+    top: 170px;
+}
+
+.ContinueButton { 
+    background: url(../images/moviebutton.gif) no-repeat 0 0;
+    width: 164px;
+    padding-bottom: 3px;
+    height: 30px;
+    border: 0px;
+    font-size: 11px;
+    color: #666666;
+    background-color: white;
+    cursor: pointer;
+}
+
+.DeliveredButton {
+    background-image: url(../images/delivered_button.png);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 0 -25px;
+    text-indent: -9000px;
+    width: 25px;
+    height: 25px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.CancelButton {
+    background-image: url(../images/cancel_button.png);
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: 0 -25px;
+    text-indent: -9000px;
+    width: 25px;
+    height: 25px;
+    border: 0px;
+    cursor: pointer;
+}
+
+.CancelButton:hover {
+    background-position: 0 0px;
+}
+
+.DeliveredButton:hover {
+    background-position: 0 0px;
+}
+
+.LoginButton:hover {
+    background-position: 0 -31px;
+}
+
+.RegButton:hover {
+    background-position: 0 -31px;
+}
+
+.FilmButton:hover {
+    background-position: 0 -31px;
+}
+
+.EditButton:hover {
+    background-position: 0 -31px;
+}
+
+.ContinueButton:hover {
+    background-position: 0 -31px;
+}

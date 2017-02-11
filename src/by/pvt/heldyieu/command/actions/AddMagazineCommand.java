@@ -24,40 +24,29 @@ public class AddMagazineCommand implements ServletCommand {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		Magazine magazine = new Magazine();
-		
-		magazine.setName(request.getParameter(NAME).trim());
-		magazine.setType(CategoryType.values()[Integer.valueOf(request.getParameter(TYPE))-1]);
-		magazine.setPrice(Double.valueOf(request.getParameter(PRICE).trim()));
-		
-		if (isValid(magazine)) {
+		if (request.getParameter(NAME) != ""
+				&& request.getParameter(TYPE) != ""
+				&& request.getParameter(PRICE) != "") {
+			magazine.setName(request.getParameter(NAME).trim());
+			magazine.setType(CategoryType.values()[Integer.valueOf(request
+					.getParameter(TYPE)) - 1]);
+			magazine.setPrice(Double
+					.valueOf(request.getParameter(PRICE).trim()));
 			try {
 				MagazineServiceImpl.getInstance().addMagazine(magazine);
 				request.setAttribute("sucessmessage", "Журнал Добавлен!");
 				resultPage = sucessPage;
 			} catch (SQLException e) {
 				LOGGER.error("SqlException at AddMagazineCommand");
-	        	request.setAttribute("errormessage", "SqlException at AddMagazineCommand");
-	        	resultPage =  errorPage;
+				request.setAttribute("errormessage",
+						"SqlException at AddMagazineCommand");
+				resultPage = errorPage;
 			}
 		} else {
 			request.setAttribute("errormessage", "Please insert all fields");
-        	resultPage =  errorPage;
+			resultPage = errorPage;
 		}
-		
 		return resultPage;
-	}
-
-	private boolean isValid(Magazine magazine) {
-		if (magazine.getName()==null || magazine.getName().equals("")) {
-			return false;
-		}
-		if (magazine.getType()==null) {
-			return false;
-		}
-		if (magazine.getPrice()==0) {
-			return false;
-		}
-		return true;
 	}
 
 }

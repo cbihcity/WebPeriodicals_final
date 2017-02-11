@@ -1,23 +1,29 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
-<head><title>Index</title></head>
+<head>
+<title>Add Magazine</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
+</head>
 <body>
-<div id="content">
+<div class="wrapper">
+		<div id="content">
 	<table class="main_table"> 
                     <tbody>
                         <tr>
                             <td class="left_content">
                                 <div class="auth_frame">
-                                    <%@include file="/WEB-INF/jsp/login.jsp" %>
+                                    <%@include file="/jsp/login.jsp" %>
                                 </div>
                                 <div class="menu_frame">
-                                    <%@include file="/WEB-INF/jsp/menu.jsp" %>
+                                    <%@include file="/jsp/menu.jsp" %>
                                 </div><!-- end of menu -->
                             </td>
-                            <td class="right_content">
-
+                            
 						<td class="right_content">
+						<%@include file="/jsp/_wrappertop.jsp" %>
                                     <div class="add_mag">
+                                    	<h1>Форма добавления нового магазина</h1>
                                         <form action="action" method="post" autocomplete="off">
                                             <input type="hidden" name="command" value="addMag" />
                                             <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
@@ -38,9 +44,12 @@
                                             <input class="RegButton" type="submit" name="submit" value="Добавить" />
                                         </form>
                                     </div>
+                                    <%@include file="/jsp/_wrapperbottom.jsp" %>
                             </td>
                         </tr>
                     </tbody>
                 </table>
 </div>
-</body></html>
+</div>
+</body>
+</html>
