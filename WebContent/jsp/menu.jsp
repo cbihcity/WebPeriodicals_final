@@ -10,7 +10,7 @@
 					<tr>
 						<td>
 							<form action="index" method="post">
-								<input type="hidden" name="command" value="showAllMag" /> <input
+								<input type="hidden" name="command" value="magazines" /> <input
 									type="submit" value="Show All Magazines" />
 							</form>
 						</td>

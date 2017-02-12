@@ -16,7 +16,7 @@
        <param-value>WEB-INF/log4j-my.properties</param-value>
      </init-param>
      <load-on-startup>1</load-on-startup>
-</servlet>
+	</servlet>
     <servlet>
         <servlet-name>addMag-page</servlet-name>
         <jsp-file>/jsp/addMag.jsp</jsp-file>
@@ -32,6 +32,10 @@
     <servlet>
         <servlet-name>magazines-page</servlet-name>
         <jsp-file>/jsp/magazines.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>register-page</servlet-name>
+        <jsp-file>/jsp/register.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
@@ -52,6 +56,10 @@
     <servlet-mapping>
         <servlet-name>addMag-page</servlet-name>
         <url-pattern>/addMag</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>register-page</servlet-name>
+        <url-pattern>/register</url-pattern>
     </servlet-mapping>
 	<welcome-file-list>
 		<welcome-file>/jsp/index.jsp</welcome-file>

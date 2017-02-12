@@ -22,7 +22,7 @@
 							onblur="restoreField('password','passAuthForm')" />
 					</div>
 					<input type="submit" value="Log in" class="LoginButton" />
-					
+					<a href="register">Register</a>
 				</form>
 			</c:when>
 			<c:otherwise>

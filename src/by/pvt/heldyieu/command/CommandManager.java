@@ -1,9 +1,13 @@
 package by.pvt.heldyieu.command;
 
 import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
+
 import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.command.actions.AddMagazineCommand;
+import by.pvt.heldyieu.command.actions.AddUserCommand;
 import by.pvt.heldyieu.command.actions.LoginCommand;
 import by.pvt.heldyieu.command.actions.LogoutCommand;
 import by.pvt.heldyieu.command.actions.ShowAllMagazinesCommand;
@@ -22,8 +26,9 @@ public class CommandManager {
 
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
-        commands.put("showAllMag", new ShowAllMagazinesCommand());
+        commands.put("magazines", new ShowAllMagazinesCommand());
         commands.put("addMag", new AddMagazineCommand());
+        commands.put("register", new AddUserCommand());
         //commands.put("/register", new RegisterCommand());
 //        commands.put("/magazine", new MagazinePageCommand());
 //        commands.put("/category", new CategoryPageCommand());
