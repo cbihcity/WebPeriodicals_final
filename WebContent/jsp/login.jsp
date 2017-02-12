@@ -8,7 +8,7 @@
 	<div class="GadgetContent">
 		<c:choose>
 			<c:when test="${empty sessionScope.user}">
-				<form action="action" method="POST" autocomplete="off">
+				<form action="index" method="POST" autocomplete="off">
 					<input type="hidden" name="command" value="login" />
 					<div class="Input">
 						<input id="loginAuthForm" name="email" type="text" value="Email"
@@ -22,6 +22,7 @@
 							onblur="restoreField('password','passAuthForm')" />
 					</div>
 					<input type="submit" value="Log in" class="LoginButton" />
+					
 				</form>
 			</c:when>
 			<c:otherwise>
@@ -30,7 +31,7 @@
 					<br/><b>Your session - ${sessionScope.user.userType}!</b> 
 					<br/><b>Your mail - ${sessionScope.user.email}!</b>
 					<br/> 
-					<a href="action?command=logout">Log Out</a>
+					<a href="index?command=logout">Log Out</a>
 				</div>
 			</c:otherwise>
 		</c:choose>

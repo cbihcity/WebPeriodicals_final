@@ -9,7 +9,7 @@
 			<c:when test="${not empty sessionScope.user}">
 					<tr>
 						<td>
-							<form action="action" method="post">
+							<form action="index" method="post">
 								<input type="hidden" name="command" value="showAllMag" /> <input
 									type="submit" value="Show All Magazines" />
 							</form>

@@ -18,8 +18,6 @@
 							<div class="auth_frame">
 								<%@include file="/jsp/login.jsp"%>
 							</div> <!-- end of auth -->
-						</td>
-						<td>
 							<div class="menu_frame">
 								<%@include file="/jsp/menu.jsp"%>
 							</div> <!-- end of menu -->

@@ -19,12 +19,12 @@
                                     <%@include file="/jsp/menu.jsp" %>
                                 </div><!-- end of menu -->
                             </td>
-                            
+                        <c:if test="${sessionScope.user.userType == 'ADMIN'}">
 						<td class="right_content">
 						<%@include file="/jsp/_wrappertop.jsp" %>
                                     <div class="add_mag">
                                     	<h1>Форма добавления нового магазина</h1>
-                                        <form action="action" method="post" autocomplete="off">
+                                        <form action="index" method="post" autocomplete="off">
                                             <input type="hidden" name="command" value="addMag" />
                                             <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
                                             <table class="add_mag_table">
@@ -46,6 +46,7 @@
                                     </div>
                                     <%@include file="/jsp/_wrapperbottom.jsp" %>
                             </td>
+                            </c:if>
                         </tr>
                     </tbody>
                 </table>

@@ -4,7 +4,7 @@
     Author     : Dima
 --%>
 
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>8"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <div class="clear">
 </div>   
 </div>      
@@ -14,7 +14,7 @@
 <div class="Gadget2SmoothBottomLine">
     <div class="Gadget2SmoothBottomLeft">
         <div class="Gadget2SmoothBottomRight">
-            &nbsp;</div>
+        </div>
     </div>
 </div>
 </div>

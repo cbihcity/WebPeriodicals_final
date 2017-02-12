@@ -9,13 +9,12 @@
     <div class="Gadget2SmoothTopLine">
         <div class="Gadget2SmoothTopLeft">
             <div class="Gadget2SmoothTopRight">
-                &nbsp;
+               
                 <img src="images/content-smooth-top-right.gif" />
             </div>
         </div>
     </div>
-    <div class="Gadget2Content"><div class="Gadget2ContentLeft">
+    <div class="Gadget2Content">
+    	<div class="Gadget2ContentLeft">
             <div class="Gadget2ContentRight">
-                <!-- Content -->
-                <div class="TextInside">        
                     <div class="TextInside">
