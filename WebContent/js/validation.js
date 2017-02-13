@@ -1,31 +1,24 @@
-function check(formID) {
-    var pattern = null;
-        
-    switch(formID){
-        case 'first_name':
-            pattern =  new RegExp('(^[A-Z]?[a-z]{1,15}$)|(^[А-Я]?[а-я]{1,15}$)', '');
-            break;
-                
-        case 'last_name':
-            pattern =  new RegExp('(^[A-Z]?[a-z]{1,15}$)|(^[А-Я]?[а-я]{1,15}$)', '');
-            break;
-                
-        case 'password':
-            pattern =  new RegExp('^[a-zA-Z0-9_\\*\\!\\^]{6,15}$', '');
-            break;
-            
-        case 'email':
-            pattern =  new RegExp('^[a-z0-9\\.]{3,25}@[a-z\\.]{3,10}\\.{1}[a-z]{2,5}$', '');
-            break;
-    }
-        
-    inputStr = document.getElementById(formID + 'Form').value;
-        
-    if(pattern.test(inputStr)) {
-        document.getElementById(formID).style.color = 'green';
-    } else {
-        document.getElementById(formID).style.color = 'red';
-    }
+function ValidationEvent() {
+	var valid = true;
+	var first_name = document.getElementById("first_name").value;
+	var last_name = document.getElementById("last_name").value;
+	var password = document.getElementById("password").value;
+	var email = document.getElementById("email").value;
+	var name_regex = /(^[A-Z]?[a-z]{1,15}$)|(^[А-Я]?[а-я]{1,15}$)/;
+	var email_regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	var password_regex = /^[a-zA-Z0-9_\\*\\!\\^]{6,15}$/;
+	if (first_name != '' && last_name != '' && password != '' && email!=''){
+		if (name_regex.test(first_name)) {
+			if (name_regex.test(last_name)) {
+				if (password_regex.test(password)) {
+					if (email_regex.test(email)) {
+						valid = true;
+					} else {alert("Invalid Email Address"); valid = false;}
+				} else {alert("Invalid password"); valid = false;}
+			} else {alert("Invalid Last Name"); valid = false;}
+		} else {alert("Invalid First Name"); valid = false;}
+	} else {alert("Empty fields!"); valid = false;}
+	return valid;
 }
 
 function clearField(msg,formID) {
