@@ -32,6 +32,7 @@ tbody {
 }
 
 tr {
+	width:100%;
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
@@ -417,7 +418,8 @@ a {
     text-align: center;
 }
 
-.ShopOrdersTable td {
+.MagOrdersTable td {
+	width:100%;
     font-family: arial, sans-serif;
     text-align: center;
     vertical-align: text-top;

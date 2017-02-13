@@ -17,20 +17,33 @@
 							</div>
 							<div class="menu_frame">
 								<%@include file="/jsp/menu.jsp"%>
-							</div>
-							<!-- end of menu -->
+							</div> <!-- end of menu -->
 						</td>
-						<td class="right_content">
-						<%@include	file="/jsp/_wrappertop.jsp"%> <%-- This is main part --%>
+						<td class="right_content"><%@include
+								file="/jsp/_wrappertop.jsp"%> <%-- This is main part --%>
 							<div class="Index">
 								<div class="IndexTitle"></div>
 								<div class="IndexMessage">
-								<div style="margin: 0; font: medium sans-serif;">
-                                    ${list}
-                                </div>
+									<table class="MagOrdersTable">
+										<tr>
+											<td><b>id</b></td>
+											<td><b>Name</b></td>
+											<td><b>Category</b></td>
+											<td><b>Price</b></td>
+											<td style="border-style: none;"></td>
+											<td style="border-style: none;"></td>
+										</tr>
+										<c:forEach var="mag" items="${requestScope.list}">
+											<tr>
+												<td>${mag.id}</td>
+												<td>${mag.name}</td>
+												<td>${mag.type}</td>
+												<td>${mag.price}</td>
+											</tr>
+										</c:forEach>
+									</table>
 								</div>
-							</div> 
-						<%@include file="/jsp/_wrapperbottom.jsp"%>
+							</div> <%@include file="/jsp/_wrapperbottom.jsp"%>
 						</td>
 					</tr>
 				</tbody>
