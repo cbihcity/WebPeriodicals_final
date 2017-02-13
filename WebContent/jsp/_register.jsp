@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <script type="text/javascript" src="js/validation.js"></script>
 <div class="add_user">
-	<form action="index" method="post" autocomplete="off" onsubmit="return ValidationEvent();">
+	<form action="act" method="post" autocomplete="off" onsubmit="return ValidationEvent();">
 		<input type="hidden" name="command" value="register" />
 		<h1>Регистрация нового пользователя</h1>
 		<b style="color: gray; font-size: 11px;"><i style="color: red">*</i>All

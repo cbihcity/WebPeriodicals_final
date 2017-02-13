@@ -37,9 +37,13 @@
         <servlet-name>register-page</servlet-name>
         <jsp-file>/jsp/register.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>index-page</servlet-name>
+        <jsp-file>/jsp/index.jsp</jsp-file>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Servlet</servlet-name>
-        <url-pattern>/index/*</url-pattern>
+        <url-pattern>/act/*</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>error-page</servlet-name>
@@ -61,11 +65,23 @@
         <servlet-name>register-page</servlet-name>
         <url-pattern>/register</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>index-page</servlet-name>
+        <url-pattern>/index</url-pattern>
+    </servlet-mapping>
+    <filter>
+        <filter-name>ConfigFilter</filter-name>
+        <filter-class>by.pvt.heldyieu.servlet.ConfigFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ConfigFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
 	<welcome-file-list>
 		<welcome-file>/jsp/index.jsp</welcome-file>
 	</welcome-file-list>
 	<session-config>
-		<session-timeout>1</session-timeout>
+		<session-timeout>10000</session-timeout>
 	</session-config>
 	<resource-ref>
 		<description>mysql</description>
