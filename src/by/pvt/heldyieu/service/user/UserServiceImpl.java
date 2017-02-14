@@ -2,7 +2,9 @@ package by.pvt.heldyieu.service.user;
 
 import java.sql.SQLException;
 import java.util.List;
+
 import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.dao.implementation.UserDAOImpl;
 import by.pvt.heldyieu.entity.User;
 
@@ -43,7 +45,11 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public boolean deleteUser(Integer id) throws SQLException {
 		LOGGER.info("Try to delete user");
-		return userDao.delete(id);
+		try {
+			return userDao.delete(id);
+		} catch (Exception e) {
+			throw new SQLException(e);
+		}
     }
 	@Override
 	public List<User> getAllUsers() throws SQLException {
