@@ -20,10 +20,7 @@
 							</div> <!-- end of menu -->
 						</td>
 						<td class="right_content">
-							<%@include	file="/jsp/_wrappertop.jsp"%> <%-- This is main part --%>
 							<%@include file="/jsp/_register.jsp"%>
-							<%-- End of main part  --%> 
-							<%@include file="/jsp/_wrapperbottom.jsp"%>
 						</td>
 					</tr>
 				</tbody>

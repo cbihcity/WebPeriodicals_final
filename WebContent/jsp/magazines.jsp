@@ -19,8 +19,7 @@
 								<%@include file="/jsp/menu.jsp"%>
 							</div> <!-- end of menu -->
 						</td>
-						<td class="right_content"><%@include
-								file="/jsp/_wrappertop.jsp"%> <%-- This is main part --%>
+						<td class="right_content">
 							<div class="Index">
 								<div class="IndexTitle"></div>
 								<div class="IndexMessage">
@@ -43,7 +42,7 @@
 										</c:forEach>
 									</table>
 								</div>
-							</div> <%@include file="/jsp/_wrapperbottom.jsp"%>
+							</div>
 						</td>
 					</tr>
 				</tbody>

@@ -21,7 +21,6 @@
                             </td>
                         <c:if test="${sessionScope.user.userType == 'ADMIN'}">
 						<td class="right_content">
-						<%@include file="/jsp/_wrappertop.jsp" %>
                                     <div class="add_mag">
                                     	<h1>Форма добавления нового магазина</h1>
                                         <form action="act" method="post" autocomplete="off">
@@ -44,7 +43,6 @@
                                             <input class="RegButton" type="submit" name="submit" value="Добавить" />
                                         </form>
                                     </div>
-                                    <%@include file="/jsp/_wrapperbottom.jsp" %>
                             </td>
                             </c:if>
                         </tr>

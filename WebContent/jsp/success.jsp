@@ -21,7 +21,6 @@
 							<!-- end of menu -->
 						</td>
 						<td class="right_content">
-						<%@include	file="/jsp/_wrappertop.jsp"%> <%-- This is main part --%>
 							<div class="Index">
 								<div class="IndexTitle"></div>
 								<div class="IndexMessage">
@@ -30,7 +29,6 @@
                                 </div>
 								</div>
 							</div> 
-						<%@include file="/jsp/_wrapperbottom.jsp"%>
 						</td>
 					</tr>
 				</tbody>

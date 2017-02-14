@@ -1,5 +1,5 @@
 <!DOCTYPE xml>
-<Context antiJARLocking="true" path="/WebPeriodicals">
+<Context>
 	
     <Resource name="jdbc/periodicals"
               auth="Container"

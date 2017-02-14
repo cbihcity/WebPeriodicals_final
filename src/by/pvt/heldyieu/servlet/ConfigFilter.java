@@ -40,7 +40,6 @@ public class ConfigFilter implements Filter {
 	}
 
 	private void initSession(HttpSession session, HttpServletRequest request) {
-		if (!session.isNew()) {
 			Cookie[] cookies = request.getCookies();
 			if (cookies != null) {
 				for (Cookie c : cookies) {
@@ -58,7 +57,6 @@ public class ConfigFilter implements Filter {
 				}// end of foreach loop
 			}// end of if(cookies != null)
 		}// end of if(session)
-	}
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {

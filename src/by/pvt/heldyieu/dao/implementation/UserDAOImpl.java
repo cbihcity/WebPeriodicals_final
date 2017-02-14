@@ -156,6 +156,7 @@ public class UserDAOImpl extends AbstractDAO<User, Integer> {
 			statement.setString(1, email);
 			statement.setString(2, pass);
 			result = statement.executeQuery();
+			user = new User();
 			user = parseResultSet(result);
 		} catch (SQLException e) {
 			LOGGER.error(e.getMessage());

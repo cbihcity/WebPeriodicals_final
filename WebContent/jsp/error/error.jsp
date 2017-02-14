@@ -23,7 +23,6 @@
 							</div> <!-- end of menu -->
 						</td>
 						<td class="right_content">
-						<%@include	file="/jsp/_wrappertop.jsp"%>
 							<table style="vertical-align: middle; font-size: 24px">
 								<tr>
 									<td><img src="images/error_small.png" /></td>
@@ -34,7 +33,6 @@
 									<b>${errormessage}</b>
 								</p>
 							</div> 
-							<%@include file="/jsp/_wrapperbottom.jsp"%>
 						</td>
 					</tr>
 				</tbody>

@@ -15,9 +15,6 @@ import by.pvt.heldyieu.service.user.UserServiceImpl;
 
 public class LoginCommand implements ServletCommand {
 	private static final Logger LOGGER = Logger.getLogger(LoginCommand.class);
-
-	private static UserServiceImpl userService;
-
     private static String errorPage;
 	
 	public LoginCommand() {
@@ -30,13 +27,12 @@ public class LoginCommand implements ServletCommand {
 		String resultPage = null;
 		String reqEmail = request.getParameter("email");
 		String reqPass = request.getParameter("password");
-		userService = UserServiceImpl.getInstance();
 		LOGGER.info("Executing command");
 		HttpSession session = request.getSession();
 				
 		if (reqEmail !="" && reqPass!= "") {
             try {
-            	User user = userService.findUserByEmail(reqEmail, reqPass);
+            	User user = UserServiceImpl.getInstance().findUserByEmail(reqEmail, reqPass);
                 if (user == null) {
                 	LOGGER.error("Error login"); 
                 	request.setAttribute("errormessage", "Incorrect email or password");
