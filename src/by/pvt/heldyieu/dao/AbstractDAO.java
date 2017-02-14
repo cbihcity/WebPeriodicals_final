@@ -120,19 +120,23 @@ public abstract class AbstractDAO<T extends Identified, PK extends Number> imple
     }
 
     @Override
-    public void delete(T object) throws SQLException {
+    public boolean delete(Number key) throws SQLException {
+    	boolean result = false;
         try (PreparedStatement statement = connect.prepareStatement(getDeleteQuery())) {
-            statement.setInt(1, object.getId());
+            statement.setInt(1,(Integer)key);
             int count = statement.executeUpdate();
             if (count != 1) {
-            	LOGGER.info("On delete modify more then 1 record: " + count + object.toString());
+            	LOGGER.info("On delete modify more then 1 record: " + count);
                 System.out.println(ERROR_DELETE_RESULTSET);
+            } else {
+            	result = true;
             }
             statement.close();
         } catch (Exception e) {
         	LOGGER.info(e.getMessage(), e);
             System.out.println(ERROR_SQL_EXECUTE);
         }
+        return result;
     }
 
     @Override

@@ -41,9 +41,9 @@ public class SubscriptionTypeServiceImpl implements ISubscriptionTypeService{
 		subscriptionTypeDao.update(subscriptionType);
     }
 	@Override
-	public void deleteSubscriptionType(SubscriptionType subscriptionType) throws SQLException {
+	public boolean deleteSubscriptionType(Integer id) throws SQLException {
 		LOGGER.info("Try to delete SubscriptionType");
-		subscriptionTypeDao.delete(subscriptionType);
+		return subscriptionTypeDao.delete(id);
     }
 	@Override
 	public List<SubscriptionType> getAllSubscriptionTypes() throws SQLException {

@@ -11,7 +11,7 @@ public interface IUserService {
 	
 	 void updateUser(User user) throws SQLException;
 	
-	 void deleteUser(User user) throws SQLException;
+	 boolean deleteUser(Integer id) throws SQLException;
 	
 	 List<User> getAllUsers() throws SQLException;
 	

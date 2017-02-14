@@ -17,7 +17,7 @@ import by.pvt.heldyieu.command.ServletCommand;
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet(urlPatterns ={"/Servlet", "/act"})
+@WebServlet(urlPatterns ={"/Servlet", "/act", "/showMagazines"})
 public class Servlet extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(Servlet.class);
 	private static final long serialVersionUID = 1L;

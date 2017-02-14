@@ -21,7 +21,7 @@ public class ShowAllMagazinesCommand implements ServletCommand {
 
     private static String magazinePage;
     private static String errorPage;
-    private static String resultPage;
+    private static String resultPage = null;
     List<Magazine> listOfMagazines = new ArrayList<Magazine>();
 	
 	public ShowAllMagazinesCommand() {

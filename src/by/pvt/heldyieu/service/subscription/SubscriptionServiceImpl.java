@@ -2,7 +2,9 @@ package by.pvt.heldyieu.service.subscription;
 
 import java.sql.SQLException;
 import java.util.List;
+
 import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.dao.implementation.SubscriptionDAOImpl;
 import by.pvt.heldyieu.entity.Subscription;
 
@@ -41,9 +43,9 @@ private static final Logger LOGGER = Logger.getLogger(SubscriptionServiceImpl.cl
 		subscriptionDao.update(subscription);
     }
 	@Override
-	public void deleteSubscription(Subscription subscription) throws SQLException {
+	public boolean deleteSubscription(Integer id) throws SQLException {
 		LOGGER.info("Try to delete subscription");
-		subscriptionDao.delete(subscription);
+		return subscriptionDao.delete(id);
     }
 	@Override
 	public List<Subscription> getAllSubscriptions() throws SQLException {

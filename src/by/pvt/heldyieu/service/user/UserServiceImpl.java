@@ -41,9 +41,9 @@ public class UserServiceImpl implements IUserService{
 		userDao.update(user);
     }
 	@Override
-	public void deleteUser(User user) throws SQLException {
+	public boolean deleteUser(Integer id) throws SQLException {
 		LOGGER.info("Try to delete user");
-		userDao.delete(user);
+		return userDao.delete(id);
     }
 	@Override
 	public List<User> getAllUsers() throws SQLException {

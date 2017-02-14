@@ -13,7 +13,7 @@ public interface IMagazineService {
 	
 	 void updateMagazine(Magazine magazine) throws SQLException;
 	
-	 void deleteMagazine(Magazine magazine) throws SQLException;
+	 boolean deleteMagazine(Integer id) throws SQLException;
 	
 	 List<Magazine> getAllMagazines() throws SQLException;
 	

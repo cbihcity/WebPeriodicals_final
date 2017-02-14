@@ -38,6 +38,15 @@
 												<td>${mag.name}</td>
 												<td>${mag.type}</td>
 												<td>${mag.price}</td>
+												<c:if test="${sessionScope.user.userType == 'ADMIN'}">
+												<td>
+													<form action="act" method="post">
+                                                    <input type="hidden" name="command" value="delMag" />  
+                                                    <input type="hidden" name="mag_id" value="${mag.id}"/>
+                                                    <input type="submit" value="Удалить магазин" />
+                                                	</form> 
+												</td>
+												</c:if>
 											</tr>
 										</c:forEach>
 									</table>

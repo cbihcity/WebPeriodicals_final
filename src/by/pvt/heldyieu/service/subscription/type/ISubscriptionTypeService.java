@@ -11,7 +11,7 @@ public interface ISubscriptionTypeService {
 	
 	 void updateSubscriptionType(SubscriptionType subscriptionType) throws SQLException;
 	
-	 void deleteSubscriptionType(SubscriptionType subscriptionType) throws SQLException;
+	 boolean deleteSubscriptionType(Integer id) throws SQLException;
 	
 	 List<SubscriptionType> getAllSubscriptionTypes() throws SQLException;
 	

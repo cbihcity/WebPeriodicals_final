@@ -43,9 +43,9 @@ public class MagazineServiceImpl implements IMagazineService {
     }
 	
 	@Override
-	public void deleteMagazine(Magazine magazine) throws SQLException {
+	public boolean deleteMagazine(Integer id) throws SQLException {
 		LOGGER.info("Try to delete magazine");
-		magazineDao.delete(magazine);
+		return magazineDao.delete(id);
     }
 	
 	@Override
