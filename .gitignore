@@ -68,3 +68,4 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+WebContent/WEB-INF/log4j-my.properties
