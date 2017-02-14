@@ -3,11 +3,6 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
-	<servlet>
-        <servlet-name>Servlet</servlet-name>
-        <servlet-class>by.pvt.heldyieu.servlet.Servlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
     <servlet> 
      <servlet-name>log4j-init</servlet-name>
      <servlet-class>by.pvt.heldyieu.servlet.Log4jInit</servlet-class> 
@@ -41,10 +36,6 @@
         <servlet-name>index-page</servlet-name>
         <jsp-file>/jsp/index.jsp</jsp-file>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>Servlet</servlet-name>
-        <url-pattern>/act/*</url-pattern>
-    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>error-page</servlet-name>
         <url-pattern>/error</url-pattern>
@@ -94,22 +85,18 @@
 		<location>/jsp/error/error400.jsp</location>
 	</error-page>
 
-	<!--Unauthorized -->
 	<error-page>
 		<error-code>401</error-code>
 		<location>/jsp/error/error401.jsp</location>
 	</error-page>
 
-	<!--Forbidden -->
 	<error-page>
 		<error-code>403</error-code>
 		<location>/jsp/error/error403.jsp</location>
 	</error-page>
 
-	<!--Missing resource -->
 	<error-page>
 		<error-code>404</error-code>
 		<location>/jsp/error/error404.jsp</location>
 	</error-page>
-	
 </web-app>
