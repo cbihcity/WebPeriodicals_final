@@ -45,7 +45,11 @@ private static final Logger LOGGER = Logger.getLogger(SubscriptionServiceImpl.cl
 	@Override
 	public boolean deleteSubscription(Integer id) throws SQLException {
 		LOGGER.info("Try to delete subscription");
-		return subscriptionDao.delete(id);
+		try {
+			return subscriptionDao.delete(id);
+		} catch (Exception e) {
+			throw new SQLException(e);
+		}
     }
 	@Override
 	public List<Subscription> getAllSubscriptions() throws SQLException {

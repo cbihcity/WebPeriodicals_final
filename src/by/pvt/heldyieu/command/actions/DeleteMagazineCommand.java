@@ -32,17 +32,20 @@ public class DeleteMagazineCommand implements ServletCommand {
 				if (result) {
 					request.setAttribute("sucessmessage", "Журнал успешно удален!");
 					resultPage =  sucessPage;
+				} 
+			} catch (SQLException e) {
+				String error = e.toString();
+				if (error.contains("constraint fails")) {
+					int startLog = error.indexOf("(");
+					request.setAttribute("errormessage",
+							"Невозможно удалить запись, пока она используется в дочерней таблице - "+
+					error.substring(startLog+1,error.indexOf(",",startLog)));
+					resultPage = errorPage;
 				} else {
-					LOGGER.error("SqlException at DeleteMagazineCommand");
 					request.setAttribute("errormessage",
 							"SqlException at DeleteMagazineCommand");
 					resultPage = errorPage;
 				}
-			} catch (SQLException e) {
-				LOGGER.error("SqlException at DeleteMagazineCommand");
-				request.setAttribute("errormessage",
-						"SqlException at DeleteMagazineCommand");
-				resultPage = errorPage;
 			}
 		return resultPage;
 	}

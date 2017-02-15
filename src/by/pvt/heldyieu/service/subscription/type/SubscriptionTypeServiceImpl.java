@@ -2,7 +2,9 @@ package by.pvt.heldyieu.service.subscription.type;
 
 import java.sql.SQLException;
 import java.util.List;
+
 import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.dao.implementation.SubscriptionTypeDAOImpl;
 import by.pvt.heldyieu.entity.SubscriptionType;
 
@@ -43,7 +45,11 @@ public class SubscriptionTypeServiceImpl implements ISubscriptionTypeService{
 	@Override
 	public boolean deleteSubscriptionType(Integer id) throws SQLException {
 		LOGGER.info("Try to delete SubscriptionType");
-		return subscriptionTypeDao.delete(id);
+		try {
+			return subscriptionTypeDao.delete(id);
+		} catch (Exception e) {
+			throw new SQLException(e);
+		}
     }
 	@Override
 	public List<SubscriptionType> getAllSubscriptionTypes() throws SQLException {

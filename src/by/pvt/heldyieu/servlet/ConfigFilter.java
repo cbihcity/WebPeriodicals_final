@@ -24,18 +24,15 @@ public class ConfigFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
-		// устанавливаем кодировку
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
 		try {
-			// смотрим куки
 			initSession(((HttpServletRequest) request).getSession(),
 					(HttpServletRequest) request);
 		} catch (RuntimeException e) {
 			LOGGER.error(e.getMessage());
 		}
-
 		chain.doFilter(request, response);
 	}
 
@@ -43,20 +40,18 @@ public class ConfigFilter implements Filter {
 			Cookie[] cookies = request.getCookies();
 			if (cookies != null) {
 				for (Cookie c : cookies) {
-					// looking for user id (for authorize purpose)
 					if ((c.getName()).equals(ID)) {
 						try {
 							User user = UserServiceImpl.getInstance().getUser(
 									Integer.parseInt(c.getValue()));
 							session.setAttribute("user", user);
-							
 						} catch (SQLException e) {
 							LOGGER.error(e.getMessage());
 						}
 					}
-				}// end of foreach loop
-			}// end of if(cookies != null)
-		}// end of if(session)
+				}
+			}
+		}
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
