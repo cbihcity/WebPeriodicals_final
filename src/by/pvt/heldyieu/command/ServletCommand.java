@@ -2,7 +2,6 @@ package by.pvt.heldyieu.command;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import by.pvt.heldyieu.resources.ResourceManager;
 
 public interface ServletCommand {

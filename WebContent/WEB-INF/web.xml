@@ -20,6 +20,10 @@
         <servlet-name>editMag-page</servlet-name>
         <jsp-file>/jsp/editMag.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>editUser-page</servlet-name>
+        <jsp-file>/jsp/editUser.jsp</jsp-file>
+    </servlet>
      <servlet>
         <servlet-name>error-page</servlet-name>
         <jsp-file>/jsp/error/error.jsp</jsp-file>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>editMag-page</servlet-name>
         <url-pattern>/editMag</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editUser-page</servlet-name>
+        <url-pattern>/editUser</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>register-page</servlet-name>

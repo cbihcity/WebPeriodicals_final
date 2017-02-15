@@ -33,7 +33,7 @@ public class AddMagazineCommand implements ServletCommand {
 					.valueOf(request.getParameter(PRICE).trim()));
 			try {
 				MagazineServiceImpl.getInstance().addMagazine(magazine);
-				request.setAttribute("sucessmessage", "Журнал Добавлен!");
+				request.setAttribute("sucessmessage", "Издание добавлено!");
 				resultPage = sucessPage;
 			} catch (SQLException e) {
 				LOGGER.error("SqlException at AddMagazineCommand");
@@ -47,5 +47,4 @@ public class AddMagazineCommand implements ServletCommand {
 		}
 		return resultPage;
 	}
-
 }

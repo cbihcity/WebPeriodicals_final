@@ -9,6 +9,14 @@
 				<c:when test="${not empty sessionScope.user}">
 					<tr>
 						<td>
+							<form action="Index" method="post">
+								<input type="hidden" name="command" value="index" /> 
+								<input type="submit" value="Main Page" class="Button" />
+							</form>
+						</td>
+					</tr>
+					<tr>
+						<td>
 							<form action="showMagazines" method="post">
 								<input type="hidden" name="command" value="magazines" /> 
 								<input type="submit" value="Show All Magazines" class="Button" />
@@ -19,7 +27,7 @@
 			</c:choose>
 			<c:if test="${sessionScope.user.userType == 'ADMIN'}">
 				<tr>
-					<td style="font-size: 9px; text-align: center">-Админ панель-
+					<td style="font-size: 10px; text-align: center">-Панель Администратора-
 					</td>
 				</tr>
 				<tr>

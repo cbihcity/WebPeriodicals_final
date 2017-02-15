@@ -9,13 +9,12 @@ import by.pvt.heldyieu.enums.CategoryType;
 public class GetListCategoryCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(GetListCategoryCommand.class);
-
     private static String addMagazinePage;
     private static String errorPage;
     private static String resultPage = null;
 	
 	public GetListCategoryCommand() {
-		LOGGER.info("Initializing GetListCategoryCommand commans");
+		LOGGER.info("Initializing GetListCategoryCommand command");
 		addMagazinePage = resmanager.getProperty("addMagazinePage");
 		errorPage = resmanager.getProperty("errorPage");
 	}

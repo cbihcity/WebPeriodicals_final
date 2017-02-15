@@ -17,9 +17,9 @@ import by.pvt.heldyieu.command.ServletCommand;
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet(urlPatterns ={"/Servlet", "/act", "/showMagazines", "/editMagazine", "/usersList"})
-public class Servlet extends HttpServlet {
-	private static final Logger LOGGER = Logger.getLogger(Servlet.class);
+@WebServlet(urlPatterns ={"/Index", "/act", "/showMagazines", "/editMagazine", "/usersList"})
+public class Index extends HttpServlet {
+	private static final Logger LOGGER = Logger.getLogger(Index.class);
 	private static final long serialVersionUID = 1L;
 	private CommandManager client = CommandManager.getInstance(); 
 	
@@ -27,7 +27,7 @@ public class Servlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Servlet() {
+	public Index() {
 		super();
 	}
 	@Override

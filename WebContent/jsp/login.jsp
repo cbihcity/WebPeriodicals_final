@@ -28,7 +28,6 @@
 			<c:otherwise>
 				<div class="authorized">
 					<b>Hello ${sessionScope.user.firstName}!</b> 
-					<br/><b>Your session - ${sessionScope.user.userType}!</b> 
 					<br/><b>Your mail - ${sessionScope.user.email}!</b>
 					<br/> 
 					<a href="act?command=logout">Log Out</a>

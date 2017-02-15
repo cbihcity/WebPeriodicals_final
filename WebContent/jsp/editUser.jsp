@@ -40,7 +40,7 @@
                                                 <tr>
                                                     <td>Category</td>
                                                     <td>
-                                                    <select name="type">
+                                                    <select name="category">
                                               		<c:forEach begin="0" end="${fn:length(requestScope.list)-1}" var="type">
                                                     <option value="${list[type]}">${list[type]}</option>
                                                     </c:forEach> 

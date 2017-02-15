@@ -40,7 +40,11 @@ public class UserServiceImpl implements IUserService{
 	@Override
 	public void updateUser(User user) throws SQLException {
 		LOGGER.info("Try to update user");
-		userDao.update(user);
+		try {
+			userDao.update(user);
+		} catch (SQLException e) {
+			throw new SQLException(e);
+		}
     }
 	@Override
 	public boolean deleteUser(Integer id) throws SQLException {

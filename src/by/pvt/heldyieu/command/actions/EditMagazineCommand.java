@@ -21,7 +21,7 @@ public class EditMagazineCommand implements ServletCommand {
     private String resultPage = null;
 	
 	public EditMagazineCommand() {
-		LOGGER.info("Initializing EditMagazineCommand commans");
+		LOGGER.info("Initializing EditMagazineCommand command");
 		sucessPage = resmanager.getProperty("sucessPage");
 		errorPage = resmanager.getProperty("errorPage");
 	}

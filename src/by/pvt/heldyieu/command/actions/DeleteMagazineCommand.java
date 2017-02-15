@@ -17,7 +17,7 @@ public class DeleteMagazineCommand implements ServletCommand {
     private String resultPage = null;
 	
 	public DeleteMagazineCommand() {
-		LOGGER.info("Initializing DeleteMagazineCommand commans");
+		LOGGER.info("Initializing DeleteMagazineCommand command");
 		sucessPage = resmanager.getProperty("sucessPage");
 		errorPage = resmanager.getProperty("errorPage");
 	}
@@ -27,27 +27,28 @@ public class DeleteMagazineCommand implements ServletCommand {
 			HttpServletResponse response) {
 		magazineServiceImpl = MagazineServiceImpl.getInstance();
 		
-			try {
-				boolean result = magazineServiceImpl.deleteMagazine(Integer.valueOf(request.getParameter("mag_id")));
-				if (result) {
-					request.setAttribute("sucessmessage", "Журнал успешно удален!");
-					resultPage =  sucessPage;
-				} 
-			} catch (SQLException e) {
-				String error = e.toString();
-				if (error.contains("constraint fails")) {
-					int startLog = error.indexOf("(");
+			
+				boolean result = false;
+				try {
+					result = magazineServiceImpl.deleteMagazine(Integer.valueOf(request.getParameter("mag_id")));
+					if (result) {
+						request.setAttribute("sucessmessage", "Издание успешно удалено!");
+						resultPage =  sucessPage;
+					} 
+				 else {
+						request.setAttribute("errormessage",
+								"SqlException at DeleteMagazineCommand");
+						resultPage = errorPage;
+					}
+				} catch (NumberFormatException e) {
 					request.setAttribute("errormessage",
-							"Невозможно удалить запись, пока она используется в дочерней таблице - "+
-					error.substring(startLog+1,error.indexOf(",",startLog)));
+							"NumberFormatException at DeleteMagazineCommand");
 					resultPage = errorPage;
-				} else {
+				} catch (SQLException e) {
 					request.setAttribute("errormessage",
 							"SqlException at DeleteMagazineCommand");
 					resultPage = errorPage;
 				}
-			}
 		return resultPage;
 	}
-
 }

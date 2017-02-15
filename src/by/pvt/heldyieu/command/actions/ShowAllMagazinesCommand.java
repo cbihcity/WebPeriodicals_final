@@ -25,7 +25,7 @@ public class ShowAllMagazinesCommand implements ServletCommand {
     List<Magazine> listOfMagazines = new ArrayList<Magazine>();
 	
 	public ShowAllMagazinesCommand() {
-		LOGGER.info("Initializing ShowAllMagazines commans");
+		LOGGER.info("Initializing ShowAllMagazines command");
 		magazinePage = resmanager.getProperty("magazinePage");
 		errorPage = resmanager.getProperty("errorPage");
 	}

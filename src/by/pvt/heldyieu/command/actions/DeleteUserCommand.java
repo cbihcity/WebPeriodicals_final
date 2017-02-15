@@ -20,7 +20,7 @@ public class DeleteUserCommand implements ServletCommand {
     private String resultPage = null;
 	
 	public DeleteUserCommand() {
-		LOGGER.info("Initializing DeleteUserCommand commans");
+		LOGGER.info("Initializing DeleteUserCommand command");
 		sucessPage = resmanager.getProperty("sucessPage");
 		errorPage = resmanager.getProperty("errorPage");
 	}

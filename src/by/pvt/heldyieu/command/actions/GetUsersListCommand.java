@@ -20,7 +20,7 @@ public class GetUsersListCommand implements ServletCommand {
 	    List<User> listOfUsers = new ArrayList<User>();
 		
 		public GetUsersListCommand() {
-			LOGGER.info("Initializing GetUsersListCommand commans");
+			LOGGER.info("Initializing GetUsersListCommand command");
 			usersPage = resmanager.getProperty("usersPage");
 			errorPage = resmanager.getProperty("errorPage");
 		}

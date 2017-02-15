@@ -11,8 +11,10 @@ import by.pvt.heldyieu.command.actions.AddUserCommand;
 import by.pvt.heldyieu.command.actions.DeleteMagazineCommand;
 import by.pvt.heldyieu.command.actions.DeleteUserCommand;
 import by.pvt.heldyieu.command.actions.EditMagazineCommand;
+import by.pvt.heldyieu.command.actions.EditUserCommand;
 import by.pvt.heldyieu.command.actions.GetListCategoryCommand;
 import by.pvt.heldyieu.command.actions.GetUsersListCommand;
+import by.pvt.heldyieu.command.actions.IndexCommand;
 import by.pvt.heldyieu.command.actions.LoginCommand;
 import by.pvt.heldyieu.command.actions.LogoutCommand;
 import by.pvt.heldyieu.command.actions.PrepareEditMagazineCommand;
@@ -24,13 +26,11 @@ public class CommandManager {
 	private static final Logger LOGGER = Logger.getLogger(CommandManager.class);
 	private static CommandManager instance;
 	private HashMap<String, ServletCommand> commands;
-    //private static String errorPage;
 
     public CommandManager(){
         LOGGER.info("Initializing CommandManager");
-
         commands = new HashMap<>();
-
+        commands.put("index", new IndexCommand());
         commands.put("login", new LoginCommand());
         commands.put("logout", new LogoutCommand());
         commands.put("magazines", new ShowAllMagazinesCommand());
@@ -43,34 +43,7 @@ public class CommandManager {
         commands.put("users", new GetUsersListCommand());
         commands.put("delUser", new DeleteUserCommand());
         commands.put("prepareEditUser", new PrepareEditUserCommand());
-        //commands.put("/register", new RegisterCommand());
-//        commands.put("/magazine", new MagazinePageCommand());
-//        commands.put("/category", new CategoryPageCommand());
-//        commands.put("/admin/dashboard", new AdminPageCommand());
-//        commands.put("/subscribe", new SubscribePageCommand());
-//
-//        //admin categories
-//        commands.put("/admin/categories", new CategoriesAdminPageCommand());
-//        commands.put("/admin/categories/add", new AddCategoryAdminPageCommand());
-//        commands.put("/admin/categories/delete", new DeleteCategoryAdminCommand());
-//        commands.put("/admin/categories/update", new UpdateCategoryAdminCommand());
-//        commands.put("/admin/categories/edit", new EditCategoryAdminPageCommand());
-//
-//        //admin publishers
-//        commands.put("/admin/publishers", new PublishersAdminPageCommand());
-//        commands.put("/admin/publishers/edit", new EditPublisherAdminPageCommand());
-//        commands.put("/admin/publishers/add", new AddPublisherAdminPageCommand());
-//        commands.put("/admin/publishers/delete", new DeletePublisherAdminCommand());
-//        commands.put("/admin/publishers/update", new UpdatePublisherAdminCommand());
-//
-//        //admin users
-//        commands.put("/admin/users", new UsersAdminPageCommand());
-//
-//        //admin magazines
-//        commands.put("/admin/magazines", new MagazinesAdminPageCommand());
-//        commands.put("/admin/magazines/add", new AddMagazineAdminPageCommand());
-
-       // errorPage = resmanager.getProperty("errorPage");
+        commands.put("editUser", new EditUserCommand());
     }
     public static CommandManager getInstance() {
         if (instance == null) {
@@ -78,6 +51,7 @@ public class CommandManager {
         }
         return instance;
     }
+    
     /**
      * This method is used to get a command instance based on a request.
      *

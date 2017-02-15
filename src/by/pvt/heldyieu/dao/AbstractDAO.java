@@ -117,6 +117,7 @@ public abstract class AbstractDAO<T extends Identified, PK extends Number> imple
         } catch (Exception e) {
         	LOGGER.info(e.getMessage(), e);
             System.out.println(ERROR_SQL_EXECUTE);
+            throw new SQLException(e);
         }
     }
 

@@ -1,12 +1,9 @@
 package by.pvt.heldyieu.command.actions;
 
 import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Logger;
-
 import by.pvt.heldyieu.command.ServletCommand;
 import by.pvt.heldyieu.entity.Magazine;
 import by.pvt.heldyieu.enums.CategoryType;
@@ -22,7 +19,7 @@ public class PrepareEditMagazineCommand implements ServletCommand {
     private String resultPage = null;
 	
 	public PrepareEditMagazineCommand() {
-		LOGGER.info("Initializing ShowAllMagazines commans");
+		LOGGER.info("Initializing PrepareEditMagazineCommand command");
 		editMagPage = resmanager.getProperty("editMagPage");
 		errorPage = resmanager.getProperty("errorPage");
 	}
