@@ -30,6 +30,14 @@
 						</form>
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<form action="usersList" method="post">
+							<input type="hidden" name="command" value="users" />
+							<input type="submit" name="submit" value="Users" class="Button"/>
+						</form>
+					</td>
+				</tr>
 			</c:if>
 		</table>
 	</div>

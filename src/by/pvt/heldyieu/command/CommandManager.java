@@ -9,11 +9,14 @@ import org.apache.log4j.Logger;
 import by.pvt.heldyieu.command.actions.AddMagazineCommand;
 import by.pvt.heldyieu.command.actions.AddUserCommand;
 import by.pvt.heldyieu.command.actions.DeleteMagazineCommand;
+import by.pvt.heldyieu.command.actions.DeleteUserCommand;
 import by.pvt.heldyieu.command.actions.EditMagazineCommand;
 import by.pvt.heldyieu.command.actions.GetListCategoryCommand;
+import by.pvt.heldyieu.command.actions.GetUsersListCommand;
 import by.pvt.heldyieu.command.actions.LoginCommand;
 import by.pvt.heldyieu.command.actions.LogoutCommand;
 import by.pvt.heldyieu.command.actions.PrepareEditMagazineCommand;
+import by.pvt.heldyieu.command.actions.PrepareEditUserCommand;
 import by.pvt.heldyieu.command.actions.ShowAllMagazinesCommand;
 
 
@@ -37,6 +40,9 @@ public class CommandManager {
         commands.put("editMag", new EditMagazineCommand());
         commands.put("prepareEditMag", new PrepareEditMagazineCommand());
         commands.put("getListsCategory", new GetListCategoryCommand());
+        commands.put("users", new GetUsersListCommand());
+        commands.put("delUser", new DeleteUserCommand());
+        commands.put("prepareEditUser", new PrepareEditUserCommand());
         //commands.put("/register", new RegisterCommand());
 //        commands.put("/magazine", new MagazinePageCommand());
 //        commands.put("/category", new CategoryPageCommand());

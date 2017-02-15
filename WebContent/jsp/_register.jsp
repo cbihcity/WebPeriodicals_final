@@ -3,7 +3,7 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <script type="text/javascript" src="js/validation.js"></script>
-<div class="add_user">
+<div class="Index">
 	<form action="act" method="post" autocomplete="off" onsubmit="return ValidationEvent();">
 		<input type="hidden" name="command" value="register" />
 		<h1>Регистрация нового пользователя</h1>
@@ -43,7 +43,7 @@
                     </td>
                 </tr>
             </table>
-		<input style="margin: 0px 15%" class="RegButton" type="submit"
+		<input style="margin: 0px 15%" class="Button" type="submit"
 			name="submit" value="Register" />
 	</form>
 </div>

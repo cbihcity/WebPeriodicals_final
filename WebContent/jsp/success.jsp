@@ -22,12 +22,9 @@
 						</td>
 						<td class="right_content">
 							<div class="Index">
-								<div class="IndexTitle"></div>
-								<div class="IndexMessage">
 								<div style="margin: 0; font: medium sans-serif;">
                                     ${sucessmessage}
                                 </div>
-								</div>
 							</div> 
 						</td>
 					</tr>

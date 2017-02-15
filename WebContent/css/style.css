@@ -32,7 +32,7 @@ tbody {
 }
 
 tr {
-	width:100%;
+	width:50%;
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
@@ -176,10 +176,7 @@ a {
 
 .main_table{
     margin:0px;
-    width:100%;
-    min-width: 1210px;
-    min-height: 750px;
-    padding: 0px;
+    width:auto;
     background-color: #F6F6F6;
     border-top-width: 0px;
     border-right-width: 0px;
@@ -209,8 +206,7 @@ a {
 }
 
 .right_content{
-    width:70%;
-    padding:5px 5px;
+    width:80%;
     background-color: #F6F6F6;
     background-image:  url(../images/bg_index_video.jpg);
     background-position: right bottom;
@@ -262,22 +258,6 @@ a {
     margin:10px 5px;
 }
 
-.menu{
-    margin:0px;
-}
-
-.menu tr {
-    margin:0px 0px;
-    padding:0px 0px;
-}
-
-.menu tr td{
-    margin:0px 0px;
-    padding:0px 0px;
-}
-/* end of menu*/
-/* end of content */
-
 #footer{
     height:auto;
     width: 100%;
@@ -298,29 +278,6 @@ a {
     margin-bottom:5px;
 }
 
-.add_mag {
-    padding: 0px 0px;
-}
-
-.add_mag_table {
-    margin-top: 20px;
-    margin-bottom: 0px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-
-.add_film_table td {
-    font-size: 11px;
-}
-
-.add_film_table td input {
-    width: 202px;
-}
-
-.add_film_table td textarea {
-    width: 200px;
-}
-
 .add_user {
     padding: 0px 0px;
 }
@@ -328,8 +285,7 @@ a {
 .add_user_table {
     margin-top: 20px;
     margin-bottom: 5px;
-    margin-left: 40px;
-    margin-right: 40px;
+    
 }
 
 .add_user_table td input {
@@ -355,17 +311,6 @@ a {
     width: 200px;
 }
 
-#error {
-    margin-top: 10px;
-    margin-left: 0px;
-    margin-right: 5px;
-    margin-bottom: 10px;
-    width: 98%; 
-    background-color: gray; 
-    color: black; 
-    font-size: larger;
-    font-style: italic;
-}
 
 .Gadget  {
     background: url(../images/gadget-smooth-line.gif) repeat-y;
@@ -418,8 +363,8 @@ a {
     text-align: center;
 }
 
-.MagOrdersTable td {
-	width:100%;
+.Table td {
+	width:33.3%;
     font-family: arial, sans-serif;
     text-align: center;
     vertical-align: text-top;
@@ -454,29 +399,11 @@ a {
 }
 
 .Index {
-    background: url(../images/bg_index.jpg) no-repeat 50% 0;
-    width: 950px;
-    height: 603px;
-    padding: 0px 0px;
+    width: 100%;
+    padding: 5%;
     margin: 0px 0px;
     
 }
-.IndexTitle {
-/*    position: absolute;
-    top:200px;
-    left: 650px;*/
-    padding: 50px;
-    font-size: 24px;
-    font-family: cursive;
-}
- 
-.IndexMessage {
-    margin:60px;
-    width: 400px;
-    font-family: cursive;
-}
-
-/* BUTTONS */
 
 .Button{
     width: 130px;

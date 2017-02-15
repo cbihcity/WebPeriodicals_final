@@ -33,6 +33,10 @@
         <jsp-file>/jsp/magazines.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>users-page</servlet-name>
+        <jsp-file>/jsp/users.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>register-page</servlet-name>
         <jsp-file>/jsp/register.jsp</jsp-file>
     </servlet>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>magazines-page</servlet-name>
         <url-pattern>/magazines</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>users-page</servlet-name>
+        <url-pattern>/users</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>addMag-page</servlet-name>

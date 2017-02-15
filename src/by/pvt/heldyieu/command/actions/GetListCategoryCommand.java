@@ -15,7 +15,7 @@ public class GetListCategoryCommand implements ServletCommand {
     private static String resultPage = null;
 	
 	public GetListCategoryCommand() {
-		LOGGER.info("Initializing ShowAllMagazines commans");
+		LOGGER.info("Initializing GetListCategoryCommand commans");
 		addMagazinePage = resmanager.getProperty("addMagazinePage");
 		errorPage = resmanager.getProperty("errorPage");
 	}

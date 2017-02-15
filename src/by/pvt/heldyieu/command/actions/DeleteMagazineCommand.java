@@ -17,7 +17,7 @@ public class DeleteMagazineCommand implements ServletCommand {
     private String resultPage = null;
 	
 	public DeleteMagazineCommand() {
-		LOGGER.info("Initializing ShowAllMagazines commans");
+		LOGGER.info("Initializing DeleteMagazineCommand commans");
 		sucessPage = resmanager.getProperty("sucessPage");
 		errorPage = resmanager.getProperty("errorPage");
 	}

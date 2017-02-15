@@ -21,20 +21,15 @@
 						</td>
 						<td class="right_content">
 							<div class="Index">
-								<div class="IndexTitle"></div>
-								<div class="IndexMessage">
-									<table class="MagOrdersTable">
+							<h1>Список доступных изданий:</h1>
+									<table class="Table">
 										<tr>
-											<td><b>id</b></td>
 											<td><b>Name</b></td>
 											<td><b>Category</b></td>
 											<td><b>Price</b></td>
-											<td style="border-style: none;"></td>
-											<td style="border-style: none;"></td>
 										</tr>
 										<c:forEach var="mag" items="${requestScope.list}">
 											<tr>
-												<td>${mag.id}</td>
 												<td>${mag.name}</td>
 												<td>${mag.type}</td>
 												<td>${mag.price}</td>
@@ -43,21 +38,20 @@
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="delMag" />  
                                                     <input type="hidden" name="mag_id" value="${mag.id}"/>
-                                                    <input type="submit" value="Удалить магазин" class="Button"/>
+                                                    <input type="submit" value="Удалить издание" class="Button"/>
                                                 	</form> 
 												</td>
 												<td>
 													<form action="editMagazine" method="post">
                                                     <input type="hidden" name="command" value="prepareEditMag" />  
                                                     <input type="hidden" name="mag_id" value="${mag.id}"/>
-                                                    <input type="submit" value="Изменить магазин" class="Button"/>
+                                                    <input type="submit" value="Изменить издание" class="Button"/>
                                                 	</form> 
 												</td>
 												</c:if>
 											</tr>
 										</c:forEach>
 									</table>
-								</div>
 							</div>
 						</td>
 					</tr>

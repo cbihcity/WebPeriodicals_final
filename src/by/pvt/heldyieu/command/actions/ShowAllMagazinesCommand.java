@@ -41,7 +41,7 @@ public class ShowAllMagazinesCommand implements ServletCommand {
 				resultPage =  magazinePage;
 			}
 		} catch (SQLException e) {
-			LOGGER.error("SqlException at LoginUserAction");
+			LOGGER.error("SqlException at ShowAllMagazinesCommand");
         	request.setAttribute("errormessage", "SqlException at ShowAllMagazinesCommand");
         	resultPage =  errorPage;
 		}
