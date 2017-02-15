@@ -2,7 +2,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
-<title>Add Magazine</title>
+<title>Edit Magazine</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
@@ -23,16 +23,16 @@
                         <c:if test="${sessionScope.user.userType == 'ADMIN'}">
 						<td class="right_content">
                                     <div class="add_mag">
-                                    	<h1>Форма добавления нового издания</h1>
+                                    	<h1>Форма изменение издания</h1>
                                         <form action="act" method="post" autocomplete="off">
-                                            <input type="hidden" name="command" value="addMag" />
+                                            <input type="hidden" name="command" value="editMag" />
+                                            <input type="hidden" name="mag_id" value="${mag.id}" />
                                             <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
                                             <table class="add_mag_table">
                                                 <tr>
                                                     <td>Название</td>
-                                                    <td><input type="text" name="name"/></td>
+                                                    <td><input type="text" name="name" value="${mag.name}"/></td>
                                                 </tr>
-                                                
                                                 <tr>
                                                     <td>Категория</td>
                                                     <td>
@@ -45,10 +45,10 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Цена</td>
-                                                    <td><input type="text" name="price" /></td>
+                                                    <td><input type="text" name="price" value="${mag.price}"/></td>
                                                 </tr>
                                             </table>
-                                            <input type="submit" name="submit" value="Добавить" class="Button"/>
+                                            <input type="submit" name="submit" value="Изменить" class="Button"/>
                                         </form>
                                     </div>
                             </td>

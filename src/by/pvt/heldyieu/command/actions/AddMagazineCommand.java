@@ -28,8 +28,7 @@ public class AddMagazineCommand implements ServletCommand {
 				&& request.getParameter(TYPE) != ""
 				&& request.getParameter(PRICE) != "") {
 			magazine.setName(request.getParameter(NAME).trim());
-			magazine.setType(CategoryType.values()[Integer.valueOf(request
-					.getParameter(TYPE)) - 1]);
+			magazine.setType(CategoryType.valueOf(request.getParameter(TYPE)));
 			magazine.setPrice(Double
 					.valueOf(request.getParameter(PRICE).trim()));
 			try {

@@ -10,8 +10,8 @@
 					<tr>
 						<td>
 							<form action="showMagazines" method="post">
-								<input type="hidden" name="command" value="magazines" /> <input
-									type="submit" value="Show All Magazines" />
+								<input type="hidden" name="command" value="magazines" /> 
+								<input type="submit" value="Show All Magazines" class="Button" />
 							</form>
 						</td>
 					</tr>
@@ -24,8 +24,9 @@
 				</tr>
 				<tr>
 					<td>
-						<form action="addMag" method="post">
-							<input type="submit" name="submit" value="Add Magazine" />
+						<form action="act" method="post">
+							<input type="hidden" name="command" value="getListsCategory" />
+							<input type="submit" name="submit" value="Add Magazine" class="Button"/>
 						</form>
 					</td>
 				</tr>

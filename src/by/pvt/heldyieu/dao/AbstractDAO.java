@@ -112,6 +112,7 @@ public abstract class AbstractDAO<T extends Identified, PK extends Number> imple
             int count = statement.executeUpdate();
             if (count != 1) {
             	LOGGER.info("On update modify more then 1 record: " + count);
+            	throw new SQLException();
             }
         } catch (Exception e) {
         	LOGGER.info(e.getMessage(), e);

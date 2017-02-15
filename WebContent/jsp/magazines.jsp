@@ -43,7 +43,14 @@
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="delMag" />  
                                                     <input type="hidden" name="mag_id" value="${mag.id}"/>
-                                                    <input type="submit" value="Удалить магазин" />
+                                                    <input type="submit" value="Удалить магазин" class="Button"/>
+                                                	</form> 
+												</td>
+												<td>
+													<form action="editMagazine" method="post">
+                                                    <input type="hidden" name="command" value="prepareEditMag" />  
+                                                    <input type="hidden" name="mag_id" value="${mag.id}"/>
+                                                    <input type="submit" value="Изменить магазин" class="Button"/>
                                                 	</form> 
 												</td>
 												</c:if>

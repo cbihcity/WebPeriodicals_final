@@ -209,7 +209,7 @@ a {
 }
 
 .right_content{
-    width:50%;
+    width:70%;
     padding:5px 5px;
     background-color: #F6F6F6;
     background-image:  url(../images/bg_index_video.jpg);
@@ -223,7 +223,7 @@ a {
     margin:5px;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
-    padding: 0px;
+    padding: px;
     font-family: Georgia, "Times New Roman", Times, serif;
     background-image: none;
     width: 200px;
@@ -478,116 +478,14 @@ a {
 
 /* BUTTONS */
 
-.LoginButton{
-    background: url(../images/loginbutton.gif) no-repeat 0 0;
-    width: 75px;
-    padding-bottom: 3px;
-    height: 30px;
+.Button{
+    width: 130px;
+    margin: 1px;
+    padding: 3px;
+    height: 25px;
     border: 1px;
     font-size: 11px;
     color: #400080;
     background-color: #c0c0c0;
     cursor: pointer;
-}
-
-.RegButton{
-    background: url(../images/regbutton.gif) no-repeat 0 0;
-    width: 75px;
-    padding-bottom: 3px;
-    height: 30px;
-    border: 0px;
-    font-size: 11px;
-    color: #666666;
-    background-color: white;
-    cursor: pointer;
-}
-
-.FilmButton{
-    background: url(../images/moviebutton.gif) no-repeat 0 0;
-    width: 164px;
-    padding-bottom: 3px;
-    height: 30px;
-    border: 0px;
-    font-size: 11px;
-    color: #666666;
-    background-color: white;
-    cursor: pointer;
-}
-
-.EditButton {
-    background: url(../images/loginbutton.gif) no-repeat 0 0;
-    width: 75px;
-    padding-bottom: 3px;
-    height: 30px;
-    border: 0px;
-    font-size: 11px;
-    color: #666666;
-    background-color: #FFFFFF;
-    cursor: pointer;
-    position: absolute;
-    top: 170px;
-}
-
-.ContinueButton { 
-    background: url(../images/moviebutton.gif) no-repeat 0 0;
-    width: 164px;
-    padding-bottom: 3px;
-    height: 30px;
-    border: 0px;
-    font-size: 11px;
-    color: #666666;
-    background-color: white;
-    cursor: pointer;
-}
-
-.DeliveredButton {
-    background-image: url(../images/delivered_button.png);
-    background-color: white;
-    background-repeat: no-repeat;
-    background-position: 0 -25px;
-    text-indent: -9000px;
-    width: 25px;
-    height: 25px;
-    border: 0px;
-    cursor: pointer;
-}
-
-.CancelButton {
-    background-image: url(../images/cancel_button.png);
-    background-color: white;
-    background-repeat: no-repeat;
-    background-position: 0 -25px;
-    text-indent: -9000px;
-    width: 25px;
-    height: 25px;
-    border: 0px;
-    cursor: pointer;
-}
-
-.CancelButton:hover {
-    background-position: 0 0px;
-}
-
-.DeliveredButton:hover {
-    background-position: 0 0px;
-}
-
-.LoginButton:hover {
-    background-position: 0 -31px;
-}
-
-.RegButton:hover {
-    background-position: 0 -31px;
-}
-
-.FilmButton:hover {
-    background-position: 0 -31px;
-}
-
-.EditButton:hover {
-    background-position: 0 -31px;
-}
-
-.ContinueButton:hover {
-    background-position: 0 -31px;
 }

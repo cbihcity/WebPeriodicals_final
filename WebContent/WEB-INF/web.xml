@@ -16,6 +16,10 @@
         <servlet-name>addMag-page</servlet-name>
         <jsp-file>/jsp/addMag.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>editMag-page</servlet-name>
+        <jsp-file>/jsp/editMag.jsp</jsp-file>
+    </servlet>
      <servlet>
         <servlet-name>error-page</servlet-name>
         <jsp-file>/jsp/error/error.jsp</jsp-file>
@@ -51,6 +55,10 @@
     <servlet-mapping>
         <servlet-name>addMag-page</servlet-name>
         <url-pattern>/addMag</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editMag-page</servlet-name>
+        <url-pattern>/editMag</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>register-page</servlet-name>

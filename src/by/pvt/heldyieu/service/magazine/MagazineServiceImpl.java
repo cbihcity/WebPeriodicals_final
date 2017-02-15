@@ -39,7 +39,11 @@ public class MagazineServiceImpl implements IMagazineService {
 	@Override
 	public void updateMagazine(Magazine magazine) throws SQLException {
 		LOGGER.info("Try to update magazine");
-		magazineDao.update(magazine);
+		try {
+			magazineDao.update(magazine);
+		} catch (SQLException e) {
+			throw new SQLException(e);
+		}
     }
 	
 	@Override
