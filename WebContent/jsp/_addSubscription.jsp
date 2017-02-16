@@ -23,11 +23,12 @@
 						<td class="right_content">
 							<div class="Index">
                                     <div class="add_mag">
-                                    	<h1>Форма добавления новой подписки</h1>
+                                    	<h1>Оформление подписки</h1>
                                         <form action="act" method="post" autocomplete="off">
-                                            <input type="hidden" name="command" value="countTotalPrice" />
-                                            <input type="hidden" name="mag_id" value="${mag.id}"/>
-                                            <input type="hidden" name="user" value="${sessionScope.user}"/>
+                                            <input type="hidden" name="command" value="addSub" />
+                                            <input type="hidden" name="mag_id" value="${mag}"/>
+                                            <input type="hidden" name="type_id" value="${type.id}"/>
+                                            <input type="hidden" name="user_id" value="${sessionScope.user.id}"/>
                                             <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
                                             <table class="Table">
                                                 <tr>
@@ -45,16 +46,14 @@
                                                 </tr>
                                             	<tr>
                                                     <td><b>Тип подписки</b></td>
-                                                    <td>
-                                                    <select name="type_id">
-                                                    <c:forEach var="type" items="${requestScope.list}">
-                                                   	<option value="${type.id}">${type.name}</option>
-                                                   	  	</c:forEach> 
-                                                    </select>
-                                                    </td>
+                                                    <td><input type="text" name="type" value="${type.name}" readonly="readonly"/></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><b>Общая сумма подписки</b></td>
+                                                    <td><input type="text" name="totalprice" value="${total}" readonly="readonly"/></td>
                                                 </tr>
                                             </table>
-                                            <input type="submit" name="submit" value="Итоговая стоимость" class="Button"/>
+                                            <input type="submit" name="submit" value="Оформить подписку" class="Button"/>
                                         </form>
                                     </div>
                                 </div>

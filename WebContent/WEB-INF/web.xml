@@ -36,6 +36,10 @@
         <servlet-name>addSubscription-page</servlet-name>
         <jsp-file>/jsp/addSubscription.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>_addSubscription-page</servlet-name>
+        <jsp-file>/jsp/_addSubscription.jsp</jsp-file>
+    </servlet>
      <servlet>
         <servlet-name>error-page</servlet-name>
         <jsp-file>/jsp/error/error.jsp</jsp-file>
@@ -107,6 +111,10 @@
     <servlet-mapping>
         <servlet-name>addSubscription-page</servlet-name>
         <url-pattern>/addSubscription</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>_addSubscription-page</servlet-name>
+        <url-pattern>/_addSubscription</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>register-page</servlet-name>
