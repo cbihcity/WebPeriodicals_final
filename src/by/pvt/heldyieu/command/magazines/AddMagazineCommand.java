@@ -11,6 +11,7 @@ import by.pvt.heldyieu.enums.CategoryType;
 import by.pvt.heldyieu.service.magazine.MagazineServiceImpl;
 
 public class AddMagazineCommand implements ServletCommand {
+	
 	private static final Logger LOGGER = Logger.getLogger(AddMagazineCommand.class);
 	private final String NAME = "name";
     private final String TYPE = "type";

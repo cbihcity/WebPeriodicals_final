@@ -49,6 +49,17 @@
                                                 	</form> 
 												</td>
 												</c:if>
+												<c:if test="${sessionScope.user.userType == 'USER'}">
+												<td>
+													<form action="act" method="post">
+                                                    <input type="hidden" name="command" value="updateCart" />  
+                                                    <input type="hidden" name="mag_id" value="${mag.id}"/>
+                                                    <input type="hidden" name="user" value="${sessionScope.user}"/>
+                                                    <input type="hidden" name="cart" value="${sessionScope.cart}"/>
+                                                    <input type="submit" value="Купить подписку" class="Button"/>
+                                                	</form> 
+												</td>
+												</c:if>
 											</tr>
 										</c:forEach>
 									</table>

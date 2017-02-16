@@ -29,8 +29,8 @@
 				<div class="authorized">
 					<b>Hello ${sessionScope.user.firstName}!</b> 
 					<br/><b>Your mail - ${sessionScope.user.email}!</b>
-					<br/> 
-					<a href="act?command=logout">Log Out</a>
+					<br/><a href="act?command=cart">Корзина : ${sessionScope.cart!=0 ? sessionScope.cart : '0'}</a>
+					<br/><a href="act?command=logout">Log Out</a>
 				</div>
 			</c:otherwise>
 		</c:choose>
