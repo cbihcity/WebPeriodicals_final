@@ -24,6 +24,14 @@
         <servlet-name>editUser-page</servlet-name>
         <jsp-file>/jsp/editUser.jsp</jsp-file>
     </servlet>
+    <servlet>
+        <servlet-name>editSubscriptionType-page</servlet-name>
+        <jsp-file>/jsp/editSubscriptionTypes.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>addSubscriptionType-page</servlet-name>
+        <jsp-file>/jsp/addSubscriptionTypes.jsp</jsp-file>
+    </servlet>
      <servlet>
         <servlet-name>error-page</servlet-name>
         <jsp-file>/jsp/error/error.jsp</jsp-file>
@@ -35,6 +43,10 @@
     <servlet>
         <servlet-name>magazines-page</servlet-name>
         <jsp-file>/jsp/magazines.jsp</jsp-file>
+    </servlet>
+    <servlet>
+        <servlet-name>subscriptionTypes-page</servlet-name>
+        <jsp-file>/jsp/subscriptionTypes.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>users-page</servlet-name>
@@ -61,6 +73,10 @@
         <url-pattern>/magazines</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>subscriptionTypes-page</servlet-name>
+        <url-pattern>/subscriptionTypes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>users-page</servlet-name>
         <url-pattern>/users</url-pattern>
     </servlet-mapping>
@@ -75,6 +91,14 @@
     <servlet-mapping>
         <servlet-name>editUser-page</servlet-name>
         <url-pattern>/editUser</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>editSubscriptionType-page</servlet-name>
+        <url-pattern>/editSubscriptionTypes</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>addSubscriptionType-page</servlet-name>
+        <url-pattern>/addSubscriptionTypes</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>register-page</servlet-name>

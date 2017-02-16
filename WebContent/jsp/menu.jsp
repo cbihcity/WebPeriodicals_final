@@ -46,6 +46,14 @@
 						</form>
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<form action="subscription_types" method="post">
+							<input type="hidden" name="command" value="subscriptionTypes" />
+							<input type="submit" name="submit" value="Subscription types" class="Button"/>
+						</form>
+					</td>
+				</tr>
 			</c:if>
 		</table>
 	</div>

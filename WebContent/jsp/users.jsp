@@ -19,6 +19,7 @@
 								<%@include file="/jsp/menu.jsp"%>
 							</div> <!-- end of menu -->
 						</td>
+						<c:if test="${sessionScope.user.userType == 'ADMIN'}">
 						<td class="right_content">
 							<div class="Index">
 							<h1>Список пользователей:</h1>
@@ -27,16 +28,12 @@
 											<td><b>First Name</b></td>
 											<td><b>Last Name</b></td>
 											<td><b>Category</b></td>
-											<td><b>Email</b></td>
-											<td><b>Password</b></td>
 										</tr>
 										<c:forEach var="user" items="${requestScope.list}">
 											<tr>
 												<td>${user.firstName}</td>
 												<td>${user.lastName}</td>
 												<td>${user.userType}</td>
-												<td>${user.email}</td>
-												<td>${user.password}</td>
 												<td>
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="delUser" />  
@@ -56,6 +53,7 @@
 									</table>
 							</div>
 						</td>
+						</c:if>
 					</tr>
 				</tbody>
 			</table>

@@ -1,4 +1,4 @@
-package by.pvt.heldyieu.command.actions;
+package by.pvt.heldyieu.command.user;
 
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;

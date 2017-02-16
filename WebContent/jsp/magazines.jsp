@@ -8,7 +8,7 @@
 <body>
 	<div class="wrapper">
 		<div id="content">
-			<table class="main_table">
+			<table class="main_table" >
 				<tbody>
 					<tr>
 						<td class="left_content">

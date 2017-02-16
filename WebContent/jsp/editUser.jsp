@@ -27,6 +27,8 @@
                                         <form action="act" method="post" autocomplete="off">
                                             <input type="hidden" name="command" value="editUser" />
                                             <input type="hidden" name="user_id" value="${user.id}" />
+                                            <input type="hidden" name="email" value="${user.email}" />
+                                            <input type="hidden" name="password" value="${user.password}" />
                                             <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
                                             <table class="add_mag_table">
                                                 <tr>
@@ -46,14 +48,6 @@
                                                     </c:forEach> 
                                                     </select>
                                                     </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Email</td>
-                                                    <td><input type="text" name="email" value="${user.email}"/></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Password</td>
-                                                    <td><input type="text" name="password" value="${user.password}"/></td>
                                                 </tr>
                                             </table>
                                             <input type="submit" name="submit" value="Изменить" class="Button"/>

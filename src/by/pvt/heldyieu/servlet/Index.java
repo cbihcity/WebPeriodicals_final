@@ -8,20 +8,24 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Logger;
-
 import by.pvt.heldyieu.command.CommandManager;
 import by.pvt.heldyieu.command.ServletCommand;
 
 /**
  * Servlet implementation class HelloWorld
  */
-@WebServlet(urlPatterns ={"/Index", "/act", "/showMagazines", "/editMagazine", "/usersList"})
+@WebServlet(urlPatterns ={"/Index", 
+		"/act", 
+		"/showMagazines", 
+		"/editMagazine", 
+		"/usersList",
+		"/editSubscriptionType",
+		"/subscription_types"})
 public class Index extends HttpServlet {
 	private static final Logger LOGGER = Logger.getLogger(Index.class);
 	private static final long serialVersionUID = 1L;
-	private CommandManager client = CommandManager.getInstance(); 
+	private CommandManager client = CommandManager.getInstance();
 	
 
 	/**

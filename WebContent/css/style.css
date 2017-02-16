@@ -364,7 +364,7 @@ a {
 }
 
 .Table td {
-	width:33.3%;
+	width:130px;
     font-family: arial, sans-serif;
     text-align: center;
     vertical-align: text-top;
@@ -376,27 +376,6 @@ a {
     border-spacing: 0px;
 }
 
-.OrderStatus:hover {
-    background-color: #F0F0F0;
-}
-
-.StatusButtonCell {
-    vertical-align: middle;
-    border: 0px;
-    border-style: none;
-    padding: 0px 0px;
-}
-
-.StatusButtonCellDiv {
-    margin: 0px 0px;
-    width: 100%; 
-    height: 100%; 
-    background-color: white;
-}
-
-.StatusButtonCell:hover {
-    background-color: white;
-}
 
 .Index {
     width: 100%;

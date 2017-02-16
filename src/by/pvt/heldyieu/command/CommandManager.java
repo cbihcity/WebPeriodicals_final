@@ -6,20 +6,26 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
-import by.pvt.heldyieu.command.actions.AddMagazineCommand;
-import by.pvt.heldyieu.command.actions.AddUserCommand;
-import by.pvt.heldyieu.command.actions.DeleteMagazineCommand;
-import by.pvt.heldyieu.command.actions.DeleteUserCommand;
-import by.pvt.heldyieu.command.actions.EditMagazineCommand;
-import by.pvt.heldyieu.command.actions.EditUserCommand;
-import by.pvt.heldyieu.command.actions.GetListCategoryCommand;
-import by.pvt.heldyieu.command.actions.GetUsersListCommand;
+import by.pvt.heldyieu.command.SubscriptionTypes.AddSubscriptionTypeCommand;
+import by.pvt.heldyieu.command.SubscriptionTypes.DeleteSubscriptionTypesCommand;
+import by.pvt.heldyieu.command.SubscriptionTypes.EditSubscriptionTypeCommand;
+import by.pvt.heldyieu.command.SubscriptionTypes.PrepareEditSubscriptionTypesCommand;
+import by.pvt.heldyieu.command.SubscriptionTypes.ReferAddSubscriptionTypeCommand;
+import by.pvt.heldyieu.command.SubscriptionTypes.ShowSubscriptionTypesCommand;
 import by.pvt.heldyieu.command.actions.IndexCommand;
 import by.pvt.heldyieu.command.actions.LoginCommand;
 import by.pvt.heldyieu.command.actions.LogoutCommand;
-import by.pvt.heldyieu.command.actions.PrepareEditMagazineCommand;
-import by.pvt.heldyieu.command.actions.PrepareEditUserCommand;
-import by.pvt.heldyieu.command.actions.ShowAllMagazinesCommand;
+import by.pvt.heldyieu.command.magazines.AddMagazineCommand;
+import by.pvt.heldyieu.command.magazines.DeleteMagazineCommand;
+import by.pvt.heldyieu.command.magazines.EditMagazineCommand;
+import by.pvt.heldyieu.command.magazines.PrepareEditMagazineCommand;
+import by.pvt.heldyieu.command.magazines.ShowAllMagazinesCommand;
+import by.pvt.heldyieu.command.user.AddUserCommand;
+import by.pvt.heldyieu.command.user.DeleteUserCommand;
+import by.pvt.heldyieu.command.user.EditUserCommand;
+import by.pvt.heldyieu.command.user.GetListCategoryCommand;
+import by.pvt.heldyieu.command.user.GetUsersListCommand;
+import by.pvt.heldyieu.command.user.PrepareEditUserCommand;
 
 
 public class CommandManager {
@@ -44,6 +50,12 @@ public class CommandManager {
         commands.put("delUser", new DeleteUserCommand());
         commands.put("prepareEditUser", new PrepareEditUserCommand());
         commands.put("editUser", new EditUserCommand());
+        commands.put("subscriptionTypes", new ShowSubscriptionTypesCommand());
+        commands.put("delSubscriptionTypes", new DeleteSubscriptionTypesCommand());
+        commands.put("prepareEditSubscriptionTypes", new PrepareEditSubscriptionTypesCommand());
+        commands.put("editSubscriptionType", new EditSubscriptionTypeCommand());
+        commands.put("referAddSubscriptionType", new ReferAddSubscriptionTypeCommand());
+        commands.put("addSubscriptionType", new AddSubscriptionTypeCommand());
     }
     public static CommandManager getInstance() {
         if (instance == null) {

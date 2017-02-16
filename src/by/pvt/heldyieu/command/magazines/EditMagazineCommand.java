@@ -1,4 +1,4 @@
-package by.pvt.heldyieu.command.actions;
+package by.pvt.heldyieu.command.magazines;
 
 import java.sql.SQLException;
 

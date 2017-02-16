@@ -2,7 +2,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
-<title>Add Magazine</title>
+<title>Edit SubscriptionType</title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
@@ -22,37 +22,25 @@
                             </td>
                         <c:if test="${sessionScope.user.userType == 'ADMIN'}">
 						<td class="right_content">
-							<div class="Index">
                                     <div class="add_mag">
-                                    	<h1>Форма добавления нового издания</h1>
+                                    	<h1>Форма изменения типа подписки</h1>
                                         <form action="act" method="post" autocomplete="off">
-                                            <input type="hidden" name="command" value="addMag" />
+                                            <input type="hidden" name="command" value="editSubscriptionType" />
+                                            <input type="hidden" name="type_id" value="${type.id}" />
                                             <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
-                                            <table class="Table">
+                                            <table class="add_mag_table">
                                                 <tr>
-                                                    <td><b>Название</b></td>
-                                                    <td><input type="text" name="name"/></td>
-                                                </tr>
-                                                
-                                                <tr>
-                                                    <td><b>Категория</b></td>
-                                                    <td>
-                                                    <select name="type">
-                                              		<c:forEach begin="0" end="${fn:length(requestScope.list)-1}" var="type">
-                                                    <option value="${list[type]}">${list[type]}</option>
-                                                    </c:forEach> 
-                                                    </select>
-                                                    </td>
+                                                    <td>Name</td>
+                                                    <td><input type="text" name="name" value="${type.name}"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><b>Цена</b></td>
-                                                    <td><input type="text" name="price" /></td>
+                                                    <td>Month Value</td>
+                                                    <td><input type="text" name="monthValue" value="${type.monthValue}"/></td>
                                                 </tr>
                                             </table>
-                                            <input type="submit" name="submit" value="Добавить" class="Button"/>
+                                            <input type="submit" name="submit" value="Изменить" class="Button"/>
                                         </form>
                                     </div>
-                                </div>
                             </td>
                             </c:if>
                         </tr>

@@ -1,4 +1,4 @@
-package by.pvt.heldyieu.command.actions;
+package by.pvt.heldyieu.command.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
