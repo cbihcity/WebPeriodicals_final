@@ -17,6 +17,7 @@ import by.pvt.heldyieu.command.SubscriptionTypes.PrepareEditSubscriptionTypesCom
 import by.pvt.heldyieu.command.SubscriptionTypes.ReferAddSubscriptionTypeCommand;
 import by.pvt.heldyieu.command.SubscriptionTypes.ShowSubscriptionTypesCommand;
 import by.pvt.heldyieu.command.actions.IndexCommand;
+import by.pvt.heldyieu.command.actions.LangCommand;
 import by.pvt.heldyieu.command.actions.LoginCommand;
 import by.pvt.heldyieu.command.actions.LogoutCommand;
 import by.pvt.heldyieu.command.magazines.AddMagazineCommand;
@@ -66,6 +67,7 @@ public class CommandManager {
         commands.put("countTotalPrice", new CountTotalPriceCommand());
         commands.put("showUserSubscriptions", new ShowUserSubscriptionsCommand());
         commands.put("delSub", new DeleteSubscriptionsCommand());
+        commands.put("lang", new LangCommand());
     }
     public static CommandManager getInstance() {
         if (instance == null) {

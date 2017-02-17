@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,15 +22,15 @@
 							onfocus="clearField('password','passAuthForm')"
 							onblur="restoreField('password','passAuthForm')" />
 					</div>
-					<input type="submit" value="Log in" class="Button" />
-					<a href="register">Register</a>
+					<input type="submit" value="Log in" class="Button" style="width: 100px"/>
+					<a href="register"><fmt:message key="reg.button"/></a>
 				</form>
 			</c:when>
 			<c:otherwise>
 				<div class="authorized">
-					<b>Hello ${sessionScope.user.firstName}!</b> 
-					<br/><b>Your mail - ${sessionScope.user.email}!</b>
-					<br/><a href="act?command=logout">Log Out</a>
+					<b><fmt:message key="auth.Hello"/>, ${sessionScope.user.firstName}!</b> 
+					<br/><b><fmt:message key="auth.email"/>  - ${sessionScope.user.email}!</b>
+					<br/><a href="act?command=logout"><fmt:message key="auth.out"/></a>
 				</div>
 			</c:otherwise>
 		</c:choose>

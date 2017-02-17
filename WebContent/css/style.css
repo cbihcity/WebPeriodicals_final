@@ -52,72 +52,6 @@ a {
     margin-bottom: 20px;
 }
 
-/*end of global*/
-
-/* header */
-
-.header{
-    height:87px;
-    width: 100%;
-    min-width: 1210px;
-    margin-top:50px;
-    margin-bottom:10px;
-    background-image:url(../images/trans.png);
-    background-repeat:repeat-x;
-    background-color:transparent;
-}
-
-.header_table{
-    margin:0px 0px;
-    width: 100%;	
-}
-
-.header_table tr td{	
-    margin:0px;
-    padding:5px;
-}
-
-.search_bar_frame {
-    height: 20px;
-    width: 180px;
-    background: url(../images/search-text-field.gif) no-repeat 0 0;
-    padding: 3px 0 0 15px;
-    float: right;
-    color: #666666;
-    margin-top: 2px;
-}
-
-.SearchButton{
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    border: 0px;
-    background: url(../images/search-button.gif) no-repeat 0 0;
-    background-color: white;
-    cursor: pointer;
-    margin: 0;
-    padding: 0;
-}
-
-.SearchField {
-    outline: none;
-    border: 0px;
-    color: #666666;
-    font-size: 12px;
-    font-family: Tahoma;
-    margin: 0;
-    padding: 0;
-}
-
-.locale_bar_frame{
-    margin-top: auto;
-    margin-right: auto;
-    margin-bottom: auto;
-    margin-left: auto;
-    padding: 3px 3px;
-    background-color: transparent;
-}
-
 .locale_bar {
     float: right;
     margin:2px 30px;
@@ -127,51 +61,12 @@ a {
     background-color: transparent;
 }
 
-#EnLangButton {
-    background: url(../images/en-lang.gif) no-repeat 0 0; 
-    padding-bottom: 3px;  
-    border: 0px; 
-    /*    font-size: 0px;
-        width: 30px;
-        height: 20px;*/
-    text-indent: -9000px;
-    width: 28px;
-    cursor: pointer;
-    color: #666666; 
-    background-color: #818181 
-}
  
-#RuLangButton {
-    background: url(../images/ru-lang.gif) no-repeat 0 0; 
-    padding-bottom: 3px; 
-    border: 0px; 
-    /*    font-size: 0px;
-        width: 30px;
-        height: 20px;*/
-    text-indent: -9000px;
-    width: 28px;
-    cursor: pointer;
-    color: #666666; 
-    background-color: #818181     
-}
-/* end of header */
-
-/* content */
 
 #content {
     margin-top:1px;
     background-color:transparent;
     min-width: 1210px;
-}
-
-.CartTitle {
-    height: 81px;
-    width: 350px;
-}
-
-.SearchTitle {
-    width: 100%;
-    height: 60px;
 }
 
 .main_table{
@@ -271,46 +166,6 @@ a {
     background-color: #F6F6F6;
     margin-top: auto;
 }
-
-.buy {
-    text-align:center;
-    vertical-align:bottom;
-    margin-bottom:5px;
-}
-
-.add_user {
-    padding: 0px 0px;
-}
-
-.add_user_table {
-    margin-top: 20px;
-    margin-bottom: 5px;
-    
-}
-
-.add_user_table td input {
-    width: 202px;
-}
-
-.make_order {
-    padding: 0px 0px;
-    font-family: cursive;
-}
-
-.make_order_table {
-    margin-top: 40px;
-    margin-bottom: 5px;
-    margin-left: 40px;
-    margin-right: 40px;
-}
-.make_order_table td input {
-    width: 202px;
-}
-
-.make_order_table td textarea {
-    width: 200px;
-}
-
 
 .Gadget  {
     background: url(../images/gadget-smooth-line.gif) repeat-y;

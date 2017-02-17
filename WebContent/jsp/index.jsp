@@ -1,11 +1,19 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<c:if test="${sessionScope.locale == 'locale_RU' or empty sessionScope.locale}" >
+    <fmt:setBundle basename="locale_ru_RU" />
+</c:if>
+<c:if test="${sessionScope.locale == 'locale_EN'}">
+    <fmt:setBundle basename="locale_en_EN" />
+</c:if>
 <html>
 <head>
-<title>Index</title>
+<title><fmt:message key="index.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
 <body>
+  <%@include file="/jsp/header.jsp" %>
 	<div class="wrapper">
 		<div id="content">
 			<table class="main_table">
@@ -18,13 +26,6 @@
 							<div class="menu_frame">
 								<%@include file="/jsp/menu.jsp"%>
 							</div>
-							<!-- end of menu -->
-						</td>
-						<td class="right_content">
-							<div class="Index">
-								<div class="IndexTitle"></div>
-								<div class="IndexMessage"></div>
-							</div> 
 						</td>
 					</tr>
 				</tbody>
