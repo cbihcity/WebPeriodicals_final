@@ -128,14 +128,15 @@ public class SubscriptionDAOImpl extends AbstractDAO<Subscription, Integer>{
 		
 	}
 	
-	public Subscription findSubscriptionByUser(String email) {
+	public List<Subscription> findSubscriptionByUser(String email) {
+		List<Subscription> list = new ArrayList<Subscription>();
 		LOGGER.info("Try to find Subscription by user email " + email);
 		ResultSet result = null;
-		Subscription subscription = new Subscription();
+		
 		try(PreparedStatement statement = connect.prepareStatement(getFindQuery())) {
 			statement.setInt(1, userDao.findUserByEmail(email).getId());
 			result = statement.executeQuery();
-			subscription = parseResultSet(result);
+			list = parseResultSetList(result);
 		} catch (SQLException e) {
 			LOGGER.error(e.getMessage());
 			System.out.println(ERROR_SQL_EXECUTE);
@@ -148,7 +149,7 @@ public class SubscriptionDAOImpl extends AbstractDAO<Subscription, Integer>{
 					System.out.println(ERROR_CLOSING_RESULTSET);
 				}
 			}
-		return subscription;
+		return list;
 	}
 	
 	private java.sql.Date convert(java.util.Date date) {

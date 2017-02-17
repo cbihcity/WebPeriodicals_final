@@ -23,6 +23,17 @@
 							</form>
 						</td>
 					</tr>
+					<c:if test="${sessionScope.user.userType == 'USER'}">
+					<tr>
+						<td>
+							<form action="act" method="post">
+								<input type="hidden" name="command" value="showUserSubscriptions" /> 
+								<input type="hidden" name="email" value="${sessionScope.user.email}" /> 
+								<input type="submit" value="My Subscriptions" class="Button" />
+							</form>
+						</td>
+					</tr>
+					</c:if>
 				</c:when>
 			</c:choose>
 			<c:if test="${sessionScope.user.userType == 'ADMIN'}">
@@ -53,6 +64,14 @@
 							<input type="submit" name="submit" value="Subscription types" class="Button"/>
 						</form>
 					</td>
+				</tr>
+				<tr>
+						<td>
+							<form action="act" method="post">
+								<input type="hidden" name="command" value="showUserSubscriptions" /> 
+								<input type="submit" value="All Subscriptions" class="Button" />
+							</form>
+						</td>
 				</tr>
 			</c:if>
 		</table>

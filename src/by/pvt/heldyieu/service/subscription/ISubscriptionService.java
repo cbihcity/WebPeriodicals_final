@@ -16,5 +16,5 @@ public interface ISubscriptionService {
 	
 	 List<Subscription> getAllSubscriptions() throws SQLException;
 	
-	 Subscription findSubscriptionByEmail(String email) throws SQLException;
+	 List<Subscription> findSubscriptionByEmail(String email) throws SQLException;
 }

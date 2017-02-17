@@ -124,7 +124,7 @@ public class Subscription implements Identified{
 		this.price = price;
 	}
 	
-	private static Date addDays(Date date, int month)
+	public static Date addDays(Date date, int month)
 	{
 	    Calendar cal = Calendar.getInstance();
 	    cal.setTime(date);

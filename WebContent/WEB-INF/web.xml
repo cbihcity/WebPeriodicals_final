@@ -61,6 +61,10 @@
         <jsp-file>/jsp/users.jsp</jsp-file>
     </servlet>
     <servlet>
+        <servlet-name>usersSubscriptions-page</servlet-name>
+        <jsp-file>/jsp/usersSubscriptions.jsp</jsp-file>
+    </servlet>
+    <servlet>
         <servlet-name>register-page</servlet-name>
         <jsp-file>/jsp/register.jsp</jsp-file>
     </servlet>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>users-page</servlet-name>
         <url-pattern>/users</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>usersSubscriptions-page</servlet-name>
+        <url-pattern>/usersSubscriptions</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>addMag-page</servlet-name>

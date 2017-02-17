@@ -57,7 +57,7 @@ private static final Logger LOGGER = Logger.getLogger(SubscriptionServiceImpl.cl
 		return subscriptionDao.getAll();
     }
 	@Override
-	public Subscription findSubscriptionByEmail(String email) throws SQLException {
+	public List<Subscription> findSubscriptionByEmail(String email) throws SQLException {
 		LOGGER.info("Try to find subscription by email");
 		return subscriptionDao.findSubscriptionByUser(email);
     }

@@ -26,7 +26,7 @@
                                     	<h1>Оформление подписки</h1>
                                         <form action="act" method="post" autocomplete="off">
                                             <input type="hidden" name="command" value="addSub" />
-                                            <input type="hidden" name="mag_id" value="${mag}"/>
+                                            <input type="hidden" name="mag_id" value="${mag.id}"/>
                                             <input type="hidden" name="type_id" value="${type.id}"/>
                                             <input type="hidden" name="user_id" value="${sessionScope.user.id}"/>
                                             <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>

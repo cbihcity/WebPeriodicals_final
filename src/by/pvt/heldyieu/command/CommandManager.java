@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 
 import by.pvt.heldyieu.command.Subscription.AddSubscriptionCommand;
 import by.pvt.heldyieu.command.Subscription.CountTotalPriceCommand;
+import by.pvt.heldyieu.command.Subscription.DeleteSubscriptionsCommand;
 import by.pvt.heldyieu.command.Subscription.PrepareAddSubscriptionCommand;
 import by.pvt.heldyieu.command.SubscriptionTypes.AddSubscriptionTypeCommand;
 import by.pvt.heldyieu.command.SubscriptionTypes.DeleteSubscriptionTypesCommand;
@@ -29,6 +30,7 @@ import by.pvt.heldyieu.command.user.EditUserCommand;
 import by.pvt.heldyieu.command.user.GetListCategoryCommand;
 import by.pvt.heldyieu.command.user.GetUsersListCommand;
 import by.pvt.heldyieu.command.user.PrepareEditUserCommand;
+import by.pvt.heldyieu.command.user.ShowUserSubscriptionsCommand;
 
 
 public class CommandManager {
@@ -62,6 +64,8 @@ public class CommandManager {
         commands.put("prepareAddSub", new PrepareAddSubscriptionCommand());
         commands.put("addSub", new AddSubscriptionCommand());
         commands.put("countTotalPrice", new CountTotalPriceCommand());
+        commands.put("showUserSubscriptions", new ShowUserSubscriptionsCommand());
+        commands.put("delSub", new DeleteSubscriptionsCommand());
     }
     public static CommandManager getInstance() {
         if (instance == null) {

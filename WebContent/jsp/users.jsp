@@ -28,12 +28,14 @@
 											<td><b>First Name</b></td>
 											<td><b>Last Name</b></td>
 											<td><b>Category</b></td>
+											<td><b>Email</b></td>
 										</tr>
 										<c:forEach var="user" items="${requestScope.list}">
 											<tr>
 												<td>${user.firstName}</td>
 												<td>${user.lastName}</td>
 												<td>${user.userType}</td>
+												<td>${user.email}</td>
 												<td>
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="delUser" />  

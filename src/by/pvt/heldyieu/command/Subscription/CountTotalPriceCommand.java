@@ -22,7 +22,7 @@ public class CountTotalPriceCommand implements ServletCommand {
     private String resultPage = null;
 	
 	public CountTotalPriceCommand() {
-		LOGGER.info("Initializing PrepareAddSubscriptionCommand command");
+		LOGGER.info("Initializing CountTotalPriceCommand command");
 		prepareAddSubscriptionPage = resmanager.getProperty("_addSubscriptionPage");
 		errorPage = resmanager.getProperty("errorPage");
 	}
