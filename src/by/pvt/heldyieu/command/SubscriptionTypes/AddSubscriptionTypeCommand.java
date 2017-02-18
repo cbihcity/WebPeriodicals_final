@@ -17,14 +17,14 @@ public class AddSubscriptionTypeCommand implements ServletCommand {
     
     private String sucessPage = resmanager.getProperty("sucessPage");
     private String errorPage = resmanager.getProperty("errorPage");
-    private String resultPage = null;
+    private String resultPage;
     
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		SubscriptionType subscriptionType = new SubscriptionType();
-		if (request.getParameter("name") != ""
-				&& request.getParameter("monthValue") != "") {
+		if (!request.getParameter("name").equals("")
+				&& !request.getParameter("monthValue").equals("")) {
 			subscriptionType.setName(request.getParameter("name").trim());
 			subscriptionType.setMonthValue(Integer.valueOf(request.getParameter("monthValue")));
 			try {

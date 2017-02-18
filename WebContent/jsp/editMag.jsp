@@ -10,9 +10,8 @@
 </c:if>
 <html>
 <head>
-<title>Edit Magazine</title>
+<title><fmt:message key="editMag.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
 <body>
   <%@include file="/jsp/header.jsp" %>
@@ -32,18 +31,18 @@
                         <c:if test="${sessionScope.user.userType == 'ADMIN'}">
 						<td class="right_content">
                                     <div class="add_mag">
-                                    	<h1>Форма изменение издания</h1>
+                                    	<h1><fmt:message key="editMag.form"/></h1>
                                         <form action="act" method="post" autocomplete="off">
                                             <input type="hidden" name="command" value="editMag" />
                                             <input type="hidden" name="mag_id" value="${mag.id}" />
-                                            <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
+                                            <b style="color: red; font-size: 11px;"><fmt:message key="reg.warning"/></b><br/>
                                             <table class="add_mag_table">
                                                 <tr>
-                                                    <td>Название</td>
+                                                    <td><fmt:message key="addMag.name"/></td>
                                                     <td><input type="text" name="name" value="${mag.name}"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Категория</td>
+                                                    <td><fmt:message key="addMag.category"/></td>
                                                     <td>
                                                     <select name="type">
                                               		<c:forEach begin="0" end="${fn:length(requestScope.list)-1}" var="type">
@@ -53,11 +52,11 @@
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Цена</td>
+                                                    <td><fmt:message key="addMag.price"/></td>
                                                     <td><input type="text" name="price" value="${mag.price}"/></td>
                                                 </tr>
                                             </table>
-                                            <input type="submit" name="submit" value="Изменить" class="Button"/>
+                                            <input type="submit" name="submit" value="<fmt:message key="editMag.button"/>" class="Button"/>
                                         </form>
                                     </div>
                             </td>

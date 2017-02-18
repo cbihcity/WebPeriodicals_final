@@ -15,10 +15,10 @@ import by.pvt.heldyieu.service.user.UserServiceImpl;
 public class PrepareEditUserCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(PrepareEditUserCommand.class);
-	private static UserServiceImpl userServiceImpl = null;
+	private UserServiceImpl userServiceImpl;
     private String errorPage;
     private String editUserPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public PrepareEditUserCommand() {
 		LOGGER.info("Initializing PrepareEditUserCommand command");

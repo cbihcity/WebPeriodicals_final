@@ -12,10 +12,10 @@ public class DeleteSubscriptionsCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(DeleteSubscriptionsCommand.class);
 
-	private static SubscriptionServiceImpl subscriptionServiceImpl;
+	private SubscriptionServiceImpl subscriptionServiceImpl;
     private String errorPage;
     private String sucessPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public DeleteSubscriptionsCommand() {
 		LOGGER.info("Initializing DeleteSubscriptionsCommand command");

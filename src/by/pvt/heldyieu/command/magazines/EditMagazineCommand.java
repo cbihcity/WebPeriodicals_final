@@ -15,10 +15,10 @@ import by.pvt.heldyieu.service.magazine.MagazineServiceImpl;
 public class EditMagazineCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(EditMagazineCommand.class);
-	private static MagazineServiceImpl magazineServiceImpl = null;
+	private MagazineServiceImpl magazineServiceImpl;
     private String errorPage;
     private String sucessPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public EditMagazineCommand() {
 		LOGGER.info("Initializing EditMagazineCommand command");
@@ -30,9 +30,9 @@ public class EditMagazineCommand implements ServletCommand {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		magazineServiceImpl = MagazineServiceImpl.getInstance();
-		if (request.getParameter("name") != ""
-				&& request.getParameter("type") != ""
-				&& request.getParameter("price") != "") {
+		if (!request.getParameter("name").equals("")
+				&& !request.getParameter("type").equals("")
+				&& !request.getParameter("price").equals("")) {
 			try {
 				Magazine mag = new Magazine();
 				mag.setId(Integer.valueOf(request.getParameter("mag_id")));

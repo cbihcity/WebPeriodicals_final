@@ -9,9 +9,8 @@
 </c:if>
 <html>
 <head>
-<title>Magazines</title>
+<title><fmt:message key="mag.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
 <body>
  <%@include file="/jsp/header.jsp" %>
@@ -30,12 +29,12 @@
 						</td>
 						<td class="right_content">
 							<div class="Index">
-							<h1>Список доступных изданий:</h1>
+							<h1><fmt:message key="mag.listTitle"/>:</h1>
 									<table class="Table">
 										<tr>
-											<td><b>Name</b></td>
-											<td><b>Category</b></td>
-											<td><b>Price</b></td>
+											<td><b><fmt:message key="addMag.name"/></b></td>
+											<td><b><fmt:message key="addMag.category"/></b></td>
+											<td><b><fmt:message key="addMag.price"/></b></td>
 										</tr>
 										<c:forEach var="mag" items="${requestScope.list}">
 											<tr>
@@ -47,14 +46,14 @@
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="delMag" />  
                                                     <input type="hidden" name="mag_id" value="${mag.id}"/>
-                                                    <input type="submit" value="Удалить издание" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="mag.deleteButton"/>" class="Button"/>
                                                 	</form> 
 												</td>
 												<td>
 													<form action="editMagazine" method="post">
                                                     <input type="hidden" name="command" value="prepareEditMag" />  
                                                     <input type="hidden" name="mag_id" value="${mag.id}"/>
-                                                    <input type="submit" value="Изменить издание" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="mag.editButton"/>" class="Button"/>
                                                 	</form> 
 												</td>
 												</c:if>
@@ -64,7 +63,7 @@
                                                     <input type="hidden" name="command" value="prepareAddSub" />  
                                                     <input type="hidden" name="mag_id" value="${mag.id}"/>
                                                     <input type="hidden" name="user" value="${sessionScope.user}"/>
-                                                    <input type="submit" value="Купить подписку" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="mag.buyButton"/>" class="Button"/>
                                                 	</form> 
 												</td>
 												</c:if>

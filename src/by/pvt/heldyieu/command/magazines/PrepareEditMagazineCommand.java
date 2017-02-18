@@ -13,10 +13,10 @@ public class PrepareEditMagazineCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(PrepareEditMagazineCommand.class);
 
-	private static MagazineServiceImpl magazineServiceImpl = null;
+	private MagazineServiceImpl magazineServiceImpl;
     private String errorPage;
     private String editMagPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public PrepareEditMagazineCommand() {
 		LOGGER.info("Initializing PrepareEditMagazineCommand command");

@@ -15,11 +15,11 @@ public class PrepareAddSubscriptionCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(PrepareAddSubscriptionCommand.class);
 
-	private static MagazineServiceImpl magazineServiceImpl;
-	private static SubscriptionTypeServiceImpl subscriptionTypeServiceImpl;
+	private MagazineServiceImpl magazineServiceImpl;
+	private SubscriptionTypeServiceImpl subscriptionTypeServiceImpl;
     private String errorPage;
     private String prepareAddSubscriptionPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public PrepareAddSubscriptionCommand() {
 		LOGGER.info("Initializing PrepareAddSubscriptionCommand command");

@@ -15,7 +15,7 @@ import by.pvt.heldyieu.service.user.UserServiceImpl;
 
 public class LoginCommand implements ServletCommand {
 	private static final Logger LOGGER = Logger.getLogger(LoginCommand.class);
-    private static String errorPage;
+    private String errorPage;
 	
 	public LoginCommand() {
 		LOGGER.info("Initializing LoginCommand");
@@ -30,7 +30,7 @@ public class LoginCommand implements ServletCommand {
 		LOGGER.info("Executing command");
 		HttpSession session = request.getSession();
 				
-		if (reqEmail !="" && reqPass!= "") {
+		if (!reqEmail.equals("") && !reqPass.equals("")) {
             try {
             	User user = UserServiceImpl.getInstance().findUserByEmail(reqEmail, reqPass);
                 if (user == null) {

@@ -9,9 +9,8 @@
 </c:if>
 <html>
 <head>
-<title>subscriptionTypes</title>
+<title><fmt:message key="subsciptionType.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
 <body>
   <%@include file="/jsp/header.jsp" %>
@@ -31,11 +30,11 @@
 						<td class="right_content">
 						<c:if test="${sessionScope.user.userType == 'ADMIN'}">
 							<div class="Index">
-							<h1>Список типов возможных подписок:</h1>
+							<h1><fmt:message key="subsciptionType.list"/>:</h1>
 									<table class="Table">
 										<tr>
-											<td><b>Name</b></td>
-											<td><b>Month Value</b></td>
+											<td><b><fmt:message key="addMag.name"/></b></td>
+											<td><b><fmt:message key="addSubType.month"/></b></td>
 										</tr>
 										<c:forEach var="type" items="${requestScope.list}">
 											<tr>
@@ -45,14 +44,14 @@
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="delSubscriptionTypes" />  
                                                     <input type="hidden" name="type_id" value="${type.id}"/>
-                                                    <input type="submit" value="Удалить тип подписки" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="subsciptionType.delete"/>" class="Button"/>
                                                 	</form> 
 												</td>
 												<td>
 													<form action="editSubscriptionType" method="post">
                                                     <input type="hidden" name="command" value="prepareEditSubscriptionTypes" />  
                                                     <input type="hidden" name="type_id" value="${type.id}"/>
-                                                    <input type="submit" value="Изменить тип подписки" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="subsciptionType.edit"/>" class="Button"/>
                                                 	</form> 
 												</td>
 											</tr>
@@ -63,7 +62,7 @@
 									<td>
 									<form action="act" method="post">
                                                     <input type="hidden" name="command" value="referAddSubscriptionType" />  
-                                                    <input type="submit" value="Добавить тип подписки" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="subsciptionType.add"/>" class="Button"/>
                                     </form> 
                                     </td>
                                     </tr>

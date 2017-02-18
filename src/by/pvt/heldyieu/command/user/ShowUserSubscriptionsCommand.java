@@ -13,10 +13,10 @@ import by.pvt.heldyieu.service.subscription.SubscriptionServiceImpl;
 public class ShowUserSubscriptionsCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(ShowUserSubscriptionsCommand.class);
-	private static SubscriptionServiceImpl subscriptionServiceImpl;
-    private static String usersSubscriptionsPage;
-    private static String errorPage;
-    private static String resultPage = null;
+	private SubscriptionServiceImpl subscriptionServiceImpl;
+    private String usersSubscriptionsPage;
+    private String errorPage;
+    private String resultPage;
     List<Subscription> listOfSubscriptions = new ArrayList<>();
 	
 	public ShowUserSubscriptionsCommand() {
@@ -36,7 +36,7 @@ public class ShowUserSubscriptionsCommand implements ServletCommand {
 					request.setAttribute("list", listOfSubscriptions);
 					resultPage =  usersSubscriptionsPage;
 				} else {
-					request.setAttribute("errormessage", "SqlException at ShowAllMagazinesCommand");
+					request.setAttribute("errormessage", "SqlException at ShowUserSubscriptionsCommand");
 		        	resultPage =  errorPage;
 				}
 			} else {
@@ -45,14 +45,14 @@ public class ShowUserSubscriptionsCommand implements ServletCommand {
 					request.setAttribute("list", listOfSubscriptions);
 					resultPage =  usersSubscriptionsPage;
 				} else {
-					request.setAttribute("errormessage", "SqlException at ShowAllMagazinesCommand");
+					request.setAttribute("errormessage", "SqlException at ShowUserSubscriptionsCommand");
 		        	resultPage =  errorPage;
 				}
 			}
 			
 		} catch (SQLException e) {
 			LOGGER.error("SqlException at ShowAllMagazinesCommand");
-        	request.setAttribute("errormessage", "SqlException at ShowAllMagazinesCommand");
+        	request.setAttribute("errormessage", "SqlException at ShowUserSubscriptionsCommand");
         	resultPage =  errorPage;
 		}
 		return resultPage;

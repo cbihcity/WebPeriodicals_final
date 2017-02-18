@@ -9,9 +9,8 @@
 </c:if>
 <html>
 <head>
-<title>Register User</title>
+<title><fmt:message key="reg.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
 <body>
   <%@include file="/jsp/header.jsp" %>

@@ -6,44 +6,43 @@
 <div class="Index">
 	<form action="act" method="post" autocomplete="off" onsubmit="return ValidationEvent();">
 		<input type="hidden" name="command" value="register" />
-		<h1>Регистрация нового пользователя</h1>
-		<b style="color: gray; font-size: 11px;"><i style="color: red">*</i>All
-			fields must be set!</b>
+		<h1><fmt:message key="reg.title"/></h1>
+		<b style="color: gray; font-size: 11px;"><i style="color: red">*</i><fmt:message key="reg.warning"/></b>
 		<table class="add_user_table">
                 <tr>
-                    <td style="vertical-align: top"><i style="color: red">*First Name:</i></td>
+                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.firstName"/>:</i></td>
                     <td><input type="text" name="first_name" id="first_name" maxlength="15"/>
                         <br/><b id="first_name" style="color: red; font-size: 10px;">
-                            Only latin or only russian letters up to 15 symbols
+                            <fmt:message key="reg.nameWarning"/>
                         </b>
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: top"><i style="color: red">*Last Name:</i></td>
+                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.lastName"/>:</i></td>
                     <td><input type="text" name="last_name" id="last_name" />
                         <br/><b id="last_name" style="color: red; font-size: 10px;">
-                            Only latin or only russian letters up to 15 symbols
+                            <fmt:message key="reg.nameWarning"/>
                         </b>
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: top"><i style="color: red">*Email:</i></td>
+                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.Email"/>:</i></td>
                     <td><input type="text" name="email" id="email" />
                         <br/><b id="email" style="color: red; font-size: 10px;">
-                            Examples: test@local.com.
+                            <fmt:message key="reg.emailWarning"/>
                         </b>
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: top"><i style="color: red">*Password:</i></td>
+                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.password"/>:</i></td>
                     <td><input type="password" name="pass" id="password" />
                         <br/><b id="password" style="color: red; font-size: 10px;">
-                            Latin letters, digits, *, ! or ^ at least 6 symbols up to 15
-                        </b>
+                              <fmt:message key="reg.passWarning"/>
+                             </b>
                     </td>
                 </tr>
             </table>
-		<input style="margin: 0px 15%" class="Button" type="submit"
-			name="submit" value="Register" />
+		<input style="margin: 0px  150px" class="Button" type="submit"
+			name="submit" value="<fmt:message key="reg.button"/>" />
 	</form>
 </div>

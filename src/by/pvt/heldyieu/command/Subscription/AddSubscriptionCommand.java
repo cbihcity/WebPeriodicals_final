@@ -21,7 +21,7 @@ public class AddSubscriptionCommand implements ServletCommand {
     
     private String sucessPage = resmanager.getProperty("sucessPage");
     private String errorPage = resmanager.getProperty("errorPage");
-    private String resultPage = null;
+    private String resultPage;
     
 	@Override
 	public String execute(HttpServletRequest request,

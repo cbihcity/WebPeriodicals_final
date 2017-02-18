@@ -10,9 +10,8 @@
 </c:if>
 <html>
 <head>
-<title>Add Magazine</title>
+<title><fmt:message key="addSub.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
 <body>
   <%@include file="/jsp/header.jsp" %>
@@ -32,28 +31,28 @@
 						<td class="right_content">
 							<div class="Index">
                                     <div class="add_mag">
-                                    	<h1>Форма добавления новой подписки</h1>
+                                    	<h1><fmt:message key="addSub.form"/></h1>
                                         <form action="act" method="post" autocomplete="off">
                                             <input type="hidden" name="command" value="countTotalPrice" />
                                             <input type="hidden" name="mag_id" value="${mag.id}"/>
                                             <input type="hidden" name="user" value="${sessionScope.user}"/>
-                                            <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
+                                            <b style="color: red; font-size: 11px;"><fmt:message key="reg.warning"/></b><br/>
                                             <table class="Table">
                                                 <tr>
-                                                    <td><b>Название</b></td>
+                                                    <td><b><fmt:message key="addMag.name"/></b></td>
                                                     <td><input type="text" name="name" value="${mag.name}" readonly="readonly"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><b>Категория</b></td>
+                                                    <td><b><fmt:message key="addMag.category"/></b></td>
                                                     <td><input type="text" name="category" value="${mag.type}" readonly="readonly"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><b>Cтоимость журнала</b></td>
+                                                    <td><b><fmt:message key="addMag.price"/></b></td>
                                                     <td><input type="text" name="price" value="${mag.price}" readonly="readonly"/></td>
                                                     
                                                 </tr>
                                             	<tr>
-                                                    <td><b>Тип подписки</b></td>
+                                                    <td><b><fmt:message key="addSub.type"/></b></td>
                                                     <td>
                                                     <select name="type_id">
                                                     <c:forEach var="type" items="${requestScope.list}">
@@ -63,7 +62,7 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <input type="submit" name="submit" value="Итоговая стоимость" class="Button"/>
+                                            <input type="submit" name="submit" value="<fmt:message key="addSub.total"/>" class="Button"/>
                                         </form>
                                     </div>
                                 </div>

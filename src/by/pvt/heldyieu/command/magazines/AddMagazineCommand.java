@@ -18,15 +18,15 @@ public class AddMagazineCommand implements ServletCommand {
     
     private String sucessPage = resmanager.getProperty("sucessPage");
     private String errorPage = resmanager.getProperty("errorPage");
-    private String resultPage = null;
+    private String resultPage;
     
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		Magazine magazine = new Magazine();
-		if (request.getParameter(NAME) != ""
-				&& request.getParameter(TYPE) != ""
-				&& request.getParameter(PRICE) != "") {
+		if (!request.getParameter(NAME).equals("")
+				&& !request.getParameter(TYPE).equals("")
+				&& !request.getParameter(PRICE).equals("")) {
 			magazine.setName(request.getParameter(NAME).trim());
 			magazine.setType(CategoryType.valueOf(request.getParameter(TYPE)));
 			magazine.setPrice(Double

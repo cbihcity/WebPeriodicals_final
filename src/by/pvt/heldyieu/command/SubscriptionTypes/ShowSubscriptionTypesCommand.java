@@ -16,11 +16,11 @@ public class ShowSubscriptionTypesCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(ShowSubscriptionTypesCommand.class);
 
-	private static SubscriptionTypeServiceImpl subscriptionTypeServiceImpl;
+	private SubscriptionTypeServiceImpl subscriptionTypeServiceImpl;
 
-    private static String subscriptionTypesPage;
-    private static String errorPage;
-    private static String resultPage = null;
+    private String subscriptionTypesPage;
+    private String errorPage;
+    private String resultPage;
 	
 	public ShowSubscriptionTypesCommand() {
 		LOGGER.info("Initializing ShowSubscriptionTypesCommand command");

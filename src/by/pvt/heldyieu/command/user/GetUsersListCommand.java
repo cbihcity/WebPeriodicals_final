@@ -13,10 +13,10 @@ import by.pvt.heldyieu.service.user.UserServiceImpl;
 public class GetUsersListCommand implements ServletCommand {
 
 		private static final Logger LOGGER = Logger.getLogger(GetUsersListCommand.class);
-		private static UserServiceImpl userServiceImpl;
-	    private static String usersPage;
-	    private static String errorPage;
-	    private static String resultPage = null;
+		private UserServiceImpl userServiceImpl;
+	    private String usersPage;
+	    private String errorPage;
+	    private String resultPage;
 	    List<User> listOfUsers = new ArrayList<User>();
 		
 		public GetUsersListCommand() {

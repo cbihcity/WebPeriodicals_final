@@ -9,10 +9,10 @@ import by.pvt.heldyieu.enums.CategoryType;
 public class GetListCategoryCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(GetListCategoryCommand.class);
-    private static String addMagazinePage;
-    private static String errorPage;
-    private static String resultPage = null;
-	
+    private String addMagazinePage;
+    private String errorPage;
+    private String resultPage;
+    
 	public GetListCategoryCommand() {
 		LOGGER.info("Initializing GetListCategoryCommand command");
 		addMagazinePage = resmanager.getProperty("addMagazinePage");
@@ -23,8 +23,8 @@ public class GetListCategoryCommand implements ServletCommand {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		
-			CategoryType[] listOfCategories = CategoryType.values();
-			if (listOfCategories!=null) {
+		CategoryType[] listOfCategories = CategoryType.values();
+			if (listOfCategories.length!=0) {
 				request.setAttribute("list", listOfCategories);
 				resultPage =  addMagazinePage;
 			} else {

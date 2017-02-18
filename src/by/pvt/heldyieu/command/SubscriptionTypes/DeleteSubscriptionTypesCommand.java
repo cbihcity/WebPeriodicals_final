@@ -10,10 +10,10 @@ import by.pvt.heldyieu.service.subscription.type.SubscriptionTypeServiceImpl;
 public class DeleteSubscriptionTypesCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(DeleteSubscriptionTypesCommand.class);
-	private static SubscriptionTypeServiceImpl subscriptionTypeServiceImpl = null;
+	private SubscriptionTypeServiceImpl subscriptionTypeServiceImpl;
     private String errorPage;
     private String sucessPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public DeleteSubscriptionTypesCommand() {
 		LOGGER.info("Initializing DeleteSubscriptionTypesCommand command");

@@ -35,7 +35,7 @@ public class Subscription implements Identified{
 		this.user = user;
 		this.magazine = magazine;
 		this.type = type;
-		this.startDate = startDate;
+		this.startDate = (Date) startDate.clone();
 		this.endDate = addDays(startDate, type.getMonthValue());
 		this.price = magazine.getPrice()*type.getMonthValue();
 	}
@@ -97,7 +97,7 @@ public class Subscription implements Identified{
 	 * @param startDate the startDate to set
 	 */
 	public void setStartDate(Date startDate) {
-		this.startDate = startDate;
+		this.startDate = (Date) startDate.clone();
 	}
 	/**
 	 * @return the endDate
@@ -109,7 +109,7 @@ public class Subscription implements Identified{
 	 * @param endDate the endDate to set
 	 */
 	public void setEndDate(Date endDate) {
-		this.endDate = endDate;
+		this.endDate = (Date) endDate.clone();
 	}
 	/**
 	 * @return the price

@@ -8,8 +8,8 @@ import by.pvt.heldyieu.command.ServletCommand;
 
 public class LangCommand implements ServletCommand {
 
-	private final String BASENAME = "locale_";
-    private final int ONE_WEEK = 60*60*24*7;
+	private String BASENAME = "locale_";
+    private int ONE_WEEK = 60*60*24*7;
     
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {

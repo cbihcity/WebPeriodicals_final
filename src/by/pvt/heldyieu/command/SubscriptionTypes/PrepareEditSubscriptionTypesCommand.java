@@ -11,10 +11,10 @@ import by.pvt.heldyieu.service.subscription.type.SubscriptionTypeServiceImpl;
 public class PrepareEditSubscriptionTypesCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(PrepareEditSubscriptionTypesCommand.class);
-	private static SubscriptionTypeServiceImpl subscriptionTypeServiceImpl = null;
+	private SubscriptionTypeServiceImpl subscriptionTypeServiceImpl;
     private String errorPage;
     private String editSubscriptionTypePage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public PrepareEditSubscriptionTypesCommand() {
 		LOGGER.info("Initializing PrepareEditSubscriptionTypesCommand command");

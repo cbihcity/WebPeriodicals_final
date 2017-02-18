@@ -17,11 +17,10 @@ public class ShowAllMagazinesCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(ShowAllMagazinesCommand.class);
 
-	private static MagazineServiceImpl magazineServiceImpl;
-
-    private static String magazinePage;
-    private static String errorPage;
-    private static String resultPage = null;
+	private MagazineServiceImpl magazineServiceImpl;
+    private String magazinePage;
+    private String errorPage;
+    private String resultPage;
     List<Magazine> listOfMagazines = new ArrayList<Magazine>();
 	
 	public ShowAllMagazinesCommand() {

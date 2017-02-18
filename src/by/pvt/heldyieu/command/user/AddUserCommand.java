@@ -1,7 +1,6 @@
 package by.pvt.heldyieu.command.user;
 
 import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
@@ -12,27 +11,23 @@ import by.pvt.heldyieu.service.user.UserServiceImpl;
 
 public class AddUserCommand implements ServletCommand {
 	private static final Logger LOGGER = Logger.getLogger(AddUserCommand.class);
-	private String first_name;
-    private String last_name;
-    private String email;
-    private String pass;
     
     private String sucessPage = resmanager.getProperty("sucessPage");
     private String errorPage = resmanager.getProperty("errorPage");
-    private String resultPage = null;
+    private String resultPage;
     
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
-		first_name = request.getParameter("first_name");
-		last_name  = request.getParameter("last_name");
-		email  = request.getParameter("email");
-		pass  = request.getParameter("pass");
+		String first_name = request.getParameter("first_name");
+		String last_name = request.getParameter("last_name");
+		String email = request.getParameter("email");
+		String pass = request.getParameter("pass");
 		User user = new User();
-		if ( first_name!= ""
-				&& last_name != ""
-				&& email != ""
-				&& pass != "") {
+		if ( !first_name.equals("")
+				&& !last_name.equals("")
+				&& !email.equals("")
+				&& !pass.equals("")) {
 			user.setFirstName(first_name);
 			user.setLastName(last_name);
 			user.setEmail(email);

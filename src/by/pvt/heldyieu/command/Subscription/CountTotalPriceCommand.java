@@ -1,12 +1,9 @@
 package by.pvt.heldyieu.command.Subscription;
 
 import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.apache.log4j.Logger;
-
 import by.pvt.heldyieu.command.ServletCommand;
 import by.pvt.heldyieu.entity.Magazine;
 import by.pvt.heldyieu.entity.SubscriptionType;
@@ -18,8 +15,8 @@ public class CountTotalPriceCommand implements ServletCommand {
 	private static final Logger LOGGER = Logger.getLogger(CountTotalPriceCommand.class);
 
     private String prepareAddSubscriptionPage;
-    private String errorPage = null;
-    private String resultPage = null;
+    private String errorPage;
+    private String resultPage;
 	
 	public CountTotalPriceCommand() {
 		LOGGER.info("Initializing CountTotalPriceCommand command");
@@ -36,16 +33,20 @@ public class CountTotalPriceCommand implements ServletCommand {
 					request.setAttribute("mag", magazine);
 					request.setAttribute("user", request.getParameter("user"));
 					request.setAttribute("type", subscriptionType);
-					request.setAttribute("total", subscriptionType.getMonthValue()*Double.valueOf(request.getParameter("price")));
+					Double total = subscriptionType.getMonthValue()*Double.valueOf(request.getParameter("price"));
+					request.setAttribute("total", total);
 					resultPage = prepareAddSubscriptionPage;
 				} catch (NumberFormatException e) {
+					LOGGER.error("NumberFormatException at CountTotalPriceCommand");
+					request.setAttribute("errormessage",
+							"NumberFormatException at CountTotalPriceCommand");
 					resultPage = errorPage;
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					LOGGER.error("SqlException at CountTotalPriceCommand");
+					request.setAttribute("errormessage",
+							"SqlException at CountTotalPriceCommand");
+					resultPage = errorPage;
 				}
-				
 		return resultPage;
 	}
-
 }

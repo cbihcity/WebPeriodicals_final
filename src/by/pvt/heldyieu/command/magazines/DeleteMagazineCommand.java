@@ -11,10 +11,10 @@ public class DeleteMagazineCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(DeleteMagazineCommand.class);
 
-	private static MagazineServiceImpl magazineServiceImpl = null;
+	private MagazineServiceImpl magazineServiceImpl;
     private String errorPage;
     private String sucessPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public DeleteMagazineCommand() {
 		LOGGER.info("Initializing DeleteMagazineCommand command");

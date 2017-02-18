@@ -150,26 +150,25 @@ public class UserDAOImpl extends AbstractDAO<User, Integer> {
 	
 	public User findUserByEmailAndPass(String email, String pass) {
 		LOGGER.info("Try to find user by email " + email);
-		User user = null;
+		User user = new User();
 		ResultSet result = null;
 		try(PreparedStatement statement = connect.prepareStatement(getFindEmailPassQuery())) {
 			statement.setString(1, email);
 			statement.setString(2, pass);
 			result = statement.executeQuery();
-			user = new User();
 			user = parseResultSet(result);
 		} catch (SQLException e) {
 			LOGGER.error(e.getMessage());
 			System.out.println(ERROR_SQL_EXECUTE);
 		}
-//		 finally {
-//				try {
-//					result.close();
-//				} catch (SQLException e) {
-//					LOGGER.info(e.getMessage());
-//					System.out.println(ERROR_CLOSING_RESULTSET);
-//				}
-//			}
+		 finally {
+				try {
+					result.close();
+				} catch (SQLException e) {
+					LOGGER.info(e.getMessage());
+					System.out.println(ERROR_CLOSING_RESULTSET);
+				}
+			}
 		return user;
 	}
 }

@@ -14,10 +14,10 @@ public class DeleteUserCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(DeleteUserCommand.class);
 
-	private static UserServiceImpl userServiceImpl = null;
+	private UserServiceImpl userServiceImpl;
     private String errorPage;
     private String sucessPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public DeleteUserCommand() {
 		LOGGER.info("Initializing DeleteUserCommand command");

@@ -10,7 +10,7 @@
 </c:if>
 <html>
 <head>
-<title>Add SubscriptionType</title>
+<title><fmt:message key="addSubType.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
@@ -33,21 +33,21 @@
 						<td class="right_content">
 							<div class="Index">
                                     <div class="add_mag">
-                                    	<h1>Форма добавления нового типа подписки:</h1>
+                                    	<h1><fmt:message key="addSubType.form"/>:</h1>
                                         <form action="act" method="post" autocomplete="off">
                                             <input type="hidden" name="command" value="addSubscriptionType" />
-                                            <b style="color: red; font-size: 11px;">Все поля должны быть заполнены</b><br/>
+                                            <b style="color: red; font-size: 11px;"><fmt:message key="reg.warning"/></b><br/>
                                             <table class="Table">
                                                 <tr>
-                                                    <td><b>Name</b></td>
+                                                    <td><b><fmt:message key="addMag.name"/></b></td>
                                                     <td><input type="text" name="name"/></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><b>Month Value</b></td>
+                                                    <td><b><fmt:message key="addSubType.month"/></b></td>
                                                     <td><input type="text" name="monthValue" /></td>
                                                 </tr>
                                             </table>
-                                            <input type="submit" name="submit" value="Добавить" class="Button"/>
+                                            <input type="submit" name="submit" value="<fmt:message key="addMag.button"/>" class="Button"/>
                                         </form>
                                     </div>
                                 </div>

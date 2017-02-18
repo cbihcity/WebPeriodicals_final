@@ -3,9 +3,7 @@
 /*global*/
 body{
     color: #818181;
-/*    background:#F6F6F6 url(../images/bg4.png) 50% 0 no-repeat;*/
-    background:#F6F6F6 url(../images/film_bg.jpg); 
-/*    background-color: #D7D7D7;*/
+    background:#F6F6F6 ; 
     margin:0px;
     padding:0px; 
     font-family: Georgia, "Times New Roman", Times, serif;
@@ -17,25 +15,16 @@ body{
 }
 
 tbody {
+	height:20px;
     display: table-row-group;
     vertical-align: middle;
     margin: 0px;
     padding: 0px;
-    border-top-width: 0px;
-    border-right-width: 0px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    border-top-color: inherit;
-    border-right-color: inherit;
-    border-bottom-color: inherit;
-    border-left-color: inherit;
 }
 
 tr {
 	width:50%;
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
+	height:20px;
 }
 
 a {
@@ -47,45 +36,20 @@ a {
     width: 96%;
     max-width: 1420px;
     min-width: 960px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom: 20px;
 }
 
-.locale_bar {
-    float: right;
-    margin:2px 30px;
-    padding: 5px 5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    background-color: transparent;
-}
-
- 
-
-#content {
-    margin-top:1px;
-    background-color:transparent;
-    min-width: 1210px;
-}
 
 .main_table{
-    margin:0px;
     width:auto;
+    height:20px;
     background-color: #F6F6F6;
     border-top-width: 0px;
     border-right-width: 0px;
     border-bottom-width: 0px;
     border-left-width: 0px;
-    border-top-color: #8CF65B;
-    border-right-color: #8CF65B;
-    border-bottom-color: #8CF65B;
     border-left-color: #BABABA;
     vertical-align: top;
     border-spacing:0px;
-    background-image: url(../images/bottom.gif);
-    background-repeat: no-repeat;
-    background-position: left bottom;
 }
 
 .left_content{
@@ -94,132 +58,22 @@ a {
     vertical-align: top;
 }
 
-.separator{
-    width:1%;
-    margin: 0px;
-    padding: 0px;
-}
 
 .right_content{
     width:80%;
     background-color: #F6F6F6;
-    background-image:  url(../images/bg_index_video.jpg);
     background-position: right bottom;
     vertical-align: top;
 }
 
-/* authorization */
-.auth_frame {
-    min-height:120px;
-    margin:5px;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    padding: px;
-    font-family: Georgia, "Times New Roman", Times, serif;
-    background-image: none;
-    width: 200px;
-}
 
-.auth {
-    padding-top:20px;
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 9px;
-    height: 120px;
-    width: 210px;
-    background-image: none;
-    background-position: left top;
-    background-repeat: no-repeat;
-    padding-left: 10px;
-    margin: 0px;
-    display: compact;
-}
-
-.authorized {
-    margin:5px 5px;
-}
-
-.CartRef {
-    padding: 3px 3px;
-    text-decoration: none;
-}
-
-.CartRef:hover {
-    background-color: #F0F0F0;
-}
-
-/* end of authorization */
-/* menu */
 .menu_frame{
     margin:10px 5px;
 }
 
-#footer{
-    height:auto;
-    width: 100%;
-    min-width: 1210px;
-    font-family: tahoma, verdana, "trebuchet ms";
-    font-size: 11px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-    margin-bottom:2%;
-    background-color: #F6F6F6;
-    margin-top: auto;
-}
-
-.Gadget  {
-    background: url(../images/gadget-smooth-line.gif) repeat-y;
-    margin-bottom: 7px;
-    width: 209px;
-    overflow: hidden;
-    vertical-align: top;
-}
-.Gadget .login {
-    display:block;
-    text-decoration:none;
-    margin-bottom:5px;
-} 
-.Gadget .Input {
-    background-image: url(../images/gadget-input-bg.gif);
-    background-repeat: no-repeat;
-    padding-right: 15px;
-    padding-bottom: 6px;
-    height: 29px;
-}
-.Gadget .Input2 {
-    color: #7f7f7f;
-    font-size: 11px;
-    text-align: center;
-    position: relative;
-    top: 5px;
-    left: 8px;
-    width: 140px;
-    border: solid 1px white;
-    outline:none;
-}
-.Gadget .GadgetContent {
-    padding: 0 4px;
-    width: 201px;}
-.Gadget .GadgetSmoothBottom {
-    background: url(../images/gadget-smooth-bottom.gif) no-repeat 0 0; 
-    height: 15px
-}
-.Gadget .GadgetSmoothTop {
-    background: url(../images/gadget-smooth-top.gif) no-repeat 0 0;
-    height: 15px
-}
-.GadgetSmoothTop, .GadgetSmoothBottom, .GadgetContent {
-    width: 209px; 
-    float: left
-}
-.auth_panel {}
-
-.UserOrdersTable td {
-    text-align: center;
-}
-
-.Table td {
+.Table {
 	width:130px;
+	height:20px;
     font-family: arial, sans-serif;
     text-align: center;
     vertical-align: text-top;
@@ -246,7 +100,6 @@ a {
     height: 25px;
     border: 1px;
     font-size: 11px;
-    color: #400080;
     background-color: #c0c0c0;
     cursor: pointer;
 }

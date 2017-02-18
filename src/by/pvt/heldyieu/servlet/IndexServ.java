@@ -22,16 +22,16 @@ import by.pvt.heldyieu.command.ServletCommand;
 		"/usersList",
 		"/editSubscriptionType",
 		"/subscription_types"})
-public class Index extends HttpServlet {
-	private static final Logger LOGGER = Logger.getLogger(Index.class);
+public class IndexServ extends HttpServlet {
+	private static final Logger LOGGER = Logger.getLogger(IndexServ.class);
 	private static final long serialVersionUID = 1L;
-	private CommandManager client = CommandManager.getInstance();
+	private CommandManager manager = CommandManager.getInstance();
 	
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Index() {
+	public IndexServ() {
 		super();
 	}
 	@Override
@@ -65,7 +65,7 @@ public class Index extends HttpServlet {
 		String page = null;
 		LOGGER.info("Processing " + request.getMethod() + " request");
 		// определение команды, пришедшей из JSP
-		ServletCommand command = client.getCommand(request);
+		ServletCommand command = manager.getCommand(request);
 		/*
 		 * вызов реализованного метода execute() и передача параметров
 		 * классу-обработчику конкретной команды

@@ -9,9 +9,8 @@
 </c:if>
 <html>
 <head>
-<title>Users</title>
+<title><fmt:message key="users.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/gadgets.css" />
 </head>
 <body>
   <%@include file="/jsp/header.jsp" %>
@@ -31,13 +30,13 @@
 						<c:if test="${sessionScope.user.userType == 'ADMIN'}">
 						<td class="right_content">
 							<div class="Index">
-							<h1>Список пользователей:</h1>
+							<h1><fmt:message key="users.list"/>:</h1>
 									<table class="Table">
 										<tr>
-											<td><b>First Name</b></td>
-											<td><b>Last Name</b></td>
-											<td><b>Category</b></td>
-											<td><b>Email</b></td>
+											<td><b><fmt:message key="reg.firstName"/></b></td>
+											<td><b><fmt:message key="reg.lastName"/></b></td>
+											<td><b><fmt:message key="addMag.category"/></b></td>
+											<td><b><fmt:message key="reg.Email"/></b></td>
 										</tr>
 										<c:forEach var="user" items="${requestScope.list}">
 											<tr>
@@ -49,14 +48,21 @@
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="delUser" />  
                                                     <input type="hidden" name="user_id" value="${user.id}"/>
-                                                    <input type="submit" value="Удалить пользователя" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="users.delete"/>" class="Button"/>
                                                 	</form> 
 												</td>
 												<td>
 													<form action="act" method="post">
                                                     <input type="hidden" name="command" value="prepareEditUser" />  
                                                     <input type="hidden" name="user_id" value="${user.id}"/>
-                                                    <input type="submit" value="Изменить пользователя" class="Button"/>
+                                                    <input type="submit" value="<fmt:message key="users.edit"/>" class="Button"/>
+                                                	</form> 
+												</td>
+												<td>
+													<form action="act" method="post">
+                                                    <input type="hidden" name="command" value="showUserSubscriptions" />  
+                                                   	<input type="hidden" name="email" value="${user.email}" /> 
+                                                    <input type="submit" value="<fmt:message key="users.sub"/>" class="Button"/>
                                                 	</form> 
 												</td>
 											</tr>

@@ -1,9 +1,13 @@
 package by.pvt.heldyieu.entity;
 
+import java.io.Serializable;
 import by.pvt.heldyieu.enums.UserType;
 import by.pvt.heldyieu.interfaces.Identified;
 
-public class User implements Identified {
+public class User implements Identified, Serializable{
+	
+	private static final long serialVersionUID = -7237973696500040785L;
+	
 		private Integer id;
 	    private String firstName;
 	    private String lastName;

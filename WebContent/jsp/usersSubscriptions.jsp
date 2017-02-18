@@ -9,7 +9,7 @@
 </c:if>
 <html>
 <head>
-<title>Users Subscriptions</title>
+<title><fmt:message key="userUsbsciptions.title"/></title>
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -29,16 +29,16 @@
 						</td>
 						<td class="right_content">
 							<div class="Index">
-							<h1>Список подписок:</h1>
+							<h1><fmt:message key="userUsbsciptions.list"/>:</h1>
 									<table class="Table">
 										<tr>
-											<td><b>First Name</b></td>
-											<td><b>Magazine Name</b></td>
-											<td><b>Category</b></td>
-											<td><b>Type Subscription</b></td>
-											<td><b>Start Date</b></td>
-											<td><b>End Date</b></td>
-											<td><b>Price</b></td>
+											<td><b><fmt:message key="reg.firstName"/></b></td>
+											<td><b><fmt:message key="userUsbsciptions.magName"/></b></td>
+											<td><b><fmt:message key="addMag.category"/></b></td>
+											<td><b><fmt:message key="addSub.type"/></b></td>
+											<td><b><fmt:message key="userUsbsciptions.start"/></b></td>
+											<td><b><fmt:message key="userUsbsciptions.end"/></b></td>
+											<td><b><fmt:message key="addMag.price"/></b></td>
 										</tr>
 										<c:forEach var="sub" items="${requestScope.list}">
 										<tr>
@@ -54,7 +54,7 @@
 													<form action="act" method="post">
 														<input type="hidden" name="command" value="delSub" /> 
 														<input type="hidden" name="sub_id" value="${sub.id}" /> 
-														<input type="submit" value="Удалить подписку" class="Button" />
+														<input type="submit" value="<fmt:message key="userUsbsciptions.delete"/>" class="Button" />
 													</form>
 												</td>
 											</c:if>

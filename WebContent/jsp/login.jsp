@@ -22,7 +22,7 @@
 							onfocus="clearField('password','passAuthForm')"
 							onblur="restoreField('password','passAuthForm')" />
 					</div>
-					<input type="submit" value="Log in" class="Button" style="width: 100px"/>
+					<input type="submit" value="<fmt:message key="login.button"/>" class="Button" style="width: 100px"/>
 					<a href="register"><fmt:message key="reg.button"/></a>
 				</form>
 			</c:when>

@@ -12,10 +12,10 @@ import by.pvt.heldyieu.service.user.UserServiceImpl;
 public class EditUserCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(EditUserCommand.class);
-	private static UserServiceImpl userServiceImpl = null;
+	private UserServiceImpl userServiceImpl;
     private String errorPage;
     private String sucessPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public EditUserCommand() {
 		LOGGER.info("Initializing EditUserCommand command");
@@ -27,10 +27,10 @@ public class EditUserCommand implements ServletCommand {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		userServiceImpl = UserServiceImpl.getInstance();
-		if (request.getParameter("firstName") != ""
-				&& request.getParameter("lastName") != ""
-				&& request.getParameter("email") != ""
-				&& request.getParameter("password") != "") {
+		if (!request.getParameter("firstName").equals("")
+				&& !request.getParameter("lastName").equals("")
+				&& !request.getParameter("email").equals("")
+				&& !request.getParameter("password").equals("")) {
 			try {
 				User user  = new User();
 				user.setId(Integer.valueOf(request.getParameter("user_id")));

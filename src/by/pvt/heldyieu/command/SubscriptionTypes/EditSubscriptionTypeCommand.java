@@ -11,10 +11,10 @@ import by.pvt.heldyieu.service.subscription.type.SubscriptionTypeServiceImpl;
 public class EditSubscriptionTypeCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(EditSubscriptionTypeCommand.class);
-	private static SubscriptionTypeServiceImpl subscriptionTypeServiceImpl = null;
+	private SubscriptionTypeServiceImpl subscriptionTypeServiceImpl;
     private String errorPage;
     private String sucessPage;
-    private String resultPage = null;
+    private String resultPage;
 	
 	public EditSubscriptionTypeCommand() {
 		LOGGER.info("Initializing EditSubscriptionTypeCommand command");
@@ -26,8 +26,8 @@ public class EditSubscriptionTypeCommand implements ServletCommand {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		subscriptionTypeServiceImpl = SubscriptionTypeServiceImpl.getInstance();
-		if (request.getParameter("name") != ""
-				&& request.getParameter("monthValue") != "") {
+		if (!request.getParameter("name").equals("")
+				&& !request.getParameter("monthValue").equals("")) {
 			try {
 				SubscriptionType subscriptionType  = new SubscriptionType();
 				subscriptionType.setId(Integer.valueOf(request.getParameter("type_id")));
