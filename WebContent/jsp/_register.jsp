@@ -10,7 +10,7 @@
 		<b style="color: gray; font-size: 11px;"><i style="color: red">*</i><fmt:message key="reg.warning"/></b>
 		<table class="add_user_table">
                 <tr>
-                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.firstName"/>:</i></td>
+                    <td style="vertical-align: top;"><i style="color: red">*<fmt:message key="reg.firstName"/>:</i></td>
                     <td><input type="text" name="first_name" id="first_name" maxlength="15"/>
                         <br/><b id="first_name" style="color: red; font-size: 10px;">
                             <fmt:message key="reg.nameWarning"/>
@@ -18,7 +18,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.lastName"/>:</i></td>
+                    <td style="vertical-align: top;"><i style="color: red">*<fmt:message key="reg.lastName"/>:</i></td>
                     <td><input type="text" name="last_name" id="last_name" />
                         <br/><b id="last_name" style="color: red; font-size: 10px;">
                             <fmt:message key="reg.nameWarning"/>
@@ -26,7 +26,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.Email"/>:</i></td>
+                    <td style="vertical-align: top;"><i style="color: red">*<fmt:message key="reg.Email"/>:</i></td>
                     <td><input type="text" name="email" id="email" />
                         <br/><b id="email" style="color: red; font-size: 10px;">
                             <fmt:message key="reg.emailWarning"/>
@@ -34,7 +34,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="vertical-align: middle;"><i style="color: red">*<fmt:message key="reg.password"/>:</i></td>
+                    <td style="vertical-align: top;"><i style="color: red">*<fmt:message key="reg.password"/>:</i></td>
                     <td><input type="password" name="pass" id="password" />
                         <br/><b id="password" style="color: red; font-size: 10px;">
                               <fmt:message key="reg.passWarning"/>

@@ -5,7 +5,6 @@
 <!DOCTYPE html>
 <script type="text/javascript" src="js/validation.js"></script>
 <div class="Gadget">
-	<div class="GadgetSmoothTop"></div>
 	<div class="GadgetContent">
 		<c:choose>
 			<c:when test="${empty sessionScope.user}">
@@ -35,5 +34,4 @@
 			</c:otherwise>
 		</c:choose>
 	</div>
-	<div class="GadgetSmoothBottom"></div>
 </div>

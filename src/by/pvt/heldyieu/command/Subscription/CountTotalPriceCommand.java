@@ -1,9 +1,14 @@
 package by.pvt.heldyieu.command.Subscription;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
+
 import by.pvt.heldyieu.command.ServletCommand;
 import by.pvt.heldyieu.entity.Magazine;
 import by.pvt.heldyieu.entity.SubscriptionType;
@@ -34,7 +39,7 @@ public class CountTotalPriceCommand implements ServletCommand {
 					request.setAttribute("user", request.getParameter("user"));
 					request.setAttribute("type", subscriptionType);
 					Double total = subscriptionType.getMonthValue()*Double.valueOf(request.getParameter("price"));
-					request.setAttribute("total", total);
+					request.setAttribute("total", round(total,2));
 					resultPage = prepareAddSubscriptionPage;
 				} catch (NumberFormatException e) {
 					LOGGER.error("NumberFormatException at CountTotalPriceCommand");
@@ -48,5 +53,13 @@ public class CountTotalPriceCommand implements ServletCommand {
 					resultPage = errorPage;
 				}
 		return resultPage;
+	}
+	
+	public static double round(double value, int places) {
+	    if (places < 0) throw new IllegalArgumentException();
+
+	    BigDecimal bd = new BigDecimal(value);
+	    bd = bd.setScale(places, RoundingMode.HALF_UP);
+	    return bd.doubleValue();
 	}
 }
