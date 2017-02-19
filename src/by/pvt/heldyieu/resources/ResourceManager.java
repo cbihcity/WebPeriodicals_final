@@ -1,10 +1,10 @@
 package by.pvt.heldyieu.resources;
 
 import java.util.ResourceBundle;
+import by.pvt.heldyieu.interfaces.Constants;
 
-public class ResourceManager {
+public class ResourceManager implements Constants {
 	private ResourceBundle resourceBundle;
-	private static final String BUNDLE_NAME = "by.pvt.heldyieu.resources.";
 	
 	public ResourceManager(String resource) {
 		super();

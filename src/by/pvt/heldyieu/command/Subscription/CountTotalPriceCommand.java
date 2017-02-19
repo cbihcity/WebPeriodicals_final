@@ -24,32 +24,32 @@ public class CountTotalPriceCommand implements ServletCommand {
     private String resultPage;
 	
 	public CountTotalPriceCommand() {
-		LOGGER.info("Initializing CountTotalPriceCommand command");
-		prepareAddSubscriptionPage = resmanager.getProperty("_addSubscriptionPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_COUNT_TOTAL_PRICE_COMMAND);
+		prepareAddSubscriptionPage = resmanager.getProperty(_ADD_SUBSCRIPTION_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 				try {
-					Magazine magazine = MagazineServiceImpl.getInstance().getMagazine(Integer.valueOf(request.getParameter("mag_id")));
-					SubscriptionType subscriptionType = SubscriptionTypeServiceImpl.getInstance().getSubscriptionType(Integer.valueOf(request.getParameter("type_id")));
-					request.setAttribute("mag", magazine);
-					request.setAttribute("user", request.getParameter("user"));
-					request.setAttribute("type", subscriptionType);
-					Double total = subscriptionType.getMonthValue()*Double.valueOf(request.getParameter("price"));
-					request.setAttribute("total", round(total,2));
+					Magazine magazine = MagazineServiceImpl.getInstance().getMagazine(Integer.valueOf(request.getParameter(MAG_ID)));
+					SubscriptionType subscriptionType = SubscriptionTypeServiceImpl.getInstance().getSubscriptionType(Integer.valueOf(request.getParameter(TYPE_ID)));
+					request.setAttribute(MAG, magazine);
+					request.setAttribute(USER, request.getParameter(USER));
+					request.setAttribute(TYPE, subscriptionType);
+					Double total = subscriptionType.getMonthValue()*Double.valueOf(request.getParameter(PRICE));
+					request.setAttribute(TOTAL, round(total,2));
 					resultPage = prepareAddSubscriptionPage;
 				} catch (NumberFormatException e) {
-					LOGGER.error("NumberFormatException at CountTotalPriceCommand");
-					request.setAttribute("errormessage",
-							"NumberFormatException at CountTotalPriceCommand");
+					LOGGER.error(NUMBER_FORMAT_EXCEPTION_AT_COUNT_TOTAL_PRICE_COMMAND);
+					request.setAttribute(ERROR_MESSAGE,
+							NUMBER_FORMAT_EXCEPTION_AT_COUNT_TOTAL_PRICE_COMMAND);
 					resultPage = errorPage;
 				} catch (SQLException e) {
-					LOGGER.error("SqlException at CountTotalPriceCommand");
-					request.setAttribute("errormessage",
-							"SqlException at CountTotalPriceCommand");
+					LOGGER.error(SQLEXCEPTION_AT_COUNT_TOTAL_PRICE_COMMAND);
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_COUNT_TOTAL_PRICE_COMMAND);
 					resultPage = errorPage;
 				}
 		return resultPage;

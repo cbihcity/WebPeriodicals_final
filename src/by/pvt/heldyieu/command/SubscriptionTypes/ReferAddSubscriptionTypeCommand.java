@@ -10,7 +10,7 @@ public class ReferAddSubscriptionTypeCommand implements ServletCommand {
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
-		return resmanager.getProperty("AddSubscriptionTypePage");
+		return resmanager.getProperty(ADD_SUBSCRIPTION_TYPE_PAGE);
 	}
 
 }

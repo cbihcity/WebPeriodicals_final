@@ -8,16 +8,13 @@ import by.pvt.heldyieu.command.ServletCommand;
 
 public class LangCommand implements ServletCommand {
 
-	private String BASENAME = "locale_";
-    private int ONE_WEEK = 60*60*24*7;
-    
     @Override
     public String execute(HttpServletRequest request, HttpServletResponse response) {
-        String lang = request.getParameter("lang");
+        String lang = request.getParameter(LANG);
         HttpSession session = request.getSession();
-        session.setAttribute("locale", BASENAME + lang);
-        Cookie c = new Cookie("locale", lang);
-        c.setMaxAge(ONE_WEEK);
+        session.setAttribute(LOCALE, BASENAME + lang);
+        Cookie c = new Cookie(LOCALE, lang);
+        c.setMaxAge(COOKIE);
         response.addCookie(c);
         return null;
     }

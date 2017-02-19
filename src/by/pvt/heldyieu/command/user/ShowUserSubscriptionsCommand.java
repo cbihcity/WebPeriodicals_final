@@ -20,9 +20,9 @@ public class ShowUserSubscriptionsCommand implements ServletCommand {
     List<Subscription> listOfSubscriptions = new ArrayList<>();
 	
 	public ShowUserSubscriptionsCommand() {
-		LOGGER.info("Initializing ShowAllMagazines command");
-		usersSubscriptionsPage = resmanager.getProperty("usersSubscriptionsPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_SHOW_USER_SUBSCRIPTIONS_COMMAND);
+		usersSubscriptionsPage = resmanager.getProperty(USERS_SUBSCRIPTIONS_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -30,29 +30,29 @@ public class ShowUserSubscriptionsCommand implements ServletCommand {
 			HttpServletResponse response) {
 		subscriptionServiceImpl = SubscriptionServiceImpl.getInstance();
 		try {
-			if (request.getParameter("email")!=null) {
-				listOfSubscriptions = subscriptionServiceImpl.findSubscriptionByEmail(request.getParameter("email"));
+			if (request.getParameter(EMAIL)!=null) {
+				listOfSubscriptions = subscriptionServiceImpl.findSubscriptionByEmail(request.getParameter(EMAIL));
 				if (listOfSubscriptions!=null) {
-					request.setAttribute("list", listOfSubscriptions);
+					request.setAttribute(LIST, listOfSubscriptions);
 					resultPage =  usersSubscriptionsPage;
 				} else {
-					request.setAttribute("errormessage", "SqlException at ShowUserSubscriptionsCommand");
+					request.setAttribute(ERROR_MESSAGE, SQLEXCEPTION_AT_SHOW_USER_SUBSCRIPTIONS_COMMAND);
 		        	resultPage =  errorPage;
 				}
 			} else {
 				listOfSubscriptions = subscriptionServiceImpl.getAllSubscriptions();
 				if (listOfSubscriptions!=null) {
-					request.setAttribute("list", listOfSubscriptions);
+					request.setAttribute(LIST, listOfSubscriptions);
 					resultPage =  usersSubscriptionsPage;
 				} else {
-					request.setAttribute("errormessage", "SqlException at ShowUserSubscriptionsCommand");
+					request.setAttribute(ERROR_MESSAGE, SQLEXCEPTION_AT_SHOW_USER_SUBSCRIPTIONS_COMMAND);
 		        	resultPage =  errorPage;
 				}
 			}
 			
 		} catch (SQLException e) {
-			LOGGER.error("SqlException at ShowAllMagazinesCommand");
-        	request.setAttribute("errormessage", "SqlException at ShowUserSubscriptionsCommand");
+			LOGGER.error(SQLEXCEPTION_AT_SHOW_USER_SUBSCRIPTIONS_COMMAND);
+        	request.setAttribute(ERROR_MESSAGE, SQLEXCEPTION_AT_SHOW_USER_SUBSCRIPTIONS_COMMAND);
         	resultPage =  errorPage;
 		}
 		return resultPage;

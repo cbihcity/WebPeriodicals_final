@@ -20,9 +20,9 @@ public class GetUsersListCommand implements ServletCommand {
 	    List<User> listOfUsers = new ArrayList<User>();
 		
 		public GetUsersListCommand() {
-			LOGGER.info("Initializing GetUsersListCommand command");
-			usersPage = resmanager.getProperty("usersPage");
-			errorPage = resmanager.getProperty("errorPage");
+			LOGGER.info(INITIALIZING_GET_USERS_LIST_COMMAND);
+			usersPage = resmanager.getProperty(USERS_PAGE);
+			errorPage = resmanager.getProperty(ERROR_PAGE);
 		}
 		
 		@Override
@@ -32,12 +32,12 @@ public class GetUsersListCommand implements ServletCommand {
 			try {
 				listOfUsers = userServiceImpl.getAllUsers();
 				if (listOfUsers!=null) {
-					request.setAttribute("list", listOfUsers);
+					request.setAttribute(LIST, listOfUsers);
 					resultPage =  usersPage;
 				}
 			} catch (SQLException e) {
-				LOGGER.error("SqlException at GetUsersListCommand");
-	        	request.setAttribute("errormessage", "SqlException at GetUsersListCommand");
+				LOGGER.error(SQLEXCEPTION_AT_GET_USERS_LIST_COMMAND);
+	        	request.setAttribute(ERROR_MESSAGE, SQLEXCEPTION_AT_GET_USERS_LIST_COMMAND);
 	        	resultPage =  errorPage;
 			}
 			return resultPage;

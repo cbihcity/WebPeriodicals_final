@@ -23,9 +23,9 @@ public class ShowSubscriptionTypesCommand implements ServletCommand {
     private String resultPage;
 	
 	public ShowSubscriptionTypesCommand() {
-		LOGGER.info("Initializing ShowSubscriptionTypesCommand command");
-		subscriptionTypesPage = resmanager.getProperty("subscriptionTypesPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_SHOW_SUBSCRIPTION_TYPES_COMMAND);
+		subscriptionTypesPage = resmanager.getProperty(SUBSCRIPTION_TYPES_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -35,12 +35,12 @@ public class ShowSubscriptionTypesCommand implements ServletCommand {
 		try {
 			List<SubscriptionType> list = subscriptionTypeServiceImpl.getAllSubscriptionTypes();
 			if (list!=null) {
-				request.setAttribute("list", list);
+				request.setAttribute(LIST, list);
 				resultPage =  subscriptionTypesPage;
 			}
 		} catch (SQLException e) {
-			LOGGER.error("SqlException at ShowSubscriptionTypesCommand");
-        	request.setAttribute("errormessage", "SqlException at ShowSubscriptionTypesCommand");
+			LOGGER.error(SQLEXCEPTION_AT_SHOW_SUBSCRIPTION_TYPES_COMMAND);
+        	request.setAttribute(ERROR_MESSAGE, SQLEXCEPTION_AT_SHOW_SUBSCRIPTION_TYPES_COMMAND);
         	resultPage =  errorPage;
 		}
 		return resultPage;

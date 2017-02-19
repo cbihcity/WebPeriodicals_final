@@ -1,11 +1,8 @@
 package by.pvt.heldyieu.command;
 
 import java.util.HashMap;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.apache.log4j.Logger;
-
 import by.pvt.heldyieu.command.Subscription.AddSubscriptionCommand;
 import by.pvt.heldyieu.command.Subscription.CountTotalPriceCommand;
 import by.pvt.heldyieu.command.Subscription.DeleteSubscriptionsCommand;
@@ -32,42 +29,43 @@ import by.pvt.heldyieu.command.user.GetListCategoryCommand;
 import by.pvt.heldyieu.command.user.GetUsersListCommand;
 import by.pvt.heldyieu.command.user.PrepareEditUserCommand;
 import by.pvt.heldyieu.command.user.ShowUserSubscriptionsCommand;
+import by.pvt.heldyieu.interfaces.Constants;
 
 
-public class CommandManager {
+public class CommandManager implements Constants {
 	private static final Logger LOGGER = Logger.getLogger(CommandManager.class);
 	private static CommandManager instance;
 	private HashMap<String, ServletCommand> commands;
 
     public CommandManager(){
-        LOGGER.info("Initializing CommandManager");
+        LOGGER.info(INITIALIZING_COMMANDMANAGER);
         commands = new HashMap<>();
-        commands.put("index", new IndexCommand());
-        commands.put("login", new LoginCommand());
-        commands.put("logout", new LogoutCommand());
-        commands.put("magazines", new ShowAllMagazinesCommand());
-        commands.put("addMag", new AddMagazineCommand());
-        commands.put("register", new AddUserCommand());
-        commands.put("delMag", new DeleteMagazineCommand());
-        commands.put("editMag", new EditMagazineCommand());
-        commands.put("prepareEditMag", new PrepareEditMagazineCommand());
-        commands.put("getListsCategory", new GetListCategoryCommand());
-        commands.put("users", new GetUsersListCommand());
-        commands.put("delUser", new DeleteUserCommand());
-        commands.put("prepareEditUser", new PrepareEditUserCommand());
-        commands.put("editUser", new EditUserCommand());
-        commands.put("subscriptionTypes", new ShowSubscriptionTypesCommand());
-        commands.put("delSubscriptionTypes", new DeleteSubscriptionTypesCommand());
-        commands.put("prepareEditSubscriptionTypes", new PrepareEditSubscriptionTypesCommand());
-        commands.put("editSubscriptionType", new EditSubscriptionTypeCommand());
-        commands.put("referAddSubscriptionType", new ReferAddSubscriptionTypeCommand());
-        commands.put("addSubscriptionType", new AddSubscriptionTypeCommand());
-        commands.put("prepareAddSub", new PrepareAddSubscriptionCommand());
-        commands.put("addSub", new AddSubscriptionCommand());
-        commands.put("countTotalPrice", new CountTotalPriceCommand());
-        commands.put("showUserSubscriptions", new ShowUserSubscriptionsCommand());
-        commands.put("delSub", new DeleteSubscriptionsCommand());
-        commands.put("lang", new LangCommand());
+        commands.put(INDEX, new IndexCommand());
+        commands.put(LOGIN, new LoginCommand());
+        commands.put(LOGOUT, new LogoutCommand());
+        commands.put(MAGAZINES, new ShowAllMagazinesCommand());
+        commands.put(ADD_MAG, new AddMagazineCommand());
+        commands.put(REGISTER, new AddUserCommand());
+        commands.put(DEL_MAG, new DeleteMagazineCommand());
+        commands.put(EDIT_MAG, new EditMagazineCommand());
+        commands.put(PREPARE_EDIT_MAG, new PrepareEditMagazineCommand());
+        commands.put(GET_LISTS_CATEGORY, new GetListCategoryCommand());
+        commands.put(USERS, new GetUsersListCommand());
+        commands.put(DEL_USER, new DeleteUserCommand());
+        commands.put(PREPARE_EDIT_USER, new PrepareEditUserCommand());
+        commands.put(EDIT_USER, new EditUserCommand());
+        commands.put(SUBSCRIPTION_TYPES, new ShowSubscriptionTypesCommand());
+        commands.put(DEL_SUBSCRIPTION_TYPES, new DeleteSubscriptionTypesCommand());
+        commands.put(PREPARE_EDIT_SUBSCRIPTION_TYPES, new PrepareEditSubscriptionTypesCommand());
+        commands.put(EDIT_SUBSCRIPTION_TYPE, new EditSubscriptionTypeCommand());
+        commands.put(REFER_ADD_SUBSCRIPTION_TYPE, new ReferAddSubscriptionTypeCommand());
+        commands.put(ADD_SUBSCRIPTION_TYPE, new AddSubscriptionTypeCommand());
+        commands.put(PREPARE_ADD_SUB, new PrepareAddSubscriptionCommand());
+        commands.put(ADD_SUB, new AddSubscriptionCommand());
+        commands.put(COUNT_TOTAL_PRICE, new CountTotalPriceCommand());
+        commands.put(SHOW_USER_SUBSCRIPTIONS, new ShowUserSubscriptionsCommand());
+        commands.put(DEL_SUB, new DeleteSubscriptionsCommand());
+        commands.put(LANG, new LangCommand());
     }
     public static CommandManager getInstance() {
         if (instance == null) {
@@ -83,7 +81,7 @@ public class CommandManager {
      * @return        A servlet command instance.
      */
     public ServletCommand getCommand(HttpServletRequest request) {
-        String command = request.getParameter("command");;
+        String command = request.getParameter(COMMAND);;
         
         if(command == null) {
             return commands.get("/");

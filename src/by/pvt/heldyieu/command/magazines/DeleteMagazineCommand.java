@@ -17,36 +17,34 @@ public class DeleteMagazineCommand implements ServletCommand {
     private String resultPage;
 	
 	public DeleteMagazineCommand() {
-		LOGGER.info("Initializing DeleteMagazineCommand command");
-		sucessPage = resmanager.getProperty("sucessPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_DELETE_MAGAZINE_COMMAND);
+		sucessPage = resmanager.getProperty(SUCESS_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		magazineServiceImpl = MagazineServiceImpl.getInstance();
-		
-			
 				boolean result = false;
 				try {
-					result = magazineServiceImpl.deleteMagazine(Integer.valueOf(request.getParameter("mag_id")));
+					result = magazineServiceImpl.deleteMagazine(Integer.valueOf(request.getParameter(MAG_ID)));
 					if (result) {
-						request.setAttribute("sucessmessage", "Издание успешно удалено!");
+						request.setAttribute(SUCCESS_MESSAGE, MAGAZINE_DELETE_SUCCESS);
 						resultPage =  sucessPage;
 					} 
 				 else {
-						request.setAttribute("errormessage",
-								"SqlException at DeleteMagazineCommand");
+						request.setAttribute(ERROR_MESSAGE,
+								SQLEXCEPTION_AT_DELETE_MAGAZINE_COMMAND);
 						resultPage = errorPage;
 					}
 				} catch (NumberFormatException e) {
-					request.setAttribute("errormessage",
-							"NumberFormatException at DeleteMagazineCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							NUMBER_FORMAT_EXCEPTION_AT_DELETE_MAGAZINE_COMMAND);
 					resultPage = errorPage;
 				} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at DeleteMagazineCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_DELETE_MAGAZINE_COMMAND);
 					resultPage = errorPage;
 				}
 		return resultPage;

@@ -14,9 +14,9 @@ public class GetListCategoryCommand implements ServletCommand {
     private String resultPage;
     
 	public GetListCategoryCommand() {
-		LOGGER.info("Initializing GetListCategoryCommand command");
-		addMagazinePage = resmanager.getProperty("addMagazinePage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_GET_LIST_CATEGORY_COMMAND);
+		addMagazinePage = resmanager.getProperty(ADD_MAGAZINE_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -25,10 +25,10 @@ public class GetListCategoryCommand implements ServletCommand {
 		
 		CategoryType[] listOfCategories = CategoryType.values();
 			if (listOfCategories.length!=0) {
-				request.setAttribute("list", listOfCategories);
+				request.setAttribute(LIST, listOfCategories);
 				resultPage =  addMagazinePage;
 			} else {
-				request.setAttribute("errormessage", "The list of CategoryTypes magazines is empty");
+				request.setAttribute(ERROR_MESSAGE, LIST_CATEGORY_TYPES_MAGAZINES_EMPTY);
 	        	resultPage =  errorPage;
 			}
 		return resultPage;

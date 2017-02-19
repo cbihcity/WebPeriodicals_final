@@ -18,9 +18,9 @@ public class DeleteSubscriptionsCommand implements ServletCommand {
     private String resultPage;
 	
 	public DeleteSubscriptionsCommand() {
-		LOGGER.info("Initializing DeleteSubscriptionsCommand command");
-		sucessPage = resmanager.getProperty("sucessPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_DELETE_SUB_SCRIPTIONS_COMMAND);
+		sucessPage = resmanager.getProperty(SUCESS_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -29,23 +29,23 @@ public class DeleteSubscriptionsCommand implements ServletCommand {
 		subscriptionServiceImpl = SubscriptionServiceImpl.getInstance();
 				boolean result = false;
 				try {
-					result = subscriptionServiceImpl.deleteSubscription(Integer.valueOf(request.getParameter("sub_id")));
+					result = subscriptionServiceImpl.deleteSubscription(Integer.valueOf(request.getParameter(SUB_ID)));
 					if (result) {
-						request.setAttribute("sucessmessage", "Издание успешно удалено!");
+						request.setAttribute(SUCCESS_MESSAGE, SUBSCRIPTION_DELETE_SUCCESS);
 						resultPage =  sucessPage;
 					} 
 				 else {
-						request.setAttribute("errormessage",
-								"SqlException at DeleteSubscriptionsCommand");
+						request.setAttribute(ERROR_MESSAGE,
+								SQLEXCEPTION_AT_DELETE_SUBSCRIPTIONS_COMMAND);
 						resultPage = errorPage;
 					}
 				} catch (NumberFormatException e) {
-					request.setAttribute("errormessage",
-							"NumberFormatException at DeleteSubscriptionsCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							NUMBER_FORMAT_EXCEPTION_AT_DELETE_SUBSCRIPTIONS_COMMAND);
 					resultPage = errorPage;
 				} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at DeleteSubscriptionsCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_DELETE_SUBSCRIPTIONS_COMMAND);
 					resultPage = errorPage;
 				}
 		return resultPage;

@@ -24,9 +24,9 @@ public class ShowAllMagazinesCommand implements ServletCommand {
     List<Magazine> listOfMagazines = new ArrayList<Magazine>();
 	
 	public ShowAllMagazinesCommand() {
-		LOGGER.info("Initializing ShowAllMagazines command");
-		magazinePage = resmanager.getProperty("magazinePage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_SHOW_ALL_MAGAZINES_COMMAND);
+		magazinePage = resmanager.getProperty(MAGAZINE_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -36,12 +36,12 @@ public class ShowAllMagazinesCommand implements ServletCommand {
 		try {
 			List<Magazine> listOfMagazines = magazineServiceImpl.getAllMagazines();
 			if (listOfMagazines!=null) {
-				request.setAttribute("list", listOfMagazines);
+				request.setAttribute(LIST, listOfMagazines);
 				resultPage =  magazinePage;
 			}
 		} catch (SQLException e) {
-			LOGGER.error("SqlException at ShowAllMagazinesCommand");
-        	request.setAttribute("errormessage", "SqlException at ShowAllMagazinesCommand");
+			LOGGER.error(SQLEXCEPTION_AT_SHOW_ALL_MAGAZINES_COMMAND);
+        	request.setAttribute(ERROR_MESSAGE, SQLEXCEPTION_AT_SHOW_ALL_MAGAZINES_COMMAND);
         	resultPage =  errorPage;
 		}
 		return resultPage;

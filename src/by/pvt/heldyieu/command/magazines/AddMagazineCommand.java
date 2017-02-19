@@ -12,12 +12,8 @@ import by.pvt.heldyieu.service.magazine.MagazineServiceImpl;
 public class AddMagazineCommand implements ServletCommand {
 	
 	private static final Logger LOGGER = Logger.getLogger(AddMagazineCommand.class);
-	private final String NAME = "name";
-    private final String TYPE = "type";
-    private final String PRICE = "price";
-    
-    private String sucessPage = resmanager.getProperty("sucessPage");
-    private String errorPage = resmanager.getProperty("errorPage");
+    private String sucessPage = resmanager.getProperty(SUCESS_PAGE);
+    private String errorPage = resmanager.getProperty(ERROR_PAGE);
     private String resultPage;
     
 	@Override
@@ -33,16 +29,16 @@ public class AddMagazineCommand implements ServletCommand {
 					.valueOf(request.getParameter(PRICE).trim()));
 			try {
 				MagazineServiceImpl.getInstance().addMagazine(magazine);
-				request.setAttribute("sucessmessage", "Издание добавлено!");
+				request.setAttribute(SUCCESS_MESSAGE, MAGAZINE_ADD_SUCCESS);
 				resultPage = sucessPage;
 			} catch (SQLException e) {
-				LOGGER.error("SqlException at AddMagazineCommand");
-				request.setAttribute("errormessage",
-						"SqlException at AddMagazineCommand");
+				LOGGER.error(SQLEXCEPTION_AT_ADD_MAGAZINE_COMMAND);
+				request.setAttribute(ERROR_MESSAGE,
+						SQLEXCEPTION_AT_ADD_MAGAZINE_COMMAND);
 				resultPage = errorPage;
 			}
 		} else {
-			request.setAttribute("errormessage", "Please insert all fields");
+			request.setAttribute(ERROR_MESSAGE, PLEASE_INSERT_ALL_FIELDS);
 			resultPage = errorPage;
 		}
 		return resultPage;

@@ -13,8 +13,8 @@ public class LogoutCommand implements ServletCommand {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         
         HttpSession session = request.getSession();
-        session.removeAttribute("user");
-        Cookie c = new Cookie("id","");
+        session.removeAttribute(USER);
+        Cookie c = new Cookie(ID,"");
         c.setMaxAge(0);
         response.addCookie(c);
         return null;

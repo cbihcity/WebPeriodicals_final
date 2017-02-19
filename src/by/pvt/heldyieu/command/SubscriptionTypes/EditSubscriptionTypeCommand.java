@@ -17,33 +17,33 @@ public class EditSubscriptionTypeCommand implements ServletCommand {
     private String resultPage;
 	
 	public EditSubscriptionTypeCommand() {
-		LOGGER.info("Initializing EditSubscriptionTypeCommand command");
-		sucessPage = resmanager.getProperty("sucessPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_EDIT_SUBSCRIPTION_TYPE_COMMAND);
+		sucessPage = resmanager.getProperty(SUCESS_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		subscriptionTypeServiceImpl = SubscriptionTypeServiceImpl.getInstance();
-		if (!request.getParameter("name").equals("")
-				&& !request.getParameter("monthValue").equals("")) {
+		if (!request.getParameter(NAME).equals("")
+				&& !request.getParameter(MONTH_VALUE).equals("")) {
 			try {
 				SubscriptionType subscriptionType  = new SubscriptionType();
-				subscriptionType.setId(Integer.valueOf(request.getParameter("type_id")));
-				subscriptionType.setName(request.getParameter("name"));
-				subscriptionType.setMonthValue(Integer.valueOf(request.getParameter("monthValue")));
+				subscriptionType.setId(Integer.valueOf(request.getParameter(TYPE_ID)));
+				subscriptionType.setName(request.getParameter(NAME));
+				subscriptionType.setMonthValue(Integer.valueOf(request.getParameter(MONTH_VALUE)));
 				subscriptionTypeServiceImpl.updateSubscriptionType(subscriptionType);
-					request.setAttribute("sucessmessage", "Тип подписки успешно изменен!");
+					request.setAttribute(SUCCESS_MESSAGE, SUBSCRIPTION_TYPE_EDIT_SUCCESS);
 					resultPage =  sucessPage;
 			} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at EditSubscriptionTypeCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_EDIT_SUBSCRIPTION_TYPE_COMMAND);
 					resultPage = errorPage;
 				}
 		} else {
-			request.setAttribute("errormessage",
-					"Please insert all fields");
+			request.setAttribute(ERROR_MESSAGE,
+					PLEASE_INSERT_ALL_FIELDS);
 			resultPage = errorPage;
 		}
 		return resultPage;

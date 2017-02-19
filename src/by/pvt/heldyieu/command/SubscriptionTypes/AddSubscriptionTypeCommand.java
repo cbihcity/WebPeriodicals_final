@@ -15,30 +15,30 @@ public class AddSubscriptionTypeCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(AddSubscriptionTypeCommand.class);
     
-    private String sucessPage = resmanager.getProperty("sucessPage");
-    private String errorPage = resmanager.getProperty("errorPage");
+    private String sucessPage = resmanager.getProperty(SUCESS_PAGE);
+    private String errorPage = resmanager.getProperty(ERROR_PAGE);
     private String resultPage;
     
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		SubscriptionType subscriptionType = new SubscriptionType();
-		if (!request.getParameter("name").equals("")
-				&& !request.getParameter("monthValue").equals("")) {
-			subscriptionType.setName(request.getParameter("name").trim());
-			subscriptionType.setMonthValue(Integer.valueOf(request.getParameter("monthValue")));
+		if (!request.getParameter(NAME).equals("")
+				&& !request.getParameter(MONTH_VALUE).equals("")) {
+			subscriptionType.setName(request.getParameter(NAME).trim());
+			subscriptionType.setMonthValue(Integer.valueOf(request.getParameter(MONTH_VALUE)));
 			try {
 				SubscriptionTypeServiceImpl.getInstance().addSubscriptionType(subscriptionType);
-				request.setAttribute("sucessmessage", "Тип подписки добавлен!");
+				request.setAttribute(SUCCESS_MESSAGE, SUBSCRIPTION_TYPE_ADD_SUCCESS);
 				resultPage = sucessPage;
 			} catch (SQLException e) {
-				LOGGER.error("SqlException at AddSubscriptionTypeCommand");
-				request.setAttribute("errormessage",
-						"SqlException at AddSubscriptionTypeCommand");
+				LOGGER.error(SQLEXCEPTION_AT_ADD_SUBSCRIPTION_TYPE_COMMAND);
+				request.setAttribute(ERROR_MESSAGE,
+						SQLEXCEPTION_AT_ADD_SUBSCRIPTION_TYPE_COMMAND);
 				resultPage = errorPage;
 			}
 		} else {
-			request.setAttribute("errormessage", "Please insert all fields");
+			request.setAttribute(ERROR_MESSAGE, PLEASE_INSERT_ALL_FIELDS);
 			resultPage = errorPage;
 		}
 		return resultPage;

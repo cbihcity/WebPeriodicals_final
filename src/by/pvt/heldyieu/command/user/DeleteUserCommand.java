@@ -20,9 +20,9 @@ public class DeleteUserCommand implements ServletCommand {
     private String resultPage;
 	
 	public DeleteUserCommand() {
-		LOGGER.info("Initializing DeleteUserCommand command");
-		sucessPage = resmanager.getProperty("sucessPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_DELETE_USER_COMMAND);
+		sucessPage = resmanager.getProperty(SUCESS_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -31,17 +31,17 @@ public class DeleteUserCommand implements ServletCommand {
 		userServiceImpl = UserServiceImpl.getInstance();
 				boolean result = false;
 				try {
-					result = userServiceImpl.deleteUser(Integer.valueOf(request.getParameter("user_id")));
+					result = userServiceImpl.deleteUser(Integer.valueOf(request.getParameter(USER_ID)));
 				} catch (NumberFormatException e) {
-					request.setAttribute("errormessage", "NumberFormatException exception ");
+					request.setAttribute(ERROR_MESSAGE, NUMBER_FORMAT_EXCEPTION_AT_DELETE_USER_COMMAND);
 					resultPage =  errorPage;
 				} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at DeleteUserCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_DELETE_USER_COMMAND);
 					resultPage = errorPage;
 				}
 				if (result) {
-					request.setAttribute("sucessmessage", "Пользователь успешно удален!");
+					request.setAttribute(SUCCESS_MESSAGE, USER_DELETE_SUCCESS);
 					resultPage =  sucessPage;
 				} 
 		return resultPage;

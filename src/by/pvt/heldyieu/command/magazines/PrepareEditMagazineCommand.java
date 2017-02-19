@@ -19,9 +19,9 @@ public class PrepareEditMagazineCommand implements ServletCommand {
     private String resultPage;
 	
 	public PrepareEditMagazineCommand() {
-		LOGGER.info("Initializing PrepareEditMagazineCommand command");
-		editMagPage = resmanager.getProperty("editMagPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_PREPARE_EDIT_MAGAZINE_COMMAND);
+		editMagPage = resmanager.getProperty(EDIT_MAG_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -29,14 +29,14 @@ public class PrepareEditMagazineCommand implements ServletCommand {
 			HttpServletResponse response) {
 		magazineServiceImpl = MagazineServiceImpl.getInstance();
 			try {
-				Magazine magazine = magazineServiceImpl.getMagazine(Integer.valueOf(request.getParameter("mag_id")));
+				Magazine magazine = magazineServiceImpl.getMagazine(Integer.valueOf(request.getParameter(MAG_ID)));
 				CategoryType[] listOfCategories = CategoryType.values();
-				request.setAttribute("list", listOfCategories);
-				request.setAttribute("mag", magazine);
+				request.setAttribute(LIST, listOfCategories);
+				request.setAttribute(MAG, magazine);
 				resultPage = editMagPage;
 			} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at PrepareEditMagazineCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_PREPARE_EDIT_MAGAZINE_COMMAND);
 					resultPage = errorPage;
 				} 
 		return resultPage;

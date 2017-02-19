@@ -19,8 +19,8 @@ public class AddSubscriptionCommand implements ServletCommand {
 
 	private static final Logger LOGGER = Logger.getLogger(AddSubscriptionCommand.class);
     
-    private String sucessPage = resmanager.getProperty("sucessPage");
-    private String errorPage = resmanager.getProperty("errorPage");
+    private String sucessPage = resmanager.getProperty(SUCESS_PAGE);
+    private String errorPage = resmanager.getProperty(ERROR_PAGE);
     private String resultPage;
     
 	@Override
@@ -28,23 +28,23 @@ public class AddSubscriptionCommand implements ServletCommand {
 			HttpServletResponse response) {
 			try {
 				Date start = new Date();
-				Magazine magazine = MagazineServiceImpl.getInstance().getMagazine(Integer.valueOf(request.getParameter("mag_id")));
-				SubscriptionType subscriptionType = SubscriptionTypeServiceImpl.getInstance().getSubscriptionType(Integer.valueOf(request.getParameter("type_id")));
-				User user = UserServiceImpl.getInstance().getUser(Integer.valueOf(request.getParameter("user_id")));
+				Magazine magazine = MagazineServiceImpl.getInstance().getMagazine(Integer.valueOf(request.getParameter(MAG_ID)));
+				SubscriptionType subscriptionType = SubscriptionTypeServiceImpl.getInstance().getSubscriptionType(Integer.valueOf(request.getParameter(TYPE_ID)));
+				User user = UserServiceImpl.getInstance().getUser(Integer.valueOf(request.getParameter(USER_ID)));
 				Subscription subscription = new Subscription();
 				subscription.setUser(user);
 				subscription.setMagazine(magazine);
 				subscription.setType(subscriptionType);
 				subscription.setStartDate(start);
 				subscription.setEndDate(Subscription.addDays(start, subscriptionType.getMonthValue()));
-				subscription.setPrice(Double.valueOf(request.getParameter("totalprice")));
+				subscription.setPrice(Double.valueOf(request.getParameter(TOTAL_PRICE)));
 				SubscriptionServiceImpl.getInstance().addSubscription(subscription);
-				request.setAttribute("sucessmessage", "Подписка оформлена!");
+				request.setAttribute(SUCCESS_MESSAGE, SUBSCRIPTION_ADD_SUCCESS);
 				resultPage = sucessPage;
 			} catch (SQLException e) {
-				LOGGER.error("SqlException at AddSubscriptionCommand");
-				request.setAttribute("errormessage",
-						"SqlException at AddSubscriptionCommand");
+				LOGGER.error(SQLEXCEPTION_AT_ADD_SUBSCRIPTION_COMMAND);
+				request.setAttribute(ERROR_MESSAGE,
+						SQLEXCEPTION_AT_ADD_SUBSCRIPTION_COMMAND);
 				resultPage = errorPage;
 			}
 		return resultPage;

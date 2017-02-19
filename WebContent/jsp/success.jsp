@@ -31,7 +31,7 @@
 						<td class="right_content">
 							<div class="Index">
 								<div style="margin: 0; font: medium sans-serif;">
-                                    ${sucessmessage}
+                                    ${successmessage}
                                 </div>
 							</div> 
 						</td>

@@ -18,38 +18,38 @@ public class EditUserCommand implements ServletCommand {
     private String resultPage;
 	
 	public EditUserCommand() {
-		LOGGER.info("Initializing EditUserCommand command");
-		sucessPage = resmanager.getProperty("sucessPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_EDIT_USER_COMMAND);
+		sucessPage = resmanager.getProperty(SUCESS_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
 		userServiceImpl = UserServiceImpl.getInstance();
-		if (!request.getParameter("firstName").equals("")
-				&& !request.getParameter("lastName").equals("")
-				&& !request.getParameter("email").equals("")
-				&& !request.getParameter("password").equals("")) {
+		if (!request.getParameter(FIRST_NAME).equals("")
+				&& !request.getParameter(LAST_NAME).equals("")
+				&& !request.getParameter(EMAIL).equals("")
+				&& !request.getParameter(PASSWORD).equals("")) {
 			try {
 				User user  = new User();
-				user.setId(Integer.valueOf(request.getParameter("user_id")));
-				user.setFirstName(request.getParameter("firstName"));
-				user.setLastName(request.getParameter("lastName"));
-				user.setUserType(UserType.valueOf(request.getParameter("category")));
-				user.setEmail(request.getParameter("email"));
-				user.setPassword(request.getParameter("password"));
+				user.setId(Integer.valueOf(request.getParameter(USER_ID)));
+				user.setFirstName(request.getParameter(FIRST_NAME));
+				user.setLastName(request.getParameter(LAST_NAME));
+				user.setUserType(UserType.valueOf(request.getParameter(CATEGORY)));
+				user.setEmail(request.getParameter(EMAIL));
+				user.setPassword(request.getParameter(PASSWORD));
 				userServiceImpl.updateUser(user);
-					request.setAttribute("sucessmessage", "Пользователь успешно изменен!");
+					request.setAttribute(SUCCESS_MESSAGE, USER_EDIT_SUCCESS);
 					resultPage =  sucessPage;
 			} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at EditUserCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_EDIT_USER_COMMAND);
 					resultPage = errorPage;
 				}
 		} else {
-			request.setAttribute("errormessage",
-					"Please insert all fields");
+			request.setAttribute(ERROR_MESSAGE,
+					PLEASE_INSERT_ALL_FIELDS);
 			resultPage = errorPage;
 		}
 		return resultPage;

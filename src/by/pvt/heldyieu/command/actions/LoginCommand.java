@@ -18,42 +18,40 @@ public class LoginCommand implements ServletCommand {
     private String errorPage;
 	
 	public LoginCommand() {
-		LOGGER.info("Initializing LoginCommand");
-		errorPage = resmanager.getProperty("errorPage");
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 		
 	}
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String resultPage = null;
-		String reqEmail = request.getParameter("email");
-		String reqPass = request.getParameter("password");
-		LOGGER.info("Executing command");
+		String reqEmail = request.getParameter(EMAIL);
+		String reqPass = request.getParameter(PASSWORD);
 		HttpSession session = request.getSession();
 				
 		if (!reqEmail.equals("") && !reqPass.equals("")) {
             try {
             	User user = UserServiceImpl.getInstance().findUserByEmail(reqEmail, reqPass);
                 if (user == null) {
-                	LOGGER.error("Error login"); 
-                	request.setAttribute("errormessage", "Incorrect email or password");
+                	LOGGER.error(ERROR_LOGIN); 
+                	request.setAttribute(ERROR_MESSAGE, INCORRECT_EMAIL_OR_PASSWORD);
                 	resultPage = errorPage;
                 } else {
                 
                 //Если авторизация выполнена, то присваиваем сессии соответствующие атрибуты
                 //и устанавливаем куки
-                session.setAttribute("user", user);
-                Cookie c = new Cookie("id", String.valueOf(user.getId()));
-                c.setMaxAge(60*60*24*7);
+                session.setAttribute(USER, user);
+                Cookie c = new Cookie(ID, String.valueOf(user.getId()));
+                c.setMaxAge(COOKIE);
                 response.addCookie(c);
                 }
             } catch (SQLException e) {
-            	LOGGER.error("SqlException at LoginUserAction");
-            	request.setAttribute("errormessage", "SqlException at LoginUserAction");
+            	LOGGER.error(SQLEXCEPTION_AT_LOGIN_USER_ACTION);
+            	request.setAttribute(ERROR_MESSAGE, SQLEXCEPTION_AT_LOGIN_USER_ACTION);
             	resultPage = errorPage;
             }
         } else{
-        	LOGGER.error("Login email or pasword is null");
-        	request.setAttribute("errormessage", "Please input email and password!");
+        	LOGGER.error(LOGIN_EMAIL_OR_PASWORD_IS_NULL);
+        	request.setAttribute(ERROR_MESSAGE, PLEASE_INPUT_EMAIL_AND_PASSWORD);
         	resultPage = errorPage;
         }
 		return resultPage;

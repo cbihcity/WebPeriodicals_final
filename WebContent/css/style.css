@@ -85,7 +85,6 @@ a {
 .right_content{
     width:80%;
     background-color: #F6F6F6;
-    background-image:  url(../images/bg_index_video.jpg);
     background-position: right bottom;
     vertical-align: top;
 }
@@ -142,13 +141,10 @@ a {
     border-style: dotted;
     border-spacing: 0px;
 }
-
-
 .Index {
     width: 100%;
     padding: 5%;
     margin: 0px 0px;
-    
 }
 
 .Button{

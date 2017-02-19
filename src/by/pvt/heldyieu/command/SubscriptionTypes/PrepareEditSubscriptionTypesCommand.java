@@ -17,9 +17,9 @@ public class PrepareEditSubscriptionTypesCommand implements ServletCommand {
     private String resultPage;
 	
 	public PrepareEditSubscriptionTypesCommand() {
-		LOGGER.info("Initializing PrepareEditSubscriptionTypesCommand command");
-		editSubscriptionTypePage = resmanager.getProperty("editSubscriptionTypePage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_PREPARE_EDIT_SUBSCRIPTION_TYPES_COMMAND);
+		editSubscriptionTypePage = resmanager.getProperty(EDIT_SUBSCRIPTION_TYPE_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -27,12 +27,12 @@ public class PrepareEditSubscriptionTypesCommand implements ServletCommand {
 			HttpServletResponse response) {
 		subscriptionTypeServiceImpl = SubscriptionTypeServiceImpl.getInstance();
 			try {
-				SubscriptionType subscriptionType = subscriptionTypeServiceImpl.getSubscriptionType(Integer.valueOf(request.getParameter("type_id")));
-				request.setAttribute("type", subscriptionType);
+				SubscriptionType subscriptionType = subscriptionTypeServiceImpl.getSubscriptionType(Integer.valueOf(request.getParameter(TYPE_ID)));
+				request.setAttribute(TYPE, subscriptionType);
 				resultPage = editSubscriptionTypePage;
 			} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at PrepareEditSubscriptionTypesCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_PREPARE_EDIT_SUBSCRIPTION_TYPES_COMMAND);
 					resultPage = errorPage;
 				} 
 		return resultPage;

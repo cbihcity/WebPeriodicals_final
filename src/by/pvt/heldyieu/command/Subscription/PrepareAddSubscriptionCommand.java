@@ -22,9 +22,9 @@ public class PrepareAddSubscriptionCommand implements ServletCommand {
     private String resultPage;
 	
 	public PrepareAddSubscriptionCommand() {
-		LOGGER.info("Initializing PrepareAddSubscriptionCommand command");
-		prepareAddSubscriptionPage = resmanager.getProperty("addSubscriptionPage");
-		errorPage = resmanager.getProperty("errorPage");
+		LOGGER.info(INITIALIZING_PREPARE_ADD_SUB_SCRIPTION_COMMAND);
+		prepareAddSubscriptionPage = resmanager.getProperty(ADD_SUBSCRIPTION_PAGE);
+		errorPage = resmanager.getProperty(ERROR_PAGE);
 	}
 	
 	@Override
@@ -33,15 +33,15 @@ public class PrepareAddSubscriptionCommand implements ServletCommand {
 		magazineServiceImpl = MagazineServiceImpl.getInstance();
 		subscriptionTypeServiceImpl = SubscriptionTypeServiceImpl.getInstance();
 			try {
-				Magazine magazine = magazineServiceImpl.getMagazine(Integer.valueOf(request.getParameter("mag_id")));
+				Magazine magazine = magazineServiceImpl.getMagazine(Integer.valueOf(request.getParameter(MAG_ID)));
 				List<SubscriptionType> list = subscriptionTypeServiceImpl.getAllSubscriptionTypes();
-				request.setAttribute("list", list);
-				request.setAttribute("mag", magazine);
-				request.setAttribute("user", request.getParameter("user"));
+				request.setAttribute(LIST, list);
+				request.setAttribute(MAG, magazine);
+				request.setAttribute(USER, request.getParameter(USER));
 				resultPage = prepareAddSubscriptionPage;
 			} catch (SQLException e) {
-					request.setAttribute("errormessage",
-							"SqlException at PrepareAddSubscriptionCommand");
+					request.setAttribute(ERROR_MESSAGE,
+							SQLEXCEPTION_AT_PREPARE_ADD_SUBSCRIPTION_COMMAND);
 					resultPage = errorPage;
 				} 
 		return resultPage;

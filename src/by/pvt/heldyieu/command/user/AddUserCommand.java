@@ -12,17 +12,17 @@ import by.pvt.heldyieu.service.user.UserServiceImpl;
 public class AddUserCommand implements ServletCommand {
 	private static final Logger LOGGER = Logger.getLogger(AddUserCommand.class);
     
-    private String sucessPage = resmanager.getProperty("sucessPage");
-    private String errorPage = resmanager.getProperty("errorPage");
+    private String sucessPage = resmanager.getProperty(SUCESS_PAGE);
+    private String errorPage = resmanager.getProperty(ERROR_PAGE);
     private String resultPage;
     
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) {
-		String first_name = request.getParameter("first_name");
-		String last_name = request.getParameter("last_name");
-		String email = request.getParameter("email");
-		String pass = request.getParameter("pass");
+		String first_name = request.getParameter(FIRST_NAME);
+		String last_name = request.getParameter(LAST_NAME);
+		String email = request.getParameter(EMAIL);
+		String pass = request.getParameter(PASS);
 		User user = new User();
 		if ( !first_name.equals("")
 				&& !last_name.equals("")
@@ -35,16 +35,16 @@ public class AddUserCommand implements ServletCommand {
 			user.setUserType(UserType.USER);
 			try {
 				UserServiceImpl.getInstance().addUser(user);
-			request.setAttribute("sucessmessage", "Новый пользователь создан!");
+			request.setAttribute(SUCCESS_MESSAGE, USER_ADD_SUCCESS);
 				resultPage = sucessPage;
 			} catch (SQLException e) {
-				LOGGER.error("SqlException at AddUserCommand");
-				request.setAttribute("errormessage",
-						"SqlException at AddUserCommand");
+				LOGGER.error(SQLEXCEPTION_AT_ADD_USER_COMMAND);
+				request.setAttribute(ERROR_MESSAGE,
+						SQLEXCEPTION_AT_ADD_USER_COMMAND);
 				resultPage = errorPage;
 			}
 		} else {
-			request.setAttribute("errormessage", "Please insert all fields");
+			request.setAttribute(ERROR_MESSAGE, PLEASE_INSERT_ALL_FIELDS);
 			resultPage = errorPage;
 		}
 		return resultPage;
